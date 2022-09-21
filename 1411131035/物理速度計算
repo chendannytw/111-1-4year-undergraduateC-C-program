@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main()
+{
+    int v;//物體速度
+    int a;//加速度
+    int e;//經過時間
+
+    printf("物體速度v\n");
+    scanf_s("%d", &v);
+    printf("加速度a\n");
+    scanf_s("%d", &a);
+    printf("經過時間e\n");
+    scanf_s("%d", &e);
+
+    int v2 = v + a * e;
+    printf("\n最後速度=%d",v2);
+    int s = v * e + a * e *e / 2;
+    printf("\n移動距離=%d",s);
+
+
+}
