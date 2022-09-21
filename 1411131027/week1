@@ -13,5 +13,44 @@ int main()
 	scanf_s("%d",&integer2);
 	sum = integer1 + integer2;
 	printf("sum is %d\n", sum);
+//2.16
+	int x;
+	int y;
+	printf("first integer\n");
+	scanf_s("%d", &x);
+	printf("second integer\n");
+	scanf_s("%d", &y);
+	int sum;
+	int product;
+	int difference;
+	int quotient;
+	int remainder;
+	sum = x + y;
+	printf("sum is %d\n",sum);
+	product = x * y;
+	printf("product is %d\n", product);
+	difference = x - y;
+	printf("difference is %d\n", difference);
+	quotient = x / y;
+	printf("quotient is %d\n", quotient);
+	remainder = x % y;
+	printf("remainder is %d\n", remainder);
+
+//2.17
+	int u;
+	int a;
+	int t;
+	int v;
+	int s;
+	printf("enter u\n");
+	scanf_s("%d", &u);
+	printf("enter a\n");
+	scanf_s("%d", &a);
+	printf("enter t\n");
+	scanf_s("%d", &t);
+	v = u + a * t;
+	s = u * t + a * t * t / 2;
+	printf("velocity is %d\n", v);
+	printf("distance traversed is %d\n", s);
 
 }
