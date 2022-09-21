@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int u;
+	int a;
+	int t;
+
+	printf("Enter initial velocity\n");
+	scanf_s("%d", &u);
+
+	printf("Enter acceleration\n");
+	scanf_s("%d", &a);
+
+	printf("Enter the time\n");
+	scanf_s("%d", &t);
+
+	int finalvelocity;
+	finalvelocity = u + a * t;
+
+	int distancetraversed;
+	distancetraversed = u * t + (a * (t * t)) / 2;
+	
+	printf("final velocity is %d\n", finalvelocity);
+	printf("distance traversed is %d\n", distancetraversed);
+	
+}
