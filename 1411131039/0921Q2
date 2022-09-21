@@ -1,0 +1,17 @@
+#include <stdio.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int main(void) {
+	int v,a,e;
+	printf("請輸入物體速度：");
+	scanf("%d",&v);
+	printf("請輸入加速度：");
+	scanf("%d",&a);
+	printf("請輸入經過時間：");
+	scanf("%d",&e);
+	v=v+a*e;
+	int s;
+	int m;
+	s=v*e+(a*e*e)/2;
+	printf("最後速度為：%d\n",v);
+	printf("移動距離為：%d\n",s);
+}
