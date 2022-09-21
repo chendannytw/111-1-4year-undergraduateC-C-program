@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int integer1;
+	int integer2;
+
+	printf("Enter first integer\n");
+
+	scanf_s("%d", & integer1);
+
+	printf("Enter secpmd integer\n");
+	scanf_s("%d", & integer2);
+
+	int A1;
+	int A2;
+	int A3;
+	int A4;
+	int A5;
+	A1 = integer1 + integer2;
+	printf("Sum is %d\n", A1);
+	A2 = integer1 - integer2;
+	printf("dif is %d\n", A2);
+	A3 = integer1 * integer2;
+	printf("take is %d\n", A3);
+	A4 = integer1 / integer2;
+	printf("div is %d\n", A4);
+	A5 = integer1 % integer2;
+	printf("mod is %d\n", A5);
+}
+------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+int main(void)
+{
+	int v;
+	int a;
+	int e;
+	printf("Enter v\n");
+
+	scanf_s("%d", &v);
+
+	printf("Enter a\n");
+	scanf_s("%d", &a);
+	printf("Enter e\n");
+	scanf_s("%d", &e);
+	int V;
+	int S;
+	V = v + a * e;
+	S = v * e + 1 / 2 * a * e ^ 2;
+	printf("V is %d\n", V);
+	printf("S is % d\n",S);
+}
