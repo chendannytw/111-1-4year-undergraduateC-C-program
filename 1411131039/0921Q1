@@ -1,0 +1,19 @@
+int main() {
+	int n1;
+	int n2;
+	printf("enter first integer\n");
+	scanf_s("%d",&n1);
+	printf("enter second integer\n");
+	scanf_s("%d",&n2);
+	int sum,a,b,c,m;
+	sum=n1+n2;
+	a=n1-n2;
+	b=n1*n2;
+	c=n1/n2;
+	m=n1%n2;
+	printf("和為%d\n",sum);
+	printf("差為%d\n",a);
+	printf("乘積為%d\n",b);
+	printf("商為%d\n",c);
+	printf("餘數為%d\n",m);
+}
