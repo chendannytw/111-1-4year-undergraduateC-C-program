@@ -1,0 +1,22 @@
+int main() {
+     int v;
+     int a;
+     int e;
+     
+     printf("物體速度v\n");
+     scanf("%d",&v);
+     
+     printf("加速度a\n");
+     scanf("%d",&a);
+    
+	   printf("經過時間e\n");
+     scanf("%d",&e);
+     
+     int V;
+     V=v+a*e;
+     printf("v is %d\n",v);
+     
+     int f;
+     f=v*e+1/2*a*e*e;
+     printf("f is %d\n",f);
+}
