@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int integer1;
+	int integer2;
+
+	printf("Enter first integer\n");
+	scanf_s("%d", &integer1);
+	printf("Enter second integer\n");
+	scanf_s("%d", &integer2);
+	
+	int A;
+	int B;
+	int C;
+	int D;
+	int E;
+
+	A= integer1 + integer2;
+	printf("Sum is %d\n", A);
+	B = integer1 - integer2;
+	printf("dif is %d\n", B);
+	C = integer1 * integer2;
+	printf("take is %d\n", C);
+	D = integer1 / integer2;
+	printf("dif is %d\n", D);
+	E = integer1 %  integer2;
+	printf("mod is %d\n", E);
+	
+	int sum;
+	sum = integer1 + integer2;
+	printf("Sum is %d\n", sum);
+}
