@@ -1,0 +1,26 @@
+#include <iostream>
+
+int main(void)
+{
+    int number1;
+    int number2;
+    
+
+    printf("Enter first number\n");
+    scanf_s("%d", &number1);
+
+    printf("Enter second number\n");
+    scanf_s("%d", &number2);
+
+    int sum = number1 + number2;
+    printf("\nSum is %d\n", sum);
+    int average = number1 - number2;
+    printf("Average is %d\n", average);
+    int product = number1 * number2;
+    printf("Product is %d\n", product);
+    int div = number1 / number2;
+    printf("Div is %d\n", div);
+    int mod = number1 % number2;
+    printf("Mod is %d\n", mod);
+
+}
