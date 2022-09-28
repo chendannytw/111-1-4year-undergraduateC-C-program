@@ -1,0 +1,47 @@
+//2-15
+#include <stdio.h>
+
+int main(void)
+{
+    int int1, int2, sum, sub,mul, rem;
+    float div;
+    printf("Enter first integer\n");
+    scanf_s("%d", &int1);
+
+    printf("Enter second integer\n");
+    scanf_s("%d", &int2);
+
+
+   sum = int1 + int2;
+   sub = int1 - int2;
+   mul= int1 * int2;
+   div = int1 / int2;
+   rem= int1 % int2;
+
+    printf("sum is %d\n", sum);
+    printf("reduce is %d\n", sub);
+    printf("multiplication is %d\n", mul);
+    printf("division is %.2f\n", div);
+    printf("remainder is %d\n", rem);
+
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+//2-16
+#include <iostream>
+
+int main()
+{
+    int v, a, e,V,s;
+    printf("Enter v= ");
+    scanf_s("%d", &v);
+    printf("Enter a= ");
+    scanf_s("%d", &a);
+    printf("Enter e= ");
+    scanf_s("%d", &e);
+
+    V = v + a * e;
+    s=v*e+((1/2)*a*e*e);
+       printf("V is %d\n", V);
+       printf("s is % d\n", s);
+}
