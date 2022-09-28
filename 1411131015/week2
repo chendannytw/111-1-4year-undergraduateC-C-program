@@ -1,0 +1,77 @@
+//巢狀
+#include <stdio.h>
+// function main begins program execution
+int main( void )
+{
+   printf( "Enter a grade, and I will tell you\n" );
+   printf( "the results: " );
+
+   int num1; // user's grade
+
+   scanf( "%d", &num1); // read two integers
+                        //如果if括弧內的結果為false  ,就跳過if的大括弧內的內容 
+   if ( num1 >=90 ) {   //如果if括弧內的結果為true  ,就會執行if的大括弧內的內容
+    puts("A");
+   }                                  
+   else {  
+      if (num1 >=80  ) {
+         puts("B");
+      } // end if
+	    else { 
+	       if (num1 >=70  ) {
+            puts("C");
+         } // end if
+         else {
+		        if (num1 >=60  ) {
+               puts("D");
+            } // end if
+            else {
+                 puts("F");
+           } // end if
+        } // end if
+     } // end if
+   } // end if
+return 0;
+} // end function main
+
+未完成
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#include <stdio.h>
+
+// function main begins program execution
+int main( void )
+{
+   printf( "Enter three number, and I will tell you\n" );
+   printf( "the largest,smallest,sum,average,product: " );
+
+   int a,b,c,largest,smallest;
+
+   scanf( "%d" "%d" "%d", &a,&b,&c); 
+                        
+   if ( a >= b ) { //a>b
+    if(a >= c) {//a>b,a>c
+    largest=a;  }  
+    else {  //a>b,a<c c is largest
+     largest=c;}
+   }                                  
+   else {  //a<b
+     if(a >= c) {//a<b,a>c b is largest
+     largest=b; }
+     else{ //a<b,a<c
+     smallest=a;
+	 }
+   if(b <= c) { //b<c
+    if(b<=a) { //b<c,b<a
+    smallest=b; }
+    else { //b<c, b>a a is smallest
+    smallest=a;
+	}
+   }
+     
+     
+     
+     
+     
+           } // end if
+        } // end if
