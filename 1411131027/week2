@@ -63,3 +63,45 @@ int main()
             }
         }
 }
+/============================================================================================
+#include <stdio.h>
+
+int main()
+{
+	int a, b, c, max,min ;
+	int sum, product, average;
+	printf("enter 3 integer\n");
+	scanf_s("%d", &a );
+	scanf_s("%d", &b);
+	scanf_s("%d", &c);
+
+	max = a;
+	if (max<b)
+	{
+		max = b;
+	}
+	if (max<c)
+	{
+		max = c;
+	}
+
+	min = a;
+	if (min > b)
+	{
+		min = b;
+	}
+	if (min > c)
+	{
+		min = c;
+	}
+
+	sum = a + b + c;
+	product = a * b * c;
+	average = sum / 3;
+
+
+
+
+	printf("最大值為%d,最小值為%d\n", max, min);
+	printf("和為%d,積為%d,平均為%d\n", sum, product,average);
+}
