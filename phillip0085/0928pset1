@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main(void)
+{
+    int a;
+    
+    printf("Please enter your score:\n");
+    scanf_s ("%d", &a);
+
+    if (a >= 90) {
+        puts("Result: A");
+    }
+    else {
+        if (a >= 80) {
+            puts("Result: B");
+        }
+        else{
+            if (a >= 70) {
+                puts("Result: C");
+            }
+            else {
+                if (a >= 60) {
+                    puts("Result: D");
+                }
+                else {
+                    puts("Result: F");
+
+                }
+            }
+        }
+    }
+
+    return 0;
+}
