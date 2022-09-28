@@ -1,16 +1,13 @@
 #include <stdio.h>
-
-
-
-
 int main(void)
 {
-	int num1,num2,num3;
+	int num1, num2, num3;
 	int a, b, c, largest = 0, smallest = 99999;
+	printf("enter three number\n");
 	scanf_s("%d %d %d", &num1, &num2, &num3);
 	if (num1>=num2)
 	{
-		if (num1>=num3)
+		if(num1>=num3)
 		{
 			largest = num1;
 		}
@@ -21,7 +18,8 @@ int main(void)
 	}
 	if (num2>=num1)
 	{
-		if (num2 >= num3) {
+		if(num2>=num3)
+		{
 			largest = num2;
 		}
 		else
@@ -29,36 +27,31 @@ int main(void)
 			largest = num3;
 		}
 	}
-	if (num3>=num1)
-	{
-		if (num3 >= num2) {
-			largest = num3;
-		}
-		else
-		{
-			largest = num2;
-		}
-	}
-	printf("largest is %d\n", largest);
+	printf("Largest is %d\n", largest);
 	if (num1 <= num2)
 	{
 		if (num1 <= num3)
 		{
 			smallest = num1;
 		}
-	}
-	if (num2 <= num1)
-	{
-		if (num2 <= num3) {
-			smallest = num2;
-		}
-
-	}
-	if (num3 <= num1)
-	{
-		if (num3 <= num2) {
+		else
+		{
 			smallest = num3;
 		}
 	}
-	printf("smallest is %d\n",smallest);
-} 
+	if (num2 <= num1)
+	{
+		if (num2 <= num3)
+		{
+			smallest = num2;
+		}
+		else
+		{
+			smallest = num3;
+		}
+	}
+	printf("Smallest is %d\n", smallest);
+	printf("Sum is %d\n", num1 + num2 + num3);
+	printf("Product is %d\n", num1 * num2 * num3);
+	printf("average is %d\n", (num1 + num2 + num3)/3);
+}
