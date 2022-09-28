@@ -35,26 +35,25 @@ int main()
     printf("Enter your grade\n");
     scanf_s("%d", &grade);
 
-    
 
-    if (grade >= 90) {
+ if (grade >= 90) 
         puts("A");
-    }
+    
     else {
-        if (grade >= 80) {
+        if (grade >= 80) 
             puts("B");
-        }
+        
         else {
-            if (grade >= 70) {
+            if (grade >= 70) 
                 puts("C");
-            }
+            
             else {
-                if (grade >= 60) {
+                if (grade >= 60) 
                     puts("D");
-                }
-                else {
+                
+                else 
                     puts("F");
-                }
+                
             }
         }
     }
