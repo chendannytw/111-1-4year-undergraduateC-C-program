@@ -1,0 +1,38 @@
+{
+	int num1;
+	int num2;
+	int num3;
+	int largest;
+	int smallest;
+	int sum;
+	int average;
+	int mul;
+	printf("請輸入三個數值\n");
+	scanf_s("%d" "%d" "%d", &num1, &num2, &num3);
+	if (num1 > num2 and num1 > num3) {
+			largest = num1;
+	}
+	else if (num2 > num1 and num2 > num3) {
+			largest = num2;
+	}
+	else if (num3 > num1 and num3 > num2) {
+			largest = num3;
+	}
+	else if (num1 < num2 and num1 < num3) {
+			smallest = num1;
+	}
+	else if (num2 < num1 and num2 < num3) {
+			smallest = num2;
+	}
+	else if (num3 < num1 and num3 < num2) {
+			smallest = num3;
+	}
+	sum = num1+num2+num3;
+	average = (num1 + num2 + num3) / 3;
+	mul = num1 * num2 * num3;
+	printf("最大值為%d\n", largest);
+	printf("最小值為%d\n", smallest);
+	printf("總合為%d\n", sum);
+	printf("平均為%d\n", average);
+	printf("乘積為%d\n", mul);
+}	
