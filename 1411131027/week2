@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    printf("Enter your grade\n");
+    scanf_s("%d",&n);
+    if (n>=90)
+    {
+        puts("A");
+    }
+    else if (n>=80)
+    {
+        puts("B");
+    }
+    else if (n>=70)
+    {
+        puts("C");
+    }
+    else if (n>=60)
+    {
+        puts("D");
+    }
+    else
+    {
+        puts("F");
+    }
+    
+}
+/=================================================================================
+#include <stdio.h>
+
+int main()
+{
+    int n;
+    printf("Enter your grade\n");
+    scanf_s("%d", &n);
+    if (n >= 90)
+    {
+        puts("A");
+    }
+    else {
+        if (n >= 80)
+        {
+            puts("B");
+        }
+        else {
+            if (n >= 70)
+            {
+                puts("C");
+            }
+            else {
+                if (n >= 60)
+                {
+                    puts("D");
+                }
+                else
+                {
+                    puts("F");
+                }
+
+                }
+            }
+        }
+}
