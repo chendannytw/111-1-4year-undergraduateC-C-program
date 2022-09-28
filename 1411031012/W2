@@ -60,3 +60,47 @@ int main()
 
     return 0;
 }
+--------------------------
+//2.19 (P97)
+#include <stdio.h>
+
+int main()
+{
+    int a1, a2, a3, sum, average, product, smallest,max;
+    printf("Enter three different integers:");
+    scanf_s("%d %d %d", &a1, &a2, &a3);
+
+    sum = a1 + a2 + a3;
+    average = (a1 + a2 + a3) / 3;
+    product= a1 * a2 * a3;
+    
+    if (a1 >= a2) {
+        if (a1 >= a3)
+            max = a1;
+        else
+            max = a3;
+    }
+    else if (a3 > a2)
+        max = a3;
+    else
+        max = a2;
+
+
+    if (a1 <= a2) {
+        if (a1 <= a3)
+            smallest = a1;
+        else
+            smallest = a3;
+    }
+    else if (a3 < a2)
+        smallest = a3;
+    else
+        smallest = a2;
+
+    printf("sum is %d\n", sum);
+    printf("Average is %d\n", average);
+    printf("product is %d\n", product);
+    printf("Lagest is %d\n", max);
+    printf("smallest is %d\n", smallest);
+    return 0;
+}
