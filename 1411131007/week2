@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main( void )
+{
+   printf( "輸入三個數值並得知總和、平均值、乘積、最大值和最小值: " );
+
+   int a, b, c;
+   int largest=0, smallest=9999;
+
+   scanf( "%d %d %d", &a, &b, &c );
+
+   if (a>=b) {  
+      if(a>=c)         
+        largest=a;
+      else
+       	largest=b;
+   }                                    
+   else if(c>b){              
+      largest=c;
+   }
+   else{	
+      largest=b;
+   }
+   
+   
+   
+   if (a>=b) {                          
+      smallest=b;
+   }                                   
+   if (b>=a) {                          
+      smallest=a;
+   }
+   if (c<smallest) {
+      smallest=c;
+   }
+
+
+
+   printf( "\n總和： %d\n", a+b+c );
+   printf( "平均值： %d\n", (a+b+c)/3);
+   printf( "乘積： %d\n", a*b*c );
+   printf( "最小值： %d\n", smallest );
+   printf( "最大值： %d\n", largest );
+}
