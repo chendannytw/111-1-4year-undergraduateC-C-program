@@ -1,0 +1,30 @@
+#include <iostream>
+#include <stdio.h>
+int main(void)
+{
+    printf("Enter a grade,and I will tell you\n");
+    printf("the results:");
+    int num1;
+    scanf_s("%d", &num1);
+    if (num1 >= 90) {
+        puts("A");
+    }
+    else {
+        if(num1 >= 80) {
+            puts("B");
+        }
+        else {
+            if (num1 >= 70) {
+                puts("C");
+            }
+            else {
+                if (num1 >= 60) {
+                    puts("D");
+                }
+                else {
+                    puts("F");
+                }
+            }
+        }
+    }
+}
