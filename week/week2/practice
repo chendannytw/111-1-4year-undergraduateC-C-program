@@ -1,0 +1,53 @@
+// 題目: 輸入3個不同的整數值分別使用(1)單一選擇if 敘述，(2) if else 敘述 印出最大值與最小值，並且印出他們的總和、平均、乘積。
+
+
+#include <stdio.h>
+
+// function main begins program execution
+int main( void )
+{
+   printf( "Enter three integers, and I will tell you\n" );
+   printf( "the sum, average, product, the largest and the smallest values: " );
+
+   int a, b, c, largest=0, smallest=9999; // first number to be read from user
+   //int num2; // second number to be read from user
+   
+   scanf( "%d %d %d", &a, &b, &c ); // read two integers
+   // num1=3 num2=7
+  largest=a;
+  if(c>largest)
+  	largest=c;
+  if(b>largest)
+  	largest=b;
+  
+   if ( a >= b ) {  
+      if(a>=c)            //a>b, a>c   =====>  a is max          
+      		largest=a;
+      else                //a>b, a<c   =====>  b is max
+      	largest=b;
+   } // end if                                    
+   else if(c>b){          //a<b, c>b   =====>  c is max              
+      largest=c;
+   } // end if
+   else{				  //a<b, c<b   =====>  b is max	
+      largest=b;
+   } // end if
+
+	if ( a >= b ) {                          
+      smallest=b;
+   } // end if                                    
+   if ( b >= a ) {                          
+      smallest=a;
+   } // end if
+   if ( c<smallest ) {
+      smallest=c;
+   } // end if
+
+
+   printf( "Sum is %d\n", num1+num2+num3 );
+   printf( "Average is %d\n", (num1+num2+num3)/3);
+   printf( "Product is %d\n", num1*num2*num3 );
+   printf( "Smallest is %d\n", smallest );
+   printf( "Largest is %d\n", largest );
+    // end if
+} // end function main
