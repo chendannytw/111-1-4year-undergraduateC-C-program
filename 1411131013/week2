@@ -1,0 +1,95 @@
+practice1 //巢狀if
+
+#include <stdio.h>
+
+int main( void )
+{
+   printf( "Enter a grade, and I will tell you\n" );
+   printf( "the results: " );
+
+   int num1; // first number to be read from user
+   //int num2; // second number to be read from user
+
+   scanf( "%d", &num1); // read two integers
+
+   if ( num1 >=90 ) {   //如果if括弧內的結果為true  ,就會執行if的大括弧內的內容
+                        	//如果if括弧內的結果為false  ,就跳過if的大括弧內的內容
+      puts("A");
+   }                                  
+    else {
+       if (num1 >=80  ) {
+       puts("B");
+   } // end if
+      else {
+	      if (num1 >=70  ) {
+        puts("C");
+   } // end if
+        else {
+          if (num1 >=60  ) {
+          puts("D");
+   } // end if
+           else {
+           puts("F");
+               } // end if
+             }
+           }
+         }
+return 0;
+} // end function main
+
+test1
+
+{
+
+    int a,b,c,largest=0,smallest=9999;
+
+    scanf("%d" "%d" "%d", &a,&b,&c);
+
+    if (a >= b) {                 
+        if (a >= c) {                 //a>b,a>c
+            printf("largest=a");
+           if (b >= c){
+               printf("smallest=c");
+           }
+           else{
+               printf("smallest=b");
+           }
+        }
+        else                          //a>b,a<c
+        {
+            printf("largest=c");
+            printf("smallest=b");
+        }
+    }
+    else {                           //a<b
+        if (a >= c) {                 //a<b,a>c
+            printf("largest=b");
+            printf("smallest=c");
+            if (b >= c) {             //a<b,a<c
+                printf("largest=b");
+                printf("smallest=a");
+            }
+            else {
+                printf("largest=c");
+                printf("smallest=a");
+            }
+        }
+        
+    }
+   
+    int sum ;
+      sum = a + b + c;
+    int av ;
+      av = (a + b + c) / 3;
+    int t ;
+      t = a * b * c;
+    
+    printf("largest is %d\n",largest);
+    printf("smallest is %d\n",smallest);
+    printf("sum is %d\n",sum);
+    printf("av is %d\n",av);
+    printf("t is %d\n",t);
+
+
+}
+
