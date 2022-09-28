@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int a, b, c;
+	int largest = 1000000, smallest = 0;
+
+	printf("Enter first integer:\n");
+	scanf_s("%d", &a);
+
+	printf("Enter second integer:\n");
+	scanf_s("%d", &b);
+
+	printf("Enter third integer:\n");
+	scanf_s("%d", &c);
+	
+	if (a >= b) {
+		if (c > a)
+			largest = c, smallest = b;
+		else{
+			if (c < b)
+				largest = a, smallest = c;
+			else {
+				largest = c, smallest = b;
+			}
+		}
+	}
+
+
+	if (b > a) {
+		if (b < c)
+			largest = c, smallest = a;
+		else {
+			if (a > c)
+				largest = b, smallest = c;
+			else {
+				largest = b, smallest = a;
+			}
+		}
+	}
+
+
+
+	printf("The largest is %d:\n", largest);
+	printf("The smallest is %d:\n", smallest);
+	printf("The sum is %d:\n", a+b+c);
+	printf("The average is %d:\n", (a+b+c)/3);
+	printf("The product is %d:\n",  a*b*c);
+
+
+
+
+
+return 0;
+
+}
