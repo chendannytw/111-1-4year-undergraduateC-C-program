@@ -1,0 +1,64 @@
+#include <stdio.h>
+
+
+
+
+int main(void)
+{
+	int num1,num2,num3;
+	int a, b, c, largest = 0, smallest = 99999;
+	scanf_s("%d %d %d", &num1, &num2, &num3);
+	if (num1>=num2)
+	{
+		if (num1>=num3)
+		{
+			largest = num1;
+		}
+		else
+		{
+			largest = num3;
+		}
+	}
+	if (num2>=num1)
+	{
+		if (num2 >= num3) {
+			largest = num2;
+		}
+		else
+		{
+			largest = num3;
+		}
+	}
+	if (num3>=num1)
+	{
+		if (num3 >= num2) {
+			largest = num3;
+		}
+		else
+		{
+			largest = num2;
+		}
+	}
+	printf("largest is %d\n", largest);
+	if (num1 <= num2)
+	{
+		if (num1 <= num3)
+		{
+			smallest = num1;
+		}
+	}
+	if (num2 <= num1)
+	{
+		if (num2 <= num3) {
+			smallest = num2;
+		}
+
+	}
+	if (num3 <= num1)
+	{
+		if (num3 <= num2) {
+			smallest = num3;
+		}
+	}
+	printf("smallest is %d\n",smallest);
+} 
