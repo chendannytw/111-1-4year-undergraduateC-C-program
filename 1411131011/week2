@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(void)
+{
+    printf(" Enter three integers, and I will tell you\n");
+    printf("the sum, average, product, the largest and the smallest values: ");
+
+    int a, b, c, largest = 0, smallest = 999;
+
+    scanf("%d" "%d" "%d", &a, &b, &c );
+
+    if (a >= b) {
+        if (a >= c)
+            largest = a;
+        else
+            largest = b;
+    } //end if
+    else if (c > b) {
+        largest = c;
+    } // end if
+    else {
+        largest = b;
+    } //end if
+
+    if (a >= b) {
+        smallest = b;
+    } //end if
+    if (b >= a) {
+        smallest = a;
+    } //end if
+    if (c < smallest) {
+        smallest = c;
+    } //end if
+
+    printf("Sum is %d\n", num1 + num2 + num3);
+    printf("Average is %d\n",(num1+num2+num3)/3);
+    printf( "Product is %d\n, num1*num2*num3 );
+    printf( "Smallest is %d\n"
+}
