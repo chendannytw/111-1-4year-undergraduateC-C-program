@@ -1,0 +1,26 @@
+//if else迴圈
+
+#include <stdio.h>
+
+int main()
+{
+    int a1, a2;
+    float div;
+    printf("Enter first integer\n");
+    scanf_s("%d", &a1);
+
+    printf("Enter second integer\n");
+    scanf_s("%d", &a2);
+
+    if (a1 != a2) {
+        if (a1 > a2) {
+            printf("%d > %d", a1, a2);
+        }
+        else
+            printf("%d < %d", a1, a2);
+    }
+    else
+        printf("%d = %d", a1, a2);
+
+    return 0;
+}
