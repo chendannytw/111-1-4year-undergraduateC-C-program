@@ -104,3 +104,40 @@ int main()
     printf("smallest is %d\n", smallest);
     return 0;
 }
+------------
+//同上 交換法 寫到一半
+#include <stdio.h>
+
+int main()
+{
+    int a1, a2, a3, sum, average, product, smallest,max,t;
+    printf("Enter three different integers:");
+    scanf_s("%d %d %d", &a1, &a2, &a3);
+
+    sum = a1 + a2 + a3;
+    average = (a1 + a2 + a3) / 3;
+    product= a1 * a2 * a3;
+    
+    if (a2 < a3) {// 2 3交換
+        t = a2;
+        a2 = a3;
+        a3 = t;
+    }
+    if (a1 > a3) {// 2 3交換
+        t = a2;
+        a2 = a3;
+        a3 = t;
+    }
+
+    思路
+    1 5 10
+    1 10 5 //2 3交換
+    10 1 5 //1 2交換
+    10 5 1 //2 3交換
+    printf("sum is %d\n", sum);
+    printf("Average is %d\n", average);
+    printf("product is %d\n", product);
+    printf("Lagest is %d\n", max);
+    printf("smallest is %d\n", smallest);
+    return 0;
+}
