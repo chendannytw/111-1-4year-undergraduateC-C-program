@@ -1,0 +1,48 @@
+test1
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main( void )
+{
+   printf( "Enter three number, and I will tell you\n" );
+   printf( "the largest,smallest,sum,average,product: " );
+
+   int a,b,c,largest=9999,smallest=0;
+   int sum,av,ta;
+
+   scanf( "%d" "%d" "%d",&a,&b,&c);
+
+   if(a>b){        //a>b
+   	  if(a>c){     //a>b,a>c
+   	  	put("largest=a");
+   	  	if(b>c){   //a>b,b>c
+   	  		put("smallest=c");
+			 }
+		else{
+			put("smallest=b");}
+		}
+	  else{        //a>b,a<c
+	  put("largest=c");
+	  put("smallest=b");
+	  }
+   }
+   else{           //a<b
+      if(b>c){     //a<b,b>c
+      put("largest=b");
+	  put("smallest=a");
+	  }
+	  else{        //a<b,b<c
+	  put("largest=c");
+	  put("smallest=a");
+	  }
+   }
+   sum=a+b+c;
+   av=(a+b+c)/3;
+   ta=a*b*c;
+   printf("sum is %d\n",sum);
+   printf("av is %d\n",av);
+   printf("ta is %d\n",ta);
+           } // end if
