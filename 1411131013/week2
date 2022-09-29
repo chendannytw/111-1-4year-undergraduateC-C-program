@@ -17,26 +17,26 @@ int main( void )
 
    if(a>b){        //a>b
    	  if(a>c){     //a>b,a>c
-   	  	put("largest=a");
+   	  	puts("largest=a");
    	  	if(b>c){   //a>b,b>c
-   	  		put("smallest=c");
+   	  		puts("smallest=c");
 			 }
 		else{
-			put("smallest=b");}
+			puts("smallest=b");}
 		}
 	  else{        //a>b,a<c
-	  put("largest=c");
-	  put("smallest=b");
+	  puts("largest=c");
+	  puts("smallest=b");
 	  }
    }
    else{           //a<b
       if(b>c){     //a<b,b>c
-      put("largest=b");
-	  put("smallest=a");
+      puts("largest=b");
+	  puts("smallest=a");
 	  }
 	  else{        //a<b,b<c
-	  put("largest=c");
-	  put("smallest=a");
+	  puts("largest=c");
+	  puts("smallest=a");
 	  }
    }
    sum=a+b+c;
