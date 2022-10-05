@@ -1,0 +1,45 @@
+// Fig. 3.10: fig03_10.c
+// Analysis of examination results 
+#include <stdio.h>
+
+// function main begins program execution 
+int main(void)
+{
+    // initialize variables in definitions 
+    unsigned int passes = 0; // number of passes   
+    unsigned int failures = 0; // number of failures 
+    unsigned int student = 1; // student counter    
+    int result; // one exam result 
+printf("%s", "Enter result ( 1=pass,2=fail, -1=abort ): ");
+        scanf("%d", &result);
+    // process 10 students using counter-controlled loop 
+    while ( result !=-1 ) {
+
+        // prompt user for input and obtain value from user 
+        printf("%s", "Enter result ( 1=pass,2=fail ): ");
+        scanf("%d", &result);
+
+        // if result 1, increment passes 
+        if (result == 1) 
+            passes++;
+         // end if 
+        else { // otherwise, increment failures 
+            failures++;
+         // end else 
+
+        student = student + 1; // increment student counter  
+
+        printf("%s", "Enter result ( 1=pass,2=fail, -1=abort ): ");
+        scanf("%d", &result);
+
+    } // end while 
+
+    // termination phase; display number of passes and failures 
+    printf("Failed %u\n", failures);
+    printf(" pass percentage: %f",(float)passes/student );
+
+    // if more than eight students passed, print "Bonus to instructor!" 
+    if ( ((float)passes/student) >=0.8) {
+        puts("Bonus to instructor!");
+    } // end if 
+} // end function main 
