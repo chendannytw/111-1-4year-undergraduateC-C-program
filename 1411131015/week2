@@ -34,44 +34,53 @@ int main( void )
 return 0;
 } // end function main
 
-未完成
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+上周未完成(10/5完成)
 #include <stdio.h>
 
 // function main begins program execution
 int main( void )
 {
-   printf( "Enter three number, and I will tell you\n" );
+   int a,b,c,largest,smallest,sum,average,product;
+   
+   printf( "Enter the three number(a,b,c), and I will tell you\n" );
    printf( "the largest,smallest,sum,average,product: " );
 
-   int a,b,c,largest,smallest;
 
    scanf( "%d" "%d" "%d", &a,&b,&c); 
                         
    if ( a >= b ) { //a>b
     if(a >= c) {//a>b,a>c
-    largest=a;  }  
+    puts("largest=a");
+    
+	  if(b>c) { 
+	  	puts("smallest=c");
+	  }
+	  else {
+	  	puts("smallest=b");
+	  }
+	   }  
     else {  //a>b,a<c c is largest
-     largest=c;}
+	 puts("largest=c"); 
+	 puts("smallest=b");}
    }                                  
    else {  //a<b
-     if(a >= c) {//a<b,a>c b is largest
-     largest=b; }
-     else{ //a<b,a<c
-     smallest=a;
+     if(b>c) { //a<b b>c
+     	puts("largest=b");
+     	puts("smallest=a");
 	 }
-   if(b <= c) { //b<c
-    if(b<=a) { //b<c,b<a
-    smallest=b; }
-    else { //b<c, b>a a is smallest
-    smallest=a;
+	 else{ //a<b b<c
+	 	puts("largest=c");
+	 	puts("smallest=a");
+	 }
 	}
-   }
-     
-     
+	sum=a+b+c;
+	average=(a+b+c)/3;
+	product=a*b*c;
+	
+    printf("sum is %d\n",sum);
+    printf("average is %d\n",average);
+    printf("product is %d\n",product);
      
      
      
            } // end if
-        } // end if
