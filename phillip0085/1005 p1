@@ -30,7 +30,7 @@ int main(void)
     printf("Passed %u\n", passes);
     printf("Failed %u\n", failures);
 
-    printf("The passing rate is: %.2f\n", (float)passes / student);
+    printf("The passing rate is: %.2f\n", (float)passes / student); 去查怎麼取兩位小數
 
     if ((float)passes / student >= 0.8) {
         printf("Bonus to instructor!");
