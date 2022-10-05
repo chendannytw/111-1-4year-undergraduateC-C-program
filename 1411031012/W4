@@ -37,3 +37,35 @@ int main(void)
 
 
 }
+//-----------------------------------------------
+// Fig. 4.6: fig04_06.c P153
+// Calculating compound interest
+#include <stdio.h>
+#include <math.h>  
+
+int main(void)
+{
+    double principal; 
+    double rate;
+    int period;
+    int year;
+    double amount;
+
+    printf("第一年本金:");
+    scanf_s("%lf",& principal);
+   
+    printf("輸入定存 存利率(%%):");
+    scanf_s("%lf", &rate);
+
+    printf("輸入定存期限(年):");
+    scanf_s("%d",& period);
+
+
+    
+    for (year = 1; year <= period ; ++year) {
+
+        amount = principal * pow(1.0 + rate, year);
+
+        printf("%4u%21.2f\n", year, amount);
+    }
+}
