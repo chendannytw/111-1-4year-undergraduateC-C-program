@@ -1,0 +1,32 @@
+// ConsoleApplication1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//
+
+#include <stdio.h>
+#include <math.h>  
+
+int main(void)
+{
+    unsigned int year = 1;
+    int principal=0; // starting principal
+    double rate=0 ; // annual interest rate
+    double period=0 ;
+    printf("請輸入第一年本金");
+    scanf_s("%lf", &principal);
+    printf("請輸入定存利率(%%):");
+    scanf_s("%lf", &rate);
+    printf("請輸入定存多久(年)");
+    scanf_s("%d", &period);
+
+    
+    printf("%4s%21s\n", "Year", "Amount on deposit");
+
+    // calculate amount on deposit for each of ten years
+    for (unsigned int year = 1; year <= period; ++year) {
+
+        // calculate new amount for specified year
+        double amount = principal * pow(1.0 + rate,period);
+
+        // output one table row
+        printf("%4u%21.2f\n", year, amount);
+    }
+}
