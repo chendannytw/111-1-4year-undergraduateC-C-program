@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>  
+int main(void)
+{
+   double principal; 
+   double rate; 
+   int period;
+   printf("請輸入第一年本金:");
+   scanf("%lf",&principal);
+   printf("\n請輸入定存利率(%%):");
+   scanf("%lf",&rate);
+   printf("\n請輸入定存年數(年):");
+   scanf("%d",&period);
+   int year;
+   printf("%4s%21s\n", "Year", "Amount on deposit");
+   for (year = 1;year<=period;++year)
+   {
+      double amount = principal * pow(1.0 + rate, year);
+
+      printf("%4u%21.2f\n", year, amount);   
+   }
+} 
