@@ -1,0 +1,44 @@
+// ConsoleApplication1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//
+
+#include <stdio.h>
+
+// function main begins program execution 
+int main(void)
+{
+    // initialize variables in definitions 
+    unsigned int passes = 0; // number of passes   
+    unsigned int failures = 0; // number of failures 
+    unsigned int student = 1; // student counter    
+    int result; // one exam result 
+
+    printf("Enter result ( 1=pass,2=fail ): ");
+    scanf_s("%d", &result);
+
+    // process 10 students using counter-controlled loop 
+    while (result != -1) {
+
+        // if result 1, increment passes 
+        if (result == 1) {
+            passes++;
+        } // end if 
+        else { // otherwise, increment failures 
+            failures++;
+        } // end else 
+
+        student = student + 1; // increment student counter 
+        printf("Enter result ( 1=pass,2=fail ): ");
+        scanf_s("%d", &result);
+    } // end while 
+
+    // termination phase; display number of passes and failures 
+    printf("Passed %u\n", passes);
+    printf("Failed %u\n", failures);
+
+    // if more than eight students passed, print "Bonus to instructor!" 
+    if ((float)passes / student >= 0.8) {
+        puts("Bonus to instructor!");
+    } // end if
+    else(
+        printf("%.2f", (float)passes / student));
+} // end function main 
