@@ -41,11 +41,11 @@ int main(void)
 
 
 
-	printf("The largest is %d:\n", largest);
-	printf("The smallest is %d:\n", smallest);
-	printf("The sum is %d:\n", a+b+c);
-	printf("The average is %d:\n", (a+b+c)/3);
-	printf("The product is %d:\n",  a*b*c);
+	printf("The largest is %d\n", largest);
+	printf("The smallest is %d\n", smallest);
+	printf("The sum is %d\n", a+b+c);
+	printf("The average is %d\n", (a+b+c)/3);
+	printf("The product is %d\n",  a*b*c);
 
 
 
