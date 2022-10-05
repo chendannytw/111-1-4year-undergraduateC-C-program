@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+
+int main(void)
+{
+    // initialize variables in definitions 
+    unsigned int passes = 0; // number of passes   
+    unsigned int failures = -1; // number of failures 
+    unsigned int student = 1; // student counter    
+    int result = 0; // one exam result 
+
+    // process 10 students using counter-controlled loop 
+    while (result != -1) {
+
+        // prompt user for input and obtain value from user 
+        printf("Enter result ( 1=pass,2=fail,-1=end ): ");
+        scanf_s("%d", &result);
+
+        // if result 1, increment passes 
+        if (result == 1) {
+            passes += 1;
+            student += 1;
+        } // end if 
+        else { // otherwise, increment failures 
+            failures += 1;
+            student += 1;
+        } // end else 
+
+          
+    } // end while 
+
+    // termination phase; display number of passes and failures 
+    printf("Passed:%d\n", passes);
+    printf("Failed:%d\n", failures);
+    float ave = (float)passes / student;
+    int a = ave*100;
+    printf("及格率:%d%%\n", a);
+
+    // if more than eight students passed, print "Bonus to instructor!" 
+    if (((float)passes/student) >= 0.8) {
+        puts("Bonus to instructor!");
+    } // end if 
+} // end function main 
