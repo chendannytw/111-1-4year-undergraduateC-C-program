@@ -1,0 +1,74 @@
+課堂練習(p155)
+// Fig. 3.10: fig03_10.c
+// Analysis of examination results 
+#include <stdio.h>
+
+// function main begins program execution 
+int main( void )
+{
+   // initialize variables in definitions 
+   unsigned int passes = 0; // number of passes   
+   unsigned int failures = 0; // number of failures 
+   unsigned int student = 1; // student counter    
+   int result; // one exam result 
+   
+   printf( "%s", "Enter result ( 1=pass,2=fail,-1=abort ): " );
+    scanf( "%d", &result );
+   // process 10 students using counter-controlled loop 
+   while ( result!= -1 ) {
+   	
+      if ( result == 1 ) {     
+         passes++;
+      } // end if 
+      else { // otherwise, increment failures 
+         failures++;
+      } // end else 
+      printf( "%s", "Enter result ( 1=pass,2=fail,-1=abort ): " );
+      scanf( "%d", &result );
+      student = student + 1; // increment student counter  
+      
+   } // end while 
+
+   printf( "Passed %u\n", passes );
+   printf( "Failed %u\n", failures );
+   printf( "the pass percentage is %f\n",(float)passes/student);
+
+   // if more than eight students passed, print "Bonus to instructor!" 
+
+   if ( (float)passes/student >= 0.8 ) { 
+      puts( "Bonus to instructor!" );
+   } // end if 
+} // end function main 
+
+痾....未完成
+// Fig. 4.6: fig04_06.c
+// Calculating compound interest
+#include <stdio.h>
+#include <math.h>  
+
+int main(void)
+{
+   int principal;
+   unsigned int rate;
+   int years;
+   unsigned int year = 1;
+   unsigned int amount;
+   
+   printf("enter the principal:");
+   scanf( "%d", &principal );
+   
+   printf("enter the years:");
+   scanf( "%d", &years );
+   
+   printf("enter the rate:");
+   scanf( "%d", &rate );
+   
+   for (; year <= years ; ++year) {
+
+      amount = principal * pow(1.0 + rate, year);
+
+      printf("%4u%21.2f\n", year, amount); 
+
+ }
+
+} 
