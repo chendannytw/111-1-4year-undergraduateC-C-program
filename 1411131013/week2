@@ -1,0 +1,94 @@
+practice1
+
+#include <stdio.h>
+int main(void)
+{
+    printf("Welcome to c!\n");
+}
+
+practice2
+
+#include <stdio.h>
+
+// function main begins program execution #include <stdio.h>
+//function main begins program exection
+
+int main(void)
+{
+    int integer1;
+    int integer2;
+    int sum;
+
+    printf("Enter first integer\n ");
+    scanf("%d", &integer1);
+
+    printf("Enter second integer\n ");
+    scanf("%d", &integer2);
+
+    sum = integer1 + integer2;
+    printf("Sum is  %d\n ", sum);
+}
+
+quiz1
+
+#include <stdio.h>
+
+//function main begins program exection
+
+int main(void)
+{
+    int integer1;
+    int integer2;
+    int sum;
+    int d;
+    int t;
+    int b;
+    int mod;
+
+    printf("Enter first integer\n ");
+    scanf_s("%d", &integer1);
+
+    printf("Enter second integer\n ");
+    scanf_s("%d", &integer2);
+
+    sum = integer1 + integer2;
+    d = integer1 - integer2;
+    t = integer1 * integer2;
+    b = integer1 / integer2;
+    mod = integer1 % integer2;
+
+    printf("Sum is  %d\n ", sum);
+    printf("d is  %d\n ", d);
+    printf("t is  %d\n ", t);
+    printf("b is  %d\n ", b);
+    printf("mod is  %d\n ", mod);
+
+}//end funtion main
+
+quiz2
+#include <stdio.h>
+
+int main(void)
+{
+    int v;
+    int a;
+    int e;
+    int s;
+
+
+    printf("Enter first integer\n ");
+    scanf("%d", &v);
+
+    printf("Enter second integer\n ");
+    scanf("%d", &a);
+
+    printf("Enter second integer\n ");
+    scanf("%d", &e);
+
+    v = v + a*e;
+    s=v*e + 1/2*a*e*e;
+
+    printf("v is  %d\n ", v);
+    printf("s is  %d\n ", s);
+
+}
