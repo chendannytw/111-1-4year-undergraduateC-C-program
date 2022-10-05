@@ -1,0 +1,25 @@
+int main() {
+   unsigned int passes = 0; 
+   unsigned int failures = 0; 
+   unsigned int student = 0; 
+   int result=0; 
+   while (result!=-1) {
+      printf("Enter result ( 1=pass,2=fail,-1=abord ): " );
+      scanf( "%d", &result );
+      if ( result == 1 ){   
+         passes++;
+         student++;
+         } 
+      else if(result==2){ 
+	  	 failures++;
+      	 student++; 
+	  }        
+   } 
+   printf( "Passed %u\n", passes );
+   printf( "Failed %u\n", failures );
+   float n;
+   n=(float)passes/student;
+   printf("通過率：%.2f \n",n);
+   if ( n>= 0.8 ) 
+      puts( "Bonus to instructor!" );
+}  
