@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main( void )
+{
+
+   unsigned int passes = 0;  
+   unsigned int failures = 0; 
+   unsigned int student = 1;  
+   int result;
+
+   while ( result != -1 ) {
+
+      printf("Enter result ( 1=pass,2=fail,-1=abort): " );
+      scanf( "%d", &result );
+
+      if ( result == 1 )      
+         passes++;
+      else 
+         failures++;
+       
+      student = student + 1; 
+   }
+
+   printf( "Passed %u\n", passes );
+   printf( "Failed %u\n", failures );
+   printf( "pass percentage: %.2f",(float)passes/student);
+
+   if ((float)passes/student >= 0.8 ) {
+      puts( "Bonus to instructor!" );
+   }  
+}
