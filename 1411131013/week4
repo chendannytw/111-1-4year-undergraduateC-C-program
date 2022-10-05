@@ -44,3 +44,42 @@ int main( void )
       puts( "Bonus to instructor!" );
    } // end if 
 } // end function main 
+
+// Fig. 4.6: fig04_06.c
+// Calculating compound interest
+#include <stdio.h>
+#include <math.h>  
+
+int main(void)
+{
+   double principal ; // starting principal
+   double rate ; // annual interest rate
+   double amount;
+   int years;
+   unsigned int year = 1;
+   
+   printf("enter the principal ");
+   scanf("%f",&principal);
+   
+   printf("enter the rate ");
+   scanf("%f",&rate);
+   
+   printf("enter the years ");
+   scanf("%d",&years);
+
+   // output table column heads
+   
+
+
+   // calculate amount on deposit for each of ten years
+    for (; year <= years ; ++year) {
+
+      // calculate new amount for specified year
+      amount = principal * pow(1.0 + rate, year);
+      
+      // output one table row
+      printf("%4u%21.2f\n", year, amount);  
+      
+   }
+   printf("%f", amount);
+} 
