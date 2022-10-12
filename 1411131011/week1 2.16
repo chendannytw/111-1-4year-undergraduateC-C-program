@@ -2,8 +2,8 @@
 
 int main(void)
 {
-	int integer1; 
-	int integer2; 
+	int integer1;
+	int integer2;
 	int sum;
 
 	printf("Enter first integer\n");
@@ -26,3 +26,4 @@ int main(void)
 
 	sum = integer1 % integer2;
 	printf("Sum is %d\n", sum);
+}
