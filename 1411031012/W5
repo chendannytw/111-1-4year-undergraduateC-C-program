@@ -1,0 +1,52 @@
+// Fig. 5.3: fig05_03.c
+// Creating and using a programmer-defined function.
+#include <stdio.h> 
+#include <math.h>
+int facto(int); 
+double expo(int);
+int power(int, int);
+
+int main(void)
+{
+	int x;
+	int num = 0, p = 0;
+	for (x = 1; x <= 15; ++x) {
+		printf("%d  ", facto(x));
+	}
+	printf("\nvalue of e is:%lf", expo(10));
+	printf("\n次方:%lf", power(2,y));
+	puts("");
+}
+
+
+
+int facto(int y) 
+{
+	int result = 1, i;
+	for (i = 1; i <= y; i++)
+		result = result * i;
+	return result;     
+}
+
+double expo(int y) {
+	int result = 1, i;
+	double expo = 1.0;
+	for (i = 1; i <= y; i++) {
+		result = result * i;
+		expo = expo + (1.0 / result);
+	}
+	return expo;
+}
+
+
+int power(int x, int y) {
+	
+	int result = 1;
+	for (int i = 1; i <= y; i++)
+	{
+		result = result * i;
+		power = pow(2, result);
+		return power;
+	}
+}
+
