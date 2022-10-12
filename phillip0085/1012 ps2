@@ -1,12 +1,15 @@
 #include <stdio.h>
 
+
+double power(int, int);
+
 int main(void)
 {
 	int x;
 	printf("Please enter x:\n");
 	scanf_s("%d", &x);
 
-	printf("The power is:\n%.0f", pow (x));
+	printf("The power of 2 is:\n%.0f", pow (2,x));
 
 	return 0;
 }
@@ -14,7 +17,7 @@ int main(void)
 double power(int x,  int y)
 {
     int a,b;
-    double result=1;
+    int result=1;
     for(a=1; a<=b; a++){
         result = result * a
     
