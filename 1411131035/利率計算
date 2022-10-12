@@ -2,27 +2,24 @@
 #include <math.h>  
 
 int main(void)
-{   
+{
     double principal = 0;
     double rate = 0;
-    double year = 0;
+    //double year = 0;
     int a = 0;
 
     printf("輸入第一年本金:");
-    scanf_s("%lf",&principal);
+    scanf_s("%lf", &principal);
     printf("輸入定存利率:");
-    scanf_s("%lf",&rate);
+    scanf_s("%lf", &rate);
     printf("輸入定存多久:");
-    scanf_s("%lf",&year);
+    scanf_s("%d", &a);
 
-    for (unsigned int year = 1; year <= a; ++year) {
+    for (unsigned int year = 1; year<=a;++year)
+    {
 
         double amount = principal * pow(1.0 + rate, year);
         printf("%4u%21.2f\n", year, amount);
 
-        if (year>a)
-        {
-            break;
-        }
     }
 }
