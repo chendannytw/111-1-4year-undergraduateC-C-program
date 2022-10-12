@@ -43,3 +43,17 @@ double expo(int y)
 	}
 	return expo;
 }
+
+double power(int x,int y)
+{
+	double power=x;
+	int i;
+	for (i = 2; i <= y; i++)
+	{
+		power = power * x;
+	}
+
+	return power;
+
+	
+}
