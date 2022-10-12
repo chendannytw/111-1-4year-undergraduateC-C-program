@@ -1,15 +1,22 @@
 #include <stdio.h>
-#include <math.h>
 
 int main(void)
 {
-	int x, y;
+	int x;
 	printf("Please enter x:\n");
 	scanf_s("%d", &x);
-	printf("Please enter y:\n");
-	scanf_s("%d", &y);
 
-	printf("The power is:\n%.0f", pow (x,y));
+	printf("The power is:\n%.0f", pow (x));
 
 	return 0;
+}
+
+double power(int a, int b)
+{
+    int a, b;
+    double result;
+    for(a=1; a<=b; a++){
+    result = result * a
+    }
+    return result;
 }
