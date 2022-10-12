@@ -40,7 +40,7 @@ int main( void )
    } // end if 
 } // end function main 
 
-痾....未完成
+暫完成
 // Fig. 4.6: fig04_06.c
 // Calculating compound interest
 #include <stdio.h>
@@ -48,20 +48,22 @@ int main( void )
 
 int main(void)
 {
-   int principal;
-   unsigned int rate;
+   double principal;
+   double rate;
    int years;
    unsigned int year = 1;
-   unsigned int amount;
+   double amount;
    
    printf("enter the principal:");
-   scanf( "%d", &principal );
+   scanf( "%lf", &principal );
    
    printf("enter the years:");
    scanf( "%d", &years );
    
    printf("enter the rate:");
-   scanf( "%d", &rate );
+   scanf( "%lf", &rate );
+   
+   printf("%4u%21.2f\n", "year", "amount on deposit");
    
    for (; year <= years ; ++year) {
 
