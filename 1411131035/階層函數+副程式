@@ -1,0 +1,54 @@
+// Fig. 5.3: fig05_03.c
+// Creating and using a programmer-defined function.
+#include <stdio.h> 
+#include <math.h>  
+
+int facto(int); // function prototype 原型宣告 
+double expo(int);
+double power(int,int);
+
+
+int main(void)
+{
+	/*
+	int x;
+	// loop 10 times and calculate and output square of x each time
+	for (x = 1; x <= 5; ++x) {
+		printf("%d  ", facto(x)); // function call
+	}
+
+	puts("");
+	*/
+	printf("Value of e =%lf",expo(20));
+	printf("\nValue of Power =%lf", power(4,6));
+}
+
+// square function definition returns the square of its parameter 
+int facto(int y) // y is a copy of the argument to the function
+{
+	int result = 1, i;
+	for (i = 1; i <= y; i++)
+		result = result * i;
+	return result; // returns the square of y as an int              
+}
+
+
+double expo(int a) // y is a copy of the argument to the function
+{
+	int result = 1, i;
+	double e = 1;
+	for (i = 1; i <= a; i++)
+	{
+		result = result * i;
+		e = e + (1.0 / result);
+	}
+		
+	return e; // returns the square of y as an int              
+}
+
+double power(int b,int c) // y is a copy of the argument to the function
+{
+
+	double Power = pow(b,c);
+	return Power;
+}
