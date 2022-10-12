@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int power(int x,int y);
+int main(void) {
+	int x,y;
+	printf("請輸入底數:");
+	scanf("%d",&x);
+	printf("\n請輸入次方:");
+	scanf("%d",&y);
+	printf("\n數值為:%d",power(x,y));
+}
+int power(x,y){
+	int z=1,i;
+	for(i=1;i<=y;i++){
+		z=z*x;
+	}
+	return z;
+}
