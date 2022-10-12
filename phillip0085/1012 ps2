@@ -8,18 +8,19 @@ int main(void)
 	int x;
 	printf("Please enter x:\n");
 	scanf_s("%d", &x);
+        printf("Please enter y:\n");
+	scanf_s("%d", &y);
 
-	printf("The power of 2 is:\n%.0f", pow (2,x));
+	printf("The power of x is:\n%.0f", pow (x,y));
 
 	return 0;
 }
 
 double power(int x,  int y)
 {
-    int a,b;
     int result=1;
-    for(a=1; a<=b; a++){
-        result = result * a
-    
+    int i;
+    for (i =1; i<=y; i++)
+        result = result * x;
     return result;
 }
