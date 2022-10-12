@@ -1,0 +1,18 @@
+#include <stdio.h>
+double expo(int);
+int main(void){
+	int x;	
+	for (x = 1; x <= 10; x++) {		
+		printf(" value of e is :%f\n",expo(x));
+	}
+}
+double expo(int y){
+	double result=1,i;
+	double expo=1;
+	
+	for(i=1;i<=y;i++){
+ 		result=result*i;
+ 		expo=expo+(1/result);
+	}
+	return expo;         
+}	
