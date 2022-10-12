@@ -1,0 +1,39 @@
+// Fig. 5.3: fig05_03.c
+// Creating and using a programmer-defined function.
+#include <stdio.h> 
+#include <math.h>
+ 
+double expo(int terms);
+double power(int x, int y);
+
+int main(void)
+{
+	int x;
+	// loop 10 times and calculate and output square of x each time
+	for (x = 1; x <= 15; ++x) {
+		printf("%d  ", facto(x)); // function call
+	}
+
+	puts("");
+}
+
+// square function definition returns the square of its parameter 
+    
+
+    double expo(int y) // y is a copy of the argument to the function
+	{ 	
+		int result = 1, i;
+		double expo = 1;
+		for (i = 1; i <= y; i++)
+
+		expo = expo + (1.0 / result);
+	    return result; // returns the square of y as an int              
+    }
+
+	printf("the value of 'e' is:%1f")
+
+	double power(int x, int y)
+	{
+		int result = x, a;
+		return result;
+	}
