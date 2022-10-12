@@ -1,0 +1,27 @@
+#include <stdio.h> 
+
+double expo(int); // function prototype 原型宣告 
+
+int main(void)
+{
+	int x;
+	// loop 10 times and calculate and output square of x each time
+	for (x = 1; x <= 10; ++x) {
+		printf("The value of e is: %lf\n", expo(x)); // function call
+	}
+
+	puts("");
+}
+
+// square function definition returns the square of its parameter 
+double expo (int y) // y is a copy of the argument to the function
+{
+	int result = 1, i;
+	double expo = 1;
+	for (i = 1; i <= y; i++) {
+		result = result * i;
+		expo = expo + (1.0 / result);
+	}
+		
+	return expo; // returns the square of y as an int              
+}
