@@ -11,12 +11,12 @@ int main(void)
 	return 0;
 }
 
-double power(int a, int b)
+double power(int x,  int y)
 {
-    int a, b;
-    double result;
+    int a,b;
+    double result=1;
     for(a=1; a<=b; a++){
-    result = result * a
-    }
+        result = result * a
+    
     return result;
 }
