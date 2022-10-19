@@ -1,0 +1,27 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    unsigned int i;
+    unsigned int n,AA,BB; // number used to seed the random number generator
+
+    printf("%s", "Enter n<5: ");
+    scanf_s("%u", &n); // note %u for unsigned int
+
+    srand(n); // seed the random number generator
+    BB = pow(10, n);
+
+    for (i = 1; i <= BB; ++i) {
+        
+        AA = rand() % BB;
+        // pick a random number from 1 to 6 and output it
+        printf("%20g",(double)AA/BB );
+
+        // if counter is divisible by 5, begin a new line of output
+        if (i % 5 == 0) {
+            puts("");
+        }
+    }
+}
