@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{ unsigned int i;
+  unsigned int n,m,temp;
+
+    printf("enter n (n<5) : ");
+    scanf("%u", &n);
+    
+    srand(n);
+    
+    for( i=1; i<=pow(10,n); ++i) {
+    	 temp=pow(10,n);
+    m=rand()%temp;
+    
+    printf("%10lf", (double)m/pow(10,n));
+    
+    if( i % 5 ==0 ) {
+    	puts("");
+	}
+ } 
+} 
