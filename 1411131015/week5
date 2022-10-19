@@ -43,7 +43,11 @@ double expo(int y)
  return expo; // returns the square of y as an int              
 }
 
-teacher anser
+
+
+
+teacher answer
+
 #include <stdio.h> 
 
 int facto(int); // function prototype 原型宣告 
