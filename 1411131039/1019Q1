@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+int main(void){ 
+      int n,m,temp,i;
+      srand(n);
+      printf("請輸入整數1~5，其中一個數值：");
+      scanf("%u",&n);
+      for(i=1;i<=pow(10,n);++i){
+		temp=pow(10,n);
+      	m=rand()%temp;
+      	printf("%.5f　　",(double)m / pow(10,n));
+      	if(i%5==0)
+      		puts("");
+	  }
+      
+} 
