@@ -38,8 +38,7 @@ double expo(int y) // y is a copy of the argument to the function
 
 double power(int x,int y) // y is a copy of the argument to the function
 {int result=1,i;
- for(i=1;i<=y;i++){
- 	result=result*i;
+ for(i=1;i<=y;i++)
+ 	result=result*x;
  return result; // returns the square of y as an int      
-}
 }
