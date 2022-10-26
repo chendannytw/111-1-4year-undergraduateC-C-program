@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+unsigned long long int f(unsigned int n);
+
+int main(void) 
+{	
+	unsigned int n;
+	printf("%s","enter n :");
+	scanf("%d",&n);
+	
+	unsigned long long int result = f(n);
+	printf("Fibonnacci(%u) = %11u\n",n,result);
+}
+
+unsigned long long int f(unsigned int n)
+{
+		
+	if (n == 0 || n == 1 )
+	{
+	
+		return n;
+	}
+	else{
+	
+		return f(n-1)+f(n-2);
+	
+	}
+}
+	
+	
