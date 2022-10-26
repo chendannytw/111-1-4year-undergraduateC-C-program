@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+unsigned long long int fibonacci(int n);
+int number = 0;
+
+int main(void) {
+
+unsigned long long int fibonacci(int n){
+	scanf("%d",&fibonacci(n));
+    if (0==n || 1==n ) {
+	return n;
+	}
+	else{
+	return fibonacci(n-1) + fibonacci(n-2);
+	}
+	  
+}
+}
