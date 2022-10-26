@@ -1,0 +1,25 @@
+
+#include <stdio.h>
+
+unsigned long long int f(unsigned int number)   ;
+
+int main()
+{
+    unsigned int n;
+    printf("Please enter n:");
+    scanf_s("%d", &n);
+
+    printf("第n項:%d\n", f(n-1));
+}
+
+
+
+unsigned long long int f(unsigned int number)
+{
+    if (number == 0 or number == 1) {
+        return number;
+    }
+    else {
+        return (f(number - 1) + f(number - 2));
+    }
+}
