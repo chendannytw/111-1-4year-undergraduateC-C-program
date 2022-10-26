@@ -1,0 +1,22 @@
+//1. 遞迴fibonacci
+//2. 用其他方式
+#include <stdio.h>
+
+long int fibonacci(int n);
+int main(void)
+{
+    int number;
+    printf("Enter an integer:");
+    scanf_s("%u", &number);
+
+    long int result =fibonacci(number);
+    printf("fibonacci(%u)=%lu\n", number, result);
+}
+
+long int fibonacci(int n) {
+    if (0 ==n  || 1 == n) 
+        return n;
+
+    else 
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
