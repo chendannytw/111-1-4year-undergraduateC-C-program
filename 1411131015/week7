@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int n1;
+int main( void )
+{
+      
+   printf("Enter a number\n" );
+   scanf("%d",&n1);
+   printf( "the results: " );
+
+
+
+int faibonacci(n1){
+
+   if(0==n1||1==n1){
+   	return n1;
+   }
+      
+   else{
+   	return fibonacci(n1-1)+fibonacci(n1-2);
+   	}
+   }
+ }
+   
+
