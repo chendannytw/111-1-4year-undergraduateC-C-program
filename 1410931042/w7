@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+
+int main(void)
+{
+    int x = 0, y = 0;
+    printf("輸入一整數");
+    scanf_s("%d", &x);
+    int fib[100];
+    int n, i;
+    fib[1] = 1;
+    fib[2] = 1;
+    for (i = 3; i <= x; i++)
+        fib[i] = fib[i - 1] + fib[i - 2];
+
+    printf("輸入數值之費波納切係數為%d", fib[x]);
+}
+
+#include <stdio.h>
+
+int f(int n)
+{
+    if (n == 1 or n == 2)
+        return 1;
+    else
+    {
+        return f(n - 1) + f(n - 2);
+    }
+       
+}
+int main(void)
+{
+    int x=0,y=0;
+    printf("輸入一整數");
+    scanf_s("%d", &x);
+    y = f(x);
+    printf("輸入數值之費波納切係數為%d", y);
+}
