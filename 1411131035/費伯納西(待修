@@ -1,0 +1,30 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+unsigned long long int FF(unsigned int n);
+int main()
+{
+	int n;
+	scanf_s("%u", &n);
+	//const char X = FF(n);
+	//unsigned long long int XX = FF(n);
+	
+
+	for (unsigned int i = 0; i <= n; ++i)
+	{
+		printf("%u!=%llu\n",i, FF(i));
+	}
+	
+}
+
+unsigned long long int FF(unsigned int n)
+{
+	if (n <= 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return(n * FF(n-1));
+	}
+}
