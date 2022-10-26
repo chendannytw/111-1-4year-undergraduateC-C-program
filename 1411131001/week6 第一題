@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+ int fibonacci(int n);
+int main(void)
+{
+	int n;
+	printf("please input a number:\n ");
+	scanf_s("%d", &n);
+	printf("result = %d\n ", fibonacci(n));
+}
+
+ int fibonacci(int n){
+	if (0 == n || 1 == n) {
+		return n;
+	}
+	else {
+		return fibonacci(n - 1) + fibonacci(n - 2);
+	}
+}
