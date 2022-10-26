@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-int main(void)
-{
-	int f;
-	int n;
-	printf("請輸入值\n");
-	scanf_s("%d", &n );
-}
-
-
 int f(int n)
 {
 	if (n <= 1 ) 
@@ -20,5 +11,16 @@ int f(int n)
 	{
 		return f(n - 1) + f(n - 2);
 	}
-	printf("值為%p",&n);
+	
 }
+
+int main()
+{
+	int n;
+	printf("請輸入值\n");
+	scanf_s("%d", &n );
+	
+	printf("%d", f(n));
+}
+
+
