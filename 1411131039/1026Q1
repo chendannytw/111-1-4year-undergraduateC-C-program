@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+int f(int);
+int main(void) {
+	
+	int n;
+	printf("輸入一項:");
+	scanf("%d",&n);
+	printf("數值為:%d",f(n));
+}
+f(int n){
+	if(n<=1){
+		return n;
+	}
+	else{
+		return f(n-1)+f(n-2);
+	}		
+}
