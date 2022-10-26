@@ -1,5 +1,3 @@
-// Fig. 5.13: fig05_13.c
-// Randomizing die-rolling program.
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -15,14 +13,13 @@ int main(void)
    
    // loop 10 times
    for (i = 1; i <= pow(10,n); ++i) {
-		temp=pow(10,n);
+		temp=pow(10,n)-1;
 		m=rand()%temp;
       // pick a random number from 1 to 6 and output it
-      printf("%12.4lf", (double)m/temp);
-      
+      printf("%12.4lf", (double)(m+1)/pow(10,n));
       // if counter is divisible by 5, begin a new line of output
       if (i % 5 == 0) {
          puts("");
       } 
-   } 
+   }
 } 
