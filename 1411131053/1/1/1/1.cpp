@@ -1,36 +1,23 @@
 ﻿// 1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
 //
 
-// Fig. 5.13: fig05_13.c
-// Randomizing die-rolling program.
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
+# include <stdio.h>
+int f(int);
 int main(void)
 {
-    unsigned int i;
-    unsigned int n,m,temp; // number used to seed the random number generator
+   int n;
 
-    printf("Enter n: ");
-    scanf_s("%u", &n); // note %u for unsigned int
-
-    srand(n); // seed the random number generator
-
-    // loop 10 times
-    for (i = 1; i <= pow(10,n); ++i) {
-        temp=pow(10,n);
-        m=rand()%temp;
-
-        printf("%10.*lf",n, (double)m/pow(10,n));
-
-        // if counter is divisible by 5, begin a new line of output
-        if (i % 5 == 0) {
-            puts("");
-        }
-    }
+   
+scanf_s("%d",&n);
+   printf("%d\n",f(n));
 }
-
-
+   int f(int n)
+   {
+	   if(n<=1)
+		   return n;
+	   else
+		   return f(n-2)+f(n-1);
+   }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
 // 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
