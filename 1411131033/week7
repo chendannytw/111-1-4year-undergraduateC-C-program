@@ -18,9 +18,7 @@ int main()
 {
 	int n;
 	printf("請輸入值\n");
-	scanf_s("%d", &n );
+	scanf("%d", &n );
 	
-	printf("%d", f(n));
+	printf("值為%d", f(n));
 }
-
-
