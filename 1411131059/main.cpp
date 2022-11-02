@@ -1,25 +1,22 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
 
 int main(void)
-{unsigned int i;
-   unsigned int n,m,temp; // number used to seed the random number generator
-   
-   printf("Enter n (n<5): ");
-   scanf("%u", &n); // note %u for unsigned int
-
-   srand(n); // seed the random number generator
-   
-   // loop 10 times
-   for (i = 1; i <= pow(10,n); ++i) {
-		temp=pow(10,n)-n;
-		m=rand()%temp;
-      // pick a random number from 1 to 6 and output it
-      printf("%12.4lf", (double)(m+n)/pow(10,n));
-      // if counter is divisible by 5, begin a new line of output
-      if (i % 5 == 0) {
-         puts("");
-      } 
-   }
-} 
+{
+	int n,f,n1,n2;
+	printf("Enter n:  ");
+	scanf("%u",&n);
+	n1=0;
+	n2=1;
+	if(n==0 || n==1){
+		printf("%d",n);	
+	}
+	else{
+	for(int i=2 ; i<=n ; ++i){
+		f=n1+n2;
+		n1=n2;
+		n2=f;
+		printf("%d ",f);
+	}
+	}
+	printf("\n%d",f);
+ } 
