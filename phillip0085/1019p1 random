@@ -1,3 +1,6 @@
+//輸入整數n<5，要傳回10的n次方組亂數,亂數值介於0.9999…9~0.0000...1, n為精確值(小數後第幾位 (要用使用者自訂函數)  
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
