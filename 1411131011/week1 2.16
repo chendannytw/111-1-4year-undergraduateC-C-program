@@ -2,9 +2,7 @@
 
 int main(void)
 {
-	int integer1;
-	int integer2;
-	int sum;
+	int integer1, integer2, sum, subtraction, multiplication, division, remainder;
 
 	printf("Enter first integer\n");
 	scanf_s("%d", &integer1);
@@ -13,17 +11,17 @@ int main(void)
 	scanf_s("%d", &integer2);
 
 	sum = integer1 + integer2;
-	printf("Sum is %d\n", sum);
+	printf("\nSum is %d\n", sum);
 
-	sum = integer1 - integer2;
-	printf("Sum is %d\n", sum);
+	subtraction = integer1 - integer2;
+	printf("Subtraction is %d\n", subtraction);
 
-	sum = integer1 * integer2;
-	printf("Sum is %d\n", sum);
+	multiplication= integer1 * integer2;
+	printf("Multiplication is %d\n", multiplication);
 
-	sum = integer1 / integer2;
-	printf("Sum is %d\n", sum);
+	division = integer1 / integer2;
+	printf("Division  is %d\n", division);
 
-	sum = integer1 % integer2;
-	printf("Sum is %d\n", sum);
+	remainder = integer1 % integer2;
+	printf("Remainder is %d\n", remainder);
 }
