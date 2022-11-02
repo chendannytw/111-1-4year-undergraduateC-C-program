@@ -17,7 +17,7 @@ int main(void)
     scanf("%d", &period);
     
     
-    printf("%4s%21s\n", "Year", "Amount on deposit");
+    printf("\nYear      Amount on deposit\n");
     
     for (unsigned int year = 1 ; year <= period ; ++year) {
 
