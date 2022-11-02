@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int main(void)
 {
     // initialize variables in definitions 
@@ -30,12 +32,15 @@ int main(void)
     printf("Passed %u\n", passes);
     printf("Failed %u\n", failures);
 
+    double percentage;
+
     percentage = (float)passes / student * 100.0;
+
     printf("The passing rate is: %.2f%%\n", percentage);
-  
+
     if ((float)passes / student >= 0.8) {
         printf("Bonus to the instructor!");
     }
 
-   return 0;
+    return 0;
 }
