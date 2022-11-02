@@ -1,0 +1,46 @@
+#include <stdio.h> 
+
+int facto(int);
+double expo(int);
+double power(int, int);
+
+int main(void)
+{
+	int x;
+	
+	for (x = 1; x <= 10; ++x) {
+		printf("%d  ", facto(x)); 
+		printf("\n value of e is :%lf", expo(x));
+		printf("\n power of 2 is :%.1lf", power(2, x));
+	}
+
+
+	puts("");
+}
+
+int facto(int y) 
+{
+	int result = 1, i;
+	for (i = 1; i <= y; i++)
+		result = result * i;
+	return result;        
+}
+
+double expo(int y)
+{
+	int result = 1, i;
+	double expo = 1;
+	for (i = 1; i <= y; i++) {
+		result = result * i;
+		expo = expo + (1.0 / result);
+	}
+	return expo;             
+}
+
+
+double power(int x, int y) {
+	int result = 1, i;
+	for (i = 1; i <= y; i++)
+		result = result * x;
+	return result;            	
+}
