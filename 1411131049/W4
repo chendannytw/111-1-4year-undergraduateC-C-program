@@ -5,13 +5,13 @@
 int main(void)
 {
    double principal; 
-   printf("¿é¤J²Ä¤@¦~¥»ª÷:");
+   printf("è¼¸å…¥ç¬¬ä¸€å¹´æœ¬é‡‘:");
    scanf("%lf",&principal);   
    double rate; 
-   printf("¿é¤J©w¦s§Q²v(%%):");
+   printf("è¼¸å…¥å®šå­˜åˆ©çŽ‡(%%):");
    scanf("%lf",&rate);
    int period;
-   printf("¿é¤J©w¦s¦h¤[(¦~):");
+   printf("è¼¸å…¥å®šå­˜å¤šä¹…(å¹´):");
    scanf("%d",&period);
 
    printf("%4s%21s\n", "Year", "Amount on deposit");
