@@ -11,6 +11,9 @@ int main(void)
     int sum;
     printf("Enter first integer\n");
     scanf_s("%d", &integer1);
+    
+    printf("Enter second integer\n");
+    scanf_s("%d", &integer2);
 
     sum = integer1 + integer2;
     printf("Sum is %d\n", sum);
