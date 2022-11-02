@@ -37,7 +37,11 @@ double expo(int y)
 
 	return expo;
 	
-
-
+double power(int x, int y){
+int result=1,i;
+for(i=1;i<=y;i++)
+ 	result=result*x;	
+ return result; // returns the square of y as an int   
+        }
 
 }
