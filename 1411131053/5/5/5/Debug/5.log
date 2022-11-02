@@ -1,0 +1,5 @@
+﻿  5.cpp
+C:\Users\user\Desktop\5\5\5\5.cpp(17,9): warning C4477: 'printf' : 格式字串 '%lf' 需要 'double' 類型的引數，但 variadic 引數 1 的類型為 'double (__cdecl *)(int,int)'
+C:\Users\user\Desktop\5\5\5\5.cpp(18,14): warning C4244: 'return': 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+C:\Users\user\Desktop\5\5\5\5.cpp(46): warning C4717: 'power': 在所有控制路徑上遞迴，函式將導致執行階段堆疊溢位
+  5.vcxproj -> C:\Users\user\Desktop\5\5\Debug\5.exe
