@@ -1,0 +1,3 @@
+﻿  6.cpp
+C:\Users\user\Desktop\6\6\6\6.cpp(14,17): warning C4244: '=': 將 'double' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  6.vcxproj -> C:\Users\user\Desktop\6\6\Debug\6.exe
