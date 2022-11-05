@@ -17,30 +17,27 @@ int main(void)
 
     largest = a;
 
-    if (c >= a) {
-        largest = c;
-    }//end if
+    if (a >= b) {
+        if(a>=c)
+        largest=a;
+        else
+            largest=b;   
+    }
+    else if (c >= b) {
+        largest=c;
+    }
     else {
-        if (b >= c) {
-            largest = b;
-        }//end if
-        else {
-            largest = c;
-        }//end else
-    }//end else
-
-    smallest = b;
-    if (a <= b) {
-        smallest = a;
-    }//end if
-    else {
-        if (c <= a) {
-            smallest = c;
-        }//end if
-        else {
-            smallest = a;
-        }//end else
-    }//end else
+        largest=b;
+    }
+    if (a >= b) {
+        smallest=b;
+    }
+    if (b >= a) {
+        smallest=a;
+    }
+    if (c < smallest) {
+        smallest=c;
+    }
 
     printf("合:%d\n",a+b+c);
     printf("平均:%d\n",(a+b+c)/3);
