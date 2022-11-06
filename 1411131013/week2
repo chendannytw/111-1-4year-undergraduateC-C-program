@@ -34,56 +34,40 @@ quiz1
 #include <stdio.h>
 
 //function main begins program exection
+//從鍵盤輸入兩個整數，分別印出它們的和、差、乘積、商、餘數
 
 int main(void)
 {
-    int integer1;
-    int integer2;
-    int sum;
-    int d;
-    int t;
-    int b;
-    int mod;
+    int i1,i2;  //i1=第一個整數、i2=第二個整數
+    int sum,d,t,b,mod;  //sum=和、d=差、t=乘積、b=商、mod=餘數 
 
-    printf("Enter first integer\n ");
-    scanf_s("%d", &integer1);
+    printf("Enter first integer and second integer\n ");
+    scanf("%d" "%d", &i1 ,&i2);
 
-    printf("Enter second integer\n ");
-    scanf_s("%d", &integer2);
-
-    sum = integer1 + integer2;
-    d = integer1 - integer2;
-    t = integer1 * integer2;
-    b = integer1 / integer2;
-    mod = integer1 % integer2;
+    sum = i1 + i2;  //和 
+    d = i1 - i2;    //差
+    t = i1 * i2;    //乘積 
+    b = i1 / i2;    //商 
+    mod = i1 % i2;  //餘數 
 
     printf("Sum is  %d\n ", sum);
     printf("d is  %d\n ", d);
     printf("t is  %d\n ", t);
     printf("b is  %d\n ", b);
     printf("mod is  %d\n ", mod);
-
-}//end funtion main
+}
 
 quiz2
+//從鍵盤輸入物體速度v、加速度a與經過時間e，請利用以下公式計算出物件最後的速度與移動距離
+
 #include <stdio.h>
 
 int main(void)
 {
-    int v;
-    int a;
-    int e;
-    int s;
+    int v,a,e,s; //v=速度、a=加速度、e=經過時間、s=移動距離
 
-
-    printf("Enter first integer\n ");
-    scanf("%d", &v);
-
-    printf("Enter second integer\n ");
-    scanf("%d", &a);
-
-    printf("Enter second integer\n ");
-    scanf("%d", &e);
+    printf("Enter v a e\n ");
+    scanf("%d" "%d" "%d", &v , &a ,&e);
 
     v = v + a*e;
     s=v*e + 1/2*a*e*e;
