@@ -37,50 +37,33 @@ return 0;
 
 test1
 
-#include <stdio.h>
-#include <stdlib.h>
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
 int main( void )
 {
-   printf( "Enter three number, and I will tell you\n" );
-   printf( "the largest,smallest,sum,average,product: " );
 
-   int a,b,c,largest=9999,smallest=0;
+   int a,b,c,max,min;
    int sum,av,ta;
-
+   
+   printf("Enter 3 integers\n");
    scanf( "%d" "%d" "%d",&a,&b,&c);
 
-   if(a>b){        //a>b
-   	  if(a>c){     //a>b,a>c
-   	  	puts("largest=a");
-   	  	if(b>c){   //a>b,b>c
-   	  		puts("smallest=c");
-			 }
-		else{
-			puts("smallest=b");}
-		}
-	  else{        //a>b,a<c
-	  puts("largest=c");
-	  puts("smallest=b");
-	  }
-   }
-   else{           //a<b
-      if(b>c){     //a<b,b>c
-      puts("largest=b");
-	  puts("smallest=a");
-	  }
-	  else{        //a<b,b<c
-	  puts("largest=c");
-	  puts("smallest=a");
-	  }
-   }
+   max = a;
+	if (max<b)
+		max = b;
+	if (max<c)
+		max = c;
+
+	min = a;
+	if (min > b)
+		min = b;
+	if (min > c)
+		min = c;
+
    sum=a+b+c;
    av=(a+b+c)/3;
    ta=a*b*c;
-   printf("sum is %d\n",sum);
-   printf("av is %d\n",av);
-   printf("ta is %d\n",ta);
-           } // end if
+   
+   printf("max is %d , min is %d\n", max, min);
+   printf("sum is %d , av is %d , ta is %d", sum,av,ta);
+   
+      } 
 	   
