@@ -49,10 +49,10 @@ int main(void)
 	scanf_s("%d", &e);
 
 	v = v + a * e;
-	printf("最後速度%d", v);
+	printf("final velocity : %d", v);
 
 	s = v * e + (1 / 2) * a * e;
-	printf("移動距離%d", s);
+	printf("distance traversed : %d", s);
 }
 
 
