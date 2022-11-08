@@ -10,7 +10,7 @@ int main(void)
 	unsigned int student = 1;
 	int result = 0;
 
-	printf("%s", "Enter the result(1=pas,2=fail,1=abort):");
+	printf("%s", "Enter the result(1=pas,2=fail,-1=abort):");
 	scanf_s("%d", &result);
 
 	while (result != -1) {
