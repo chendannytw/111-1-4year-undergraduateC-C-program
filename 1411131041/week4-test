@@ -1,22 +1,32 @@
 #include <stdio.h>
-#include <math.h>  
 
 int main(void)
 {
-    double principal = 0;
-    double rate = .05;
-    int period = 0;
-    printf("定存本金\n");
-    scanf_s("%lf", &principal);
-    printf("定存利率\n");
-    scanf_s("%lf", &rate);
-    printf("定存年限\n");
-    scanf_s("%d", &period);
+    unsigned int passes = 0;  
+    unsigned int failures = 0; 
+    unsigned int student = 0;    
+    int result; 
+    printf("%s", "Enter result ( 1=pass,2=fail,-1=end ): ");
+    scanf_s("%d", &result);
+    while (result != -1) 
+    {            
+        if (result == 1) {
+            passes++;
+        } 
+        else { 
+            failures++;
+        } 
 
-    for (unsigned int year = 1; year <= period; ++year) {
+        student++;
+        printf("%s", "Enter result ( 1=pass,2=fail,-1=end ): ");
+        scanf_s("%d", &result);
+    }  
 
-        double amount = principal * pow(1.0 + rate, year);
-
-        printf("%4u%21.2f\n", year, amount);
-    }
-}
+    printf("Passed %u\n", passes);
+    printf("Failed %u\n", failures);
+    printf("passes %2.f%%\n", (float)passes / student * 100);
+    if ((float)passes/student >= 0.8)
+    {
+    puts("Bonus to instructor!");
+    } 
+} 
