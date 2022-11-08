@@ -8,44 +8,44 @@ int main(void)
 	int x;
 	int y;
 
-	printf("輸入第一數值\n");
+	printf("Enter the value\n");
 	scanf_s("%d", &x);
 
-	printf("輸入第二數值\n");
+	printf("Enter the value\n");
 	scanf_s("%d", &y);
 
 	int S;
 	S = x + y;
-	printf("和%d\n", S);
+	printf("sum is : %d\n", S);
 
 	int D;
 	D = x - y;
-	printf("差%d\n", D);
+	printf("difference is : %d\n", D);
 
 	int P;
 	P = x * y;
-	printf("乘積%d\n", P);
-
+	printf("product is : %d\n", P);
+ 
 	int Q;
-	Q = x % y;
-	printf("商數%d\n", Q);
+	Q = x / y;
+	printf("quotient is : %d\n", Q);
 
 	int R;
-	R = x / y;
-	printf("餘數%d\n", R);
+	R = x % y;
+	printf("remainder is : %d\n", R);
 
 	int v;
 	int a;
 	int e;
 	int s;
 	//
-	printf("物體速度");
+	printf("speed");
 	scanf_s("%d", &v);
 
-	printf("加速度");
+	printf("acceleration");
 	scanf_s("%d", &a);
 
-	printf("經過時間");
+	printf("time");
 	scanf_s("%d", &e);
 
 	v = v + a * e;
