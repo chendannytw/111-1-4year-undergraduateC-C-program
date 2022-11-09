@@ -1,5 +1,4 @@
-//1. 遞迴fibonacci
-//2. 用其他方式
+// 遞迴fibonacci求數列
 #include <stdio.h>
 
 long int fibonacci(int n);
@@ -19,4 +18,46 @@ long int fibonacci(int n) {
 
     else 
         return fibonacci(n - 1) + fibonacci(n - 2);
+}
+----------------------------------------------------------------
+//遞迴fibonacci求數列
+#include<stdio.h>
+int fac(int);
+
+int main() {
+    //Q1.
+    int n;
+    printf("輸入一整數:");
+    scanf("%d", &n);
+    for (int i = 0; i <= n; i++) {
+        printf("%d ", fac(i));
+    }
+    printf("\n");
+    printf("%d\n", fac(n));
+
+    //Q2 for求數列中的某數
+
+    printf("Q2\n");
+    scanf("%d", &n);
+    int n1 = 0, n2 = 1, asw;
+
+    if (n <= 1)printf("%d ", n);
+
+    else
+    {
+        for (int i = 2; i <= n; i++) {
+            asw = n1 + n2;
+            n1 = n2;
+            n2 = asw;
+        }
+        printf("%d ", asw);
+    }
+}
+
+
+
+int fac(int n) {
+    if (n <= 1) return n;
+
+    else return fac(n - 1) + fac(n - 2);
 }
