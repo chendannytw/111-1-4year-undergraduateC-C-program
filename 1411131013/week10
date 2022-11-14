@@ -1,0 +1,32 @@
+題目：修改課本305頁的程式，印出柱狀圖的程式碼放入一個副程式中，並透過
+陣列傳遞的方式，將兩個陣列與size傳送到副程式印出
+
+#include <stdio.h>
+#define RESPONSE_SIZE 20
+#define FREQUENCY_SIZE 6
+int answer = 0;
+void sub1(int freq[],int size);
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(void) {
+	int responses[RESPONSE_SIZE] = {1,2,3,5,4,3,5,2,1,5,1,4,2,3,1,3,4,1,2,1};
+	int frequency[FREQUENCY_SIZE] = {0};
+	
+	for (answer = 0; answer < RESPONSE_SIZE;++answer){
+		++frequency[responses[answer]];
+	}
+	printf("%s%12s\n", "Rating", "Frequency");
+	sub1(frequency,FREQUENCY_SIZE);
+	
+}
+
+void sub1(int freq[],int size)
+{int rating,hist;
+	for ( rating =1; rating < size; ++rating ){
+		printf("%6d%17d ",rating,freq[rating]);
+	for ( hist =0; hist < freq[rating]; ++hist )
+	    printf("*");
+	printf("\n");
+	}
+}
