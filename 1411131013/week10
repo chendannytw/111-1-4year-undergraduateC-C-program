@@ -30,3 +30,31 @@ void sub1(int freq[],int size)
 	printf("\n");
 	}
 }
+text1  306,307頁
+
+#include <stdio.h>
+#define SIZE 5
+void sub1(int b[],int size);
+
+// function main begins program execution
+int main(void)
+{
+   // use initializer list to initialize array n
+   int n[SIZE] = {19, 3, 15, 7, 11},i;
+
+   printf("%s%15s\n", "Element", "Value");
+
+   // for each element of array n, output a bar of the histogram
+   
+   sub1(n,SIZE);
+}
+void sub1(int b[],int size)
+{int rating,hist;
+	for ( rating =0; rating < size; ++rating ){
+		printf("%6d%15d ",rating,b[rating]);
+	for ( hist =0; hist < b[rating]; ++hist )
+	    printf("*");
+	printf("\n");
+	}
+}
+
