@@ -22,7 +22,12 @@ int main(void)
 int frequency[FREQUENCY_SIZE]={0};
 void sub1(int freq[], int size)
 {int rating,hist;
-    for(rating=1;rating<FREQUENCY_SIZE;++rating);
+for (rating = 1; rating < FREQUENCY_SIZE; ++rating) {
+    printf("%6d%17d ",rating,freq[rating]);
+    for(hist=0;hist<freq[rating];hist++)
+        printf("*");
+    printf("\n");
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
