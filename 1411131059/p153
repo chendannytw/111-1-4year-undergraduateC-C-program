@@ -6,13 +6,13 @@
 int main(void)
 {
 	double principal;
-	printf("¿é¤J²Ä¤@¦~¥»ª÷¡G");
+	printf("è¼¸å…¥ç¬¬ä¸€å¹´æœ¬é‡‘ï¼š");
 	scanf("%lf", &principal) ;
 	double rate;
-	printf("¿é¤J©w¦s§Q²v(%%)¡G");
+	printf("è¼¸å…¥å®šå­˜åˆ©çŽ‡(%%)ï¼š");
 	scanf("%lf", &rate) ;
 	int period;
-	printf("¿é¤J©w¦s¦h¤[¡]¦~¡^¡G");
+	printf("è¼¸å…¥å®šå­˜å¤šä¹…ï¼ˆå¹´ï¼‰ï¼š");
 	scanf("%d", &period) ;
 
    // output table column heads
