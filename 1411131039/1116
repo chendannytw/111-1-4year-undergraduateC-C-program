@@ -1,0 +1,12 @@
+#include <stdio.h>
+#define size 10
+
+int a(int c[size]);
+int main(void) {
+	int n[size]={2,2,5,9,4,6,7,8,3,1};
+	int c[11]={0};
+	printf("%s%13s%17s\n","Element","value","bar Chart");
+	for(i=0,i<size,i++){
+		c[n[i]]++
+	}
+}
