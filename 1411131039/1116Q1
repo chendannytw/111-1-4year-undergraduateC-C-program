@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define SIZE 5
+
+void a(int x[],int size);
+int main(void)
+{
+   int n[SIZE] = {19, 3, 15, 7, 11},i,j;
+   printf("%s%13s%17s\n", "Element", "Value", "Histogram");
+
+
+   for (i = 0; i < SIZE; ++i) {
+      printf("%7u%13d        ", i, n[i]) ;
+      a(n,i);                                 
+      puts(""); 
+   } 
+}
+void a(int x[],int size){
+	int j;
+	for ( j = 0; j < x[size]; ++j) { 
+         printf("%c", '*');                                  
+	   }
+} 
