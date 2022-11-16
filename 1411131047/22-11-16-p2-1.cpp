@@ -1,4 +1,6 @@
-void fre(int R[], int F[],int);
+#include <stdio.h>
+#define RESPONSES_SIZE 40
+#define FREQUENCY_SIZE 11
 
 
 int main() {
