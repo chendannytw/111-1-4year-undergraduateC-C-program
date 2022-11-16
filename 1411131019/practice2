@@ -1,11 +1,10 @@
 #include <stdio.h>
-#define RESPONSES_SIZE 40 // define array sizes
-#define FREQUENCY_SIZE 11
-void respon(int freq[], int resp[]);
-// function main begins program execution
+#define RESPONSES_SIZE 40 // 定義RESPONSES的長度為40
+#define FREQUENCY_SIZE 11 // 定義FREQUENCY的長度為11
+void respon(int freq[], int resp[]);//宣告一個副程式"respon"裡面有兩個陣列"freq"、"resp"
+
 int main(void)
 {
-    // initialize frequency counters to 0
     int frequency[FREQUENCY_SIZE] = { 0 };
 
     // place the survey responses in the responses array
