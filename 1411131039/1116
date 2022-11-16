@@ -7,6 +7,7 @@ int main(void) {
 	int c[11]={0};
 	printf("%s%13s%17s\n","Element","value","bar Chart");
 	for(i=0,i<size,i++){
-		c[n[i]]++
+		++c[n[i]];
+		for
 	}
 }
