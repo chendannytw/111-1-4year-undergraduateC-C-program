@@ -16,15 +16,23 @@ int main(void)
     {
       ++frequency[responses[answer]];
    } 
-   qw(frequency,responses)
+   qw(frequency,responses);
 }
 
 
 void qw(int frequency[],int responses[])
 {
-   printf("%s%17s\n", "Rating", "Frequency");
+   printf("%s%17s%11s\n", "Rating", "Frequency","Star");
 
-   for (int rating = 1; rating < FREQUENCY_SIZE; ++rating) {
-      printf("%6d%17d\n", rating, frequency[rating]);
+   for (int rating = 1; rating < FREQUENCY_SIZE; ++rating) 
+   {
+      printf("%6d%17d       ", rating, frequency[rating]);
+      
+            for (int j = 1; j <= frequency[rating]; ++j) 
+			{ 
+         printf("%c", '*');                                  
+	   }                                     
+
+      puts("");
    } 
 }
