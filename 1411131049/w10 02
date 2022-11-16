@@ -2,7 +2,7 @@
 #define RESPONSES_SIZE 40 
 #define FREQUENCY_SIZE 11
 
-void modifyArray(int b[],int size);
+void qw(int frequency[],int responses[]);
 
 int main(void)
 {   
@@ -16,16 +16,15 @@ int main(void)
     {
       ++frequency[responses[answer]];
    } 
-   modifyArray(frequency,FREQUENCY_SIZE);
+   qw(frequency,responses)
 }
 
 
-
-void modifyArray(int b[],int size)
+void qw(int frequency[],int responses[])
 {
    printf("%s%17s\n", "Rating", "Frequency");
 
    for (int rating = 1; rating < FREQUENCY_SIZE; ++rating) {
-      printf("%6d%17d\n", rating, b[rating]);
+      printf("%6d%17d\n", rating, frequency[rating]);
    } 
 }
