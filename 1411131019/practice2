@@ -1,33 +1,38 @@
+//Question：要求40位學生對學生自助餐廳的食物打分數，分數為1到10分，請將這40份回應放在一個整數陣列中，並且整理此項調查的解果
+
 #include <stdio.h>
-#define RESPONSES_SIZE 40 // 定義RESPONSES的長度為40
-#define FREQUENCY_SIZE 11 // 定義FREQUENCY的長度為11
+#define RESPONSES_SIZE 40 // 定義陣列RESPONSES的長度為40(人)
+#define FREQUENCY_SIZE 11 // 定義陣列FREQUENCY的長度為11(10個選項，最後一個為'\0')
 void respon(int freq[], int resp[]);//宣告一個副程式"respon"裡面有兩個陣列"freq"、"resp"
 
 int main(void)
 {
-    int frequency[FREQUENCY_SIZE] = { 0 };
+    int frequency[FREQUENCY_SIZE] = { 0 };//先將frequency陣列裡的元素值設為0，以免使用到先前使用者未刪除的資料
 
     // place the survey responses in the responses array
-    int responses[RESPONSES_SIZE] = { 1, 2, 6, 4, 8, 5, 9, 7, 8, 10,
-         1, 6, 3, 8, 6, 10, 3, 8, 2, 7, 6, 5, 7, 6, 8, 6, 7, 5, 6, 6,
-         5, 6, 7, 5, 6, 4, 8, 6, 8, 10 };
+    int responses[RESPONSES_SIZE] = { 1, 2, 6, 4, 8, 5, 9, 7, 8, 10,  1, 6, 3, 8, 6, 10, 3, 8, 2, 7, 6, 5, 7, 6, 8, 6, 7, 5, 6, 6,
+        5, 6, 7, 5, 6, 4, 8, 6, 8, 10 };
+    //設定回應的結果為↑
 
     // for each answer, select value of an element of array responses
     // and use that value as an index in array frequency to 
     // determine element to increment
-    
-    respon(frequency, responses);
+
+    respon(frequency, responses);//呼叫副程式，並將兩陣列1.frequency、2.responses傳遞給副程式
     // display results
     printf("%s%17s\n", "Rating", "Frequency");
 
     // output the frequencies in a tabular format
-    for (size_t rating = 1; rating < FREQUENCY_SIZE; ++rating) {
+    for (size_t rating = 1; rating < FREQUENCY_SIZE; ++rating) {//rating：顯示1到10分，frequency[rating]顯示統計結果
         printf("%6d%17d\n", rating, frequency[rating]);
     }
 }
-void respon(int freq[], int resp[])
-{   int answer;
-    for ( answer = 0; answer < RESPONSES_SIZE; ++answer) {
+void respon(int freq[], int resp[])//宣告副程式respon內有兩個陣列1.frequency陣列傳遞給freq2.responses陣列傳遞給resp
+{
+    int answer;
+    for (answer = 0; answer < RESPONSES_SIZE; ++answer) {//當answer<40就將其回復的值+1  ex.回應值為1、1、1、2、2 則統計回應個數1→3、2→2
         ++freq[resp[answer]];
     }
 }
+
+//傳遞陣列到副程式之中
