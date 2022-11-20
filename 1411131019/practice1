@@ -1,27 +1,24 @@
-// Fig. 6.8: fig06_08.c
-// Displaying a histogram.
-#include <stdio.h>
-#define SIZE 5
-void star(int b[], int);
-// function main begins program execution
-int main(void)
-{
-    // use initializer list to initialize array n
-    int n[SIZE] = { 19, 3, 15, 7, 11 }, i, j;
 
+#include <stdio.h>
+#define SIZE 5   //定義SIZE的值為5，在編譯之前電腦會先掃描程式，將所有出現SIZE的部份替換為5
+void star(int b[], int);//告知編譯器此程式之中有一個副程式存在
+
+int main(void)
+{               // n[0] n[1] n[2] n[3] n[4]
+    int n[SIZE] = { 19,  3,  15,   7,   11 }, i, j;//設定陣列n的元素
     printf("%s%13s%17s\n", "Element", "Value", "Histogram");
 
-    // for each element of array n, output a bar of the histogram
     for (i = 0; i < SIZE; ++i) {
-        printf("%7u%13d        ", i, n[i]);
-        star(n, n[i]);
-        puts(""); // end a histogram bar with a newline
+        printf("%7u%13d        ", i, n[i]);//列印出陣列n
+        star(n, n[i]);//呼叫副程式star，並將陣列n、n[i]=元素值傳送給副程式
+        puts(""); //換行
     }
-}
-void star(int b[], int size)
+}          
+void star(int b[], int size)//將n陣列傳送給b陣列，n[i]傳送給size
 {
-    int i, j;
-    for (j = 1; j <size; ++j) { // print one bar
-        printf("%c", '*');
+    int j;
+    for (j = 0; j < size; ++j) {
+        printf("%c", '*');//%c：字元char，需加單引號''
     }
 }
+//在主程式之中SIZE要用大寫，副程式用小寫
