@@ -1,0 +1,171 @@
+text1
+
+#include <stdio.h>
+#define SIZE 10
+void sort (int a[],int c[],int size);
+int main(void){
+	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+	int c[SIZE] = {66,67,66,70,73,74,75,75,62,32};
+	
+	puts("Date items in original order\n");
+	int i;
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	
+	sort (a,c,SIZE);
+	puts("\nDate items in ascending order");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	puts("");
+}
+int i;
+void sort (int a[],int c[],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (c[i] > c[ i+1 ]){
+	  		hold = c[i];
+	  		c[i] = c[i+1];
+	  		c[i+1]=hold;
+	  		hold = a[i];
+	  		a[i] = a[i+1];
+	  		a[i+1]=hold;
+		  }
+	  }
+	}
+}
+
+text2
+#include <stdio.h>
+#define SIZE 10
+void sort (int a[],int c[],int size);
+int main(void){
+	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+	int c[SIZE] = {66,67,66,70,73,74,75,75,62,32},i,ID,j=0;
+	
+	puts("Date items in original order\n");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	
+	sort (a,c,SIZE);
+	puts("\nDate items in ascending order");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	printf("\nInput student ID： ");
+	scanf("%d", &ID);
+	for(i=0;i<SIZE;i++)
+	   if(ID==a[i]){
+	      printf("Student %d got %d", a[i], c[i]);
+	      break;
+		  }
+	   else
+          j++;
+	if(j >= 9)printf("student %d not found!",ID);
+		
+	puts("");
+}
+int i;
+void sort (int a[],int c[],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (c[i] > c[ i+1 ]){
+	  		hold = c[i];
+	  		c[i] = c[i+1];
+	  		c[i+1]=hold;
+	  		hold = a[i];
+	  		a[i] = a[i+1];
+	  		a[i+1]=hold;
+		  }
+	  }
+	}
+}
+
+text3
+
+#include <stdio.h>
+#define SIZE 10
+void sort (int a[],int c[],int size);
+int main(void){
+	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+	int c[SIZE] = {66,67,66,70,73,74,75,75,62,32},i,ID,j=0;
+	
+	puts("Date items in original order\n");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	
+	sort (a,c,SIZE);
+	puts("\nDate items in ascending order");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	printf("\nInput student ID： ");
+	scanf("%d", &ID);
+	j=search(a,ID);
+	
+	if(j >= 9)printf("student %d not found!",ID);
+	else printf("Student %d got %d", a[j], c[j]);
+		
+	puts("");
+}
+int i;
+void sort (int a[],int c[],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (c[i] > c[ i+1 ]){
+	  		hold = c[i];
+	  		c[i] = c[i+1];
+	  		c[i+1]=hold;
+	  		hold = a[i];
+	  		a[i] = a[i+1];
+	  		a[i+1]=hold;
+		  }
+	  }
+	}
+}
+
+int search(int a[],int id){
+	int i,j;
+	for (i =0; i<SIZE; i++)
+	   if(id==a[i])
+	      return i;
+	   else
+	      i++;
+	      
+    return i;
+}
