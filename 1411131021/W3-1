@@ -1,0 +1,34 @@
+// Fig. 2.13: fig02_13.c
+// Using if statements, relational 
+// operators, and equality operators
+#include <stdio.h>
+
+// function main begins program execution
+int main( void )
+{
+   printf( "Enter a grade, and I will tell you\n" );
+   printf( "the results: " );
+
+   int num1; // first number to be read from user
+   //int num2; // second number to be read from user
+   
+   scanf( "%d", &num1); // read two integers
+   
+   if ( num1 >=90 ) {   //如果if括弧內的結果為true  ,就會執行if的大括弧內的內容
+                        	//如果if括弧內的結果為false  ,就跳過if的大括弧內的內容
+      puts("A");
+   }                                  
+   else if (num1 >=80  ) {
+         puts("B");
+   } // end if
+	else if (num1 >=70  ) {
+         puts("C");
+   } // end if
+   else if (num1 >=60  ) {
+         puts("D");
+   } // end if
+   else {
+         puts("F");
+   } // end if
+return 0;
+} // end function main
