@@ -1,0 +1,49 @@
+#include
+// Fig. 6.8: fig06_08.c
+// Displaying a histogram.
+#include <stdio.h>
+#define SIZE 5
+
+// function main begins program execution
+void a(int n[], int star);
+int main(void)
+{
+// use initializer list to initialize array n
+int n[SIZE] = { 19, 3, 15, 7, 11 }, i, j;
+
+printf("%s%13s%17s\n", "Element", "Value", "Histogram");
+
+// for each element of array n, output a bar of the histogram
+for (i = 0; i < SIZE; ++i) {
+    printf("%7u%13d        ", i, n[i]);
+
+    for (j = 1; j <= n[i]; ++j) { // print one bar
+        printf("%c", '*');
+    }
+
+    puts(""); // end a histogram bar with a newline
+}
+void a(int n[], int star);
+for (j = 1; j <= n[i]; ++j) { // print one bar
+printf("%c", '*');
+}
+
+}
+
+特性
+受讓人
+
+添加受讓人…
+Status
+
+Choose an option…
+轉換為問題
+檔案
+從項目中刪除
+@1411131021 的無題項目
+視圖 1
+視圖 2
+
+新觀點
+1116
+1116-2
