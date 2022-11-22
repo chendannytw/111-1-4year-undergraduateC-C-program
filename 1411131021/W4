@@ -5,19 +5,27 @@
 
 int main(void)
 {
-   double principal = 1000.0; // starting principal
-   double rate = .05; // annual interest rate
+    double principal; // starting principal
+    double rate; 
+    int period;
+    // annual interest rate
+    printf("輸入第一年本金:");
+    scanf_s("%1f", &principal);
+    printf("輸入定存利率(%%):");
+    scanf_s("%1f", &rate);
+    printf("輸入定存多久:");
+    scanf_s("%d", &period);
 
-   // output table column heads
-   printf("%4s%21s\n", "Year", "Amount on deposit");
+    // output table column heads
+    printf("%4s%21s\n", "Year", "Amount on deposit");
 
-   // calculate amount on deposit for each of ten years
-   for (unsigned int year = 1; year <= 10; ++year) {
+    // calculate amount on deposit for each of ten years
+    for (unsigned int year = 1; year <= 10; ++year) {
 
-      // calculate new amount for specified year
-      double amount = principal * pow(1.0 + rate, year);
+        // calculate new amount for specified year
+        double amount = principal * pow(1.0 + rate, year);
 
-      // output one table row
-      printf("%4u%21.2f\n", year, amount);   
-   }
-} 
+        // output one table row
+        printf("%4u%21.2f\n", year, amount);
+    }
+}
