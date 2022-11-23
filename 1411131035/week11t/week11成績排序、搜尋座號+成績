@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <math.h>
+
+#define SIZE 10
+
+int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+int c[SIZE] = { 66,67,49,70,73,74,98,75,62,32 };
+void score(int id[], int sc[]);
+int SCER(int id[], int sc[], int nb);
+// function main begins program execution
+
+int main(void)
+{
+    int i,NB;
+
+    puts("Data items in original order");
+
+    for (i = 0; i < SIZE; i++) {
+        printf("\n");
+        printf("%4d", a[i]);
+        printf("%4d", c[i]);
+    }
+    puts("\n\n升幕排列");
+
+    score(a, c);
+
+    for (i = 0; i < SIZE; i++)
+    {
+        printf("\n");
+        printf("%4d", a[i]);
+        printf("%4d", c[i]);
+    }
+
+    printf("\n請輸入號碼");
+    scanf_s("%d", &NB);
+    
+    if (SCER(a, c, NB) < 0)
+    {
+        printf("找不到號碼");
+    }
+    printf("號碼=%d and 分數=%d", NB, (SCER(a, c, NB)));
+}
+
+void score(int id[],int sc[])
+{
+    int i,aa,bb,cc;
+    for (aa = 1; aa < SIZE; aa++)
+    {
+         
+        for (i = 0; i < SIZE-1; i++) 
+        {
+            if (sc[i] > sc[i + 1])
+            {
+                bb = id[i];
+                id[i] = id[i + 1];
+                id[i + 1] = bb;
+
+                cc = sc[i];
+                sc[i] = sc[i + 1];
+                sc[i + 1] = cc;
+            }
+            
+        }
+    }
+    
+}
+
+int SCER(int id[], int sc[],int nb)
+{
+    int i;
+    for (i = 0; i < SIZE; i++)
+    {
+        if (id[i] == nb) return sc[i];
+    }
+    return -1;
+}
