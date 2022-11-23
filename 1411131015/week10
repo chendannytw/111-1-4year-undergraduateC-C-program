@@ -1,0 +1,59 @@
+副程式
+#include <stdio.h>
+#define RESPONSE_SIZE 20
+#define FREQUENCY_SIZE 6
+int answer = 0;
+void sub1(int freq[],int size);
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(void) {
+	int responses[RESPONSE_SIZE] = {1,2,3,5,4,3,5,2,1,5,1,4,2,3,1,3,4,1,2,1};
+	int frequency[FREQUENCY_SIZE] = {0};
+	
+	for (answer = 0; answer < RESPONSE_SIZE;++answer){
+		++frequency[responses[answer]];
+	}
+	printf("%s%12s\n", "Rating", "Frequency");
+	sub1(frequency,FREQUENCY_SIZE);
+	
+}
+
+void sub1(int freq[],int size)
+{int rating,hist;
+	for ( rating =1; rating < size; ++rating ){
+		printf("%6d%17d ",rating,freq[rating]);
+	for ( hist =0; hist < freq[rating]; ++hist )
+	    printf("*");
+	printf("\n");
+	}
+}
+
+
+(P306,307)
+
+#include <stdio.h>
+#define SIZE 5
+void sub1(int b[],int size);
+
+// function main begins program execution
+int main(void)
+{
+   // use initializer list to initialize array n
+   int n[SIZE] = {19, 3, 15, 7, 11},i;
+
+   printf("%s%15s\n", "Element", "Value");
+
+   // for each element of array n, output a bar of the histogram
+   
+   sub1(n,SIZE);
+}
+void sub1(int b[],int size)
+{int rating,hist;
+	for ( rating =0; rating < size; ++rating ){
+		printf("%6d%15d ",rating,b[rating]);
+	for ( hist =0; hist < b[rating]; ++hist )
+	    printf("*");
+	printf("\n");
+	}
+}
