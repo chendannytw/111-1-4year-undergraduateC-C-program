@@ -1,50 +1,53 @@
-#include<stdio.h>
+#include <stdio.h>
 #define SIZE 10
 
-void sort(int a[], int c[], int size)
-int main(void) {
-    int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
-    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+void sort(int a[], int c[], int size);
 
-    puts("Data items in original order");
+int main(void) 
+{
+	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+	int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
 
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
-    }
+	puts("Date items in original order");
+	int i;
 
-    sort(a, c, SIZE);
-    puts("\nData items in ascending order");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", a[i]);
+	}
+	printf("\n");
 
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
-    }
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", c[i]);
+	}
 
-    puts("");
+	sort(a, c, SIZE);
+	puts("\nDate items in ascending order");
+
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", a[i]);
+	}
+	printf("\n");
+
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", c[i]);
+	}
+	puts("");
 }
 
-void sort(int a[], int c[], int size) {
+void sort(int a[], int c[], int size) 
+{
+	int pass, hold,i;
+	for (pass = 1; pass < SIZE; ++pass) {
+		for (i = 0; i < SIZE - 1; ++i) {
+			if (c[i] > c[i + 1]) {
+				hold = c[i];
+				c[i] = c[i + 1];
+				c[i + 1] = hold;
 
-    int hold;
-    for (unsigned int pass = 1; pass < SIZE ; ++pass) {
-
-        for (size_t i = 0; i < size - pass ; ++i) {
-
-            if (c[i] > c[i = 1]) {
-                hold = c[i];
-                c[i] = c[i + 1];
-                c[i + 1] = hold;
-            hold = a[i];
-            a[i] = a[i + 1];
-            a[i + 1]= hold;
-    }
-}
-}
+				hold = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = hold;
+			}
+		}
+	}
 }
