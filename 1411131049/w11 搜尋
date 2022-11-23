@@ -1,0 +1,38 @@
+#include <stdio.h>
+#define SIZE 10
+int search(int a[],int );
+int main(void)
+{
+    int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 },ID,i,j;
+
+    puts("Data items in original order");
+    for (int i = 0; i < SIZE; ++i) {
+        printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", c[i]);
+    }
+    puts("");
+
+    printf("\nInput student ID: ");
+    scanf("%d", &ID);
+
+    j = search(a,ID);
+    if (j < 0) 
+	
+	printf("student %d not found!", ID);
+	
+	else printf("Student %d got %d!",ID, c[j]);
+
+    puts("");
+}
+
+int search(int a[],int id)
+{
+    int i;
+    for (i = 0; i < SIZE; i++)
+        if (id == a[i])
+            return i;
+
+    return -1;
+}
