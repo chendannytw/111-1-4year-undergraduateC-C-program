@@ -1,13 +1,13 @@
 #include <stdio.h>
 #define SIZE 10		
-	int id[SIZE] = { 2,6,4,8,10,12,89,68,45,37 },c,i,j=0;
-	int score [SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
-	void sort(int a[SIZE], int b[SIZE]);
-	int search(int a[],int );
+int id[SIZE] = { 2,6,4,8,10,12,89,68,45,37 },c,i,j=0;
+int score [SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+void sort(int a[SIZE], int b[SIZE]);
+int Linearsearch(int a[],int );
 int main(void) {
-	
+	int i ;
 	puts("Data items in original order");
-	for (size_t i = 0; i < SIZE; i++)
+	for (i = 0; i < SIZE; i++)
 	{
 		printf("%4d", id[i]);
 		printf("%4d\n", score[i]);
@@ -15,15 +15,15 @@ int main(void) {
 	
 	sort(id, score);
 	puts("\nData items in ascending order");
-	for (size_t i = 0; i < SIZE; i++)
+	for (i = 0; i < SIZE; i++)
 	{
 		printf("%4d", id[i]);
 		printf("%4d\n", score[i]);
 		
 	}
-	
+	printf("please enter a number to search your score:");
 	scanf("%d", &c);
-	j = search(id,c);
+	j = Linearsearch(id,c);
 	if (j >= 9)printf("student %d was not found",c);
 	else printf("student %d got %d!", id[j], score[j]);
 	
@@ -36,9 +36,11 @@ int main(void) {
 }
 void sort(int a[], int b[])
 {
-	for (int pass = 1; pass < SIZE; pass++)
+	int i;
+	int pass;
+	for ( pass = 1; pass < SIZE; pass++)
 	{
-		for (size_t i = 0; i < SIZE - 1; i++)
+		for ( i = 0; i < SIZE - 1; i++)
 		{
 			if (score[i] > score[i + 1])
 			{
@@ -54,7 +56,8 @@ void sort(int a[], int b[])
 
 }
 
-int search(int a[], int c) {
+int Linearsearch(int a[], int c) 
+{
 	
 	for ( i = 0; i < SIZE; i++)
 	{
