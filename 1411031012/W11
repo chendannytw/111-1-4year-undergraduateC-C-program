@@ -71,7 +71,7 @@ void sort(int a[], int b[]) {
 }
 -----------------------------------------------------------------------------------------------
 // Q2
-//待改 無成績輸出 not found 不是-1
+/// EX1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
 
 
 #include <stdio.h>
@@ -93,18 +93,17 @@ int main()
 	for (i = 0; i < SIZE; ++i) {
 		printf("%4d", b[i]);
 	}
-		
-	
+
 	printf("\n------------\n");
 	printf("請輸入學生號碼:");
 	scanf("%d",&id);
 	
-/*	if (linearSearch(a,b,id) <0){
+	int d=linerSearch(a,b,id);
+	if (d <0)
 		printf("ID not found!");
-        return 0;
-	}*/
-
-	printf("%d的成績為%d",id,linerSearch(a,b,id));
+   	 else
+    		printf("%d的成績為%d",id,d);
+	
 
 }
 
@@ -114,7 +113,6 @@ int linerSearch(int a[], int b[],int id) {
 		if(id==a[i])
 			return b[i];
 	}
-		
 		
 	return -1;
 	
