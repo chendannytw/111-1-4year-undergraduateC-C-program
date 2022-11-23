@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define SIZE 10
 
+
 int search(int a[], int);
 
 int main(void)
@@ -24,8 +25,7 @@ int main(void)
     scanf_s("%d", &ID);
 
     j = search(a, ID);
-    if (j >= 9) printf("student %d not found!", ID);
-
+    if (j > 9) printf("Student %d not found!", ID);
     else printf("Student %d got %d!", a[j], c[j]);
 
 
@@ -39,8 +39,5 @@ int search(int a[], int id)
     for (i = 0; i < SIZE; i++)
         if (id == a[i])
             return i;
-        else
-            i++;
 
-    return i;
 }
