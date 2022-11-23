@@ -154,3 +154,52 @@ sort(int a[], int s[], int size){
 		}
 	}
 }
+
+
+線性搜尋
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+#define SIZE 10
+int search(int id[], int sc[], int stu);
+int main(void) {
+	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+	int s[SIZE] = {66,67,66,70,73,74,75,75,62,32};
+	
+	puts("Data items in original order");
+	
+	int i,pass,temp;
+	
+	for( i=0; i<SIZE; ++i) {
+		printf("%4d",a[i]);
+		
+	} 
+	 printf("\n");
+	 
+	 for (i = 0; i < SIZE; ++i) {
+        printf("%4d", s[i]);
+    }
+
+//	sort(a,s,SIZE);
+	printf("\n");
+	printf("please input the id :");
+	scanf("%d", &temp);
+	if(search(a,s,temp)<0){
+		printf("id not found");
+		return 0;
+	} 
+	printf("id = %d and score = %d" , temp, s[search(a,s,temp)]);
+	
+	puts("\nData items in ascending order");
+	
+    puts("");
+}
+
+int search(int id[], int sc[], int stu)
+{int i;
+	for(i =0; i<SIZE; i++)
+		if(id[i]==stu) return i;
+	return -1;
+}
