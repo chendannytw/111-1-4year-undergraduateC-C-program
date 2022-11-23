@@ -3,63 +3,49 @@
 
 #include <stdio.h>
 #define SIZE 10
-void sort(int a[], int c[], int size);
+int linearsearch(int id[], int sc[], int stu);
+//void sort(int a[], int c[]);
 int main(void)
 {
     int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
-    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 }, ID, i, j = 0;
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
     puts("Data iteam in original order");
-
+    int i,temp;
     for (i = 0; i < SIZE; ++i) {
+        printf("\n");
         printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
     }
+        
+    
 
-    sort(a, c, SIZE);
+    //sort(a, c);
     puts("\nData iteams in ascending order");
-
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
+    printf("Enter id:");
+    scanf_s("%d",&temp);
+    if (temp >= 90) {
+        puts("not found");
+        return 0;
     }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
+    printf("id=%d and score=%d",temp,c[linearsearch(a,  c,  temp)]);
+    /*for (size_t i = 0; i < SIZE; ++i) {
+        printf("\n");
+        printf("%4d", a[i]);
         printf("%4d", c[i]);
     }
-
-    printf("Input student ID:");
-    scanf_s("%d", &ID);
-    for (i = 0; i < SIZE; i++)
-        if (ID == a[i])
-        {
-            printf("Student %d got %d!", a[i], c[i]);
-            break;
-        }
-        else
-            j++;
-    if (j >= 9) printf("student %d not found", ID);
+    */
 
     puts("");
 }
-void sort(int a[], int c[], int size)
-{
-    int hold;
-    for (unsigned int pass = 1; pass < SIZE; ++pass) {
-        for (size_t i = 0; i < size - pass; ++i) {
-            if (c[i] > c[i + 1]) {
-                hold = c[i];
-                c[i] = c[i + 1];
-                c[i + 1] = hold;
-                hold = a[i];
-                a[i] = a[i + 1];
-                a[i + 1] = hold;
-            }
-        }
-    }
-}
 
+int linearsearch(int id[], int sc[], int stu)
+{
+    int i;
+    for(i=0;i<SIZE;i++)
+        if(id[i]==stu) return i;
+
+    return -1;
+}
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
 // 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
 
