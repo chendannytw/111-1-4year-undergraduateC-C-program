@@ -1,9 +1,9 @@
 #include <stdio.h>
-#define SIZE 10
+#define SIZE 10		
 	int id[SIZE] = { 2,6,4,8,10,12,89,68,45,37 },c,i,j=0;
 	int score [SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
 	void sort(int a[SIZE], int b[SIZE]);
-	int search(int a[],int);
+	int search(int a[],int );
 int main(void) {
 	
 	puts("Data items in original order");
@@ -24,8 +24,8 @@ int main(void) {
 	
 	scanf("%d", &c);
 	j = search(id,c);
-	if (j >= 9)printf("student %d not found",c);
-	else printf("student %d  got %d!", id[j], score[j]);
+	if (j >= 9)printf("student %d was not found",c);
+	else printf("student %d got %d!", id[j], score[j]);
 	
 	
 
