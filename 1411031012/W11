@@ -1,0 +1,122 @@
+//排序與搜尋Q1
+
+#include <stdio.h>
+#define SIZE 10
+void sort(int a[], int b[]);
+int main()
+{
+	int a[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
+	int b[SIZE] = { 32,98,56,78,52,65,99,58,41,23 };
+	int i,id;
+	
+	printf("學生號碼:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", a[i]);
+
+	}
+	printf("\n");
+	printf("學生成績:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", b[i]);
+	}
+		
+	sort(a, b);
+	printf("\n");
+	printf("排序後成績\n");
+	printf("學生號碼:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", a[i]);
+
+	}
+	printf("\n");
+	printf("學生成績:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", b[i]);
+	}
+	/*
+	printf("\n------------\n");
+	printf("請輸入學生號碼:");
+	scanf("%d",&id);
+
+	for(i=0;i<SIZE;i++){
+		if(id==a[i])
+			printf("%d的成績為%d",id,b[i]);
+		else 
+			printf("號碼:%d，查無此人",id);
+		break;
+		
+	}*/
+}
+
+
+
+void sort(int a[], int b[]) {
+	int hold,i,pass;
+	for (pass = 1; pass < SIZE; ++pass) {
+		for(i = 0; i < SIZE-1; ++i){
+			//由小排到大
+			if (b[i] > b[i + 1]) {
+				
+				hold = b[i];
+				b[i] = b[i + 1];
+				b[i + 1] = hold;
+	
+				hold = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = hold;
+			}
+		}
+	
+	}
+}
+-----------------------------------------------------------------------------------------------
+// Q2
+//待改 無成績輸出 not found 不是-1
+
+
+#include <stdio.h>
+#define SIZE 10
+int linerSearch(int a[], int b[],int id);
+int main()
+{
+	int a[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
+	int b[SIZE] = { 32,98,56,78,52,65,99,58,41,23 };
+	int i,id;
+	
+	printf("學生號碼:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", a[i]);
+
+	}
+	printf("\n");
+	printf("學生成績:");
+	for (i = 0; i < SIZE; ++i) {
+		printf("%4d", b[i]);
+	}
+		
+	
+	printf("\n------------\n");
+	printf("請輸入學生號碼:");
+	scanf("%d",&id);
+	
+/*	if (linearSearch(a,b,id) <0){
+		printf("ID not found!");
+        return 0;
+	}*/
+
+	printf("%d的成績為%d",id,linerSearch(a,b,id));
+
+}
+
+int linerSearch(int a[], int b[],int id) {
+	int i;
+	for (i = 0; i < SIZE; ++i) {
+		if(id==a[i])
+			return b[i];
+	}
+		
+		
+	return -1;
+	
+}
+
