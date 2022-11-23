@@ -1,0 +1,58 @@
+#include <stdio.h>
+#define SIZE 10
+void sort(int a[], int c[], int size);
+int search(int a[],int );
+// function main begins program execution
+int main(void)
+{
+    // initialize a
+    int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 },ID,i,j=0;
+
+    puts("Data items in original order");
+        // output original array
+    for (size_t i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (size_t i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+    
+    //sort(a, c, SIZE);
+   // puts("\nData items in ascending order");
+
+    // output sorted array
+   // for (size_t i = 0; i < SIZE; ++i) {
+   //     printf("%4d", a[i]);
+   // }
+   // printf("\n");
+  //  for (size_t i = 0; i < SIZE; ++i) {
+   //     printf("%4d", c[i]);
+   // }
+
+    printf("Input student ID: ");
+    scanf_s("%d", &ID);
+
+    j=search(a,ID);
+    if (j >= 9) printf("student %d not found!", ID);
+    else printf("Student %d got %d!", a[j], c[j]);
+    
+
+    puts("");
+}
+
+int search(int a[],int id)
+{
+    int i;
+    for (i = 0; i < SIZE; i++)
+        if (id == a[i])
+            return i;
+        else
+            i++;
+
+    return i;
+}
