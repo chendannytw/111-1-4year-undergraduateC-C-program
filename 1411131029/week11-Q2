@@ -36,7 +36,7 @@ int linearSearch(int id[], int sc[], int stu) {
 	return -1;
 }
 
-void sort(int id[], int sc[]) {
+/*void sort(int id[], int sc[]) {
 	int pass, i;
 	for (pass = 0; pass < SIZE; ++pass) {
 		for (i = 0; i < SIZE - 1; ++i) {
@@ -52,3 +52,4 @@ void sort(int id[], int sc[]) {
 		}
 	}
 }
+*/
