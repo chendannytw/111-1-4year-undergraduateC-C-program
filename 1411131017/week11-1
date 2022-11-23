@@ -1,0 +1,61 @@
+題目 : (max. 99)建立兩個大小為10的整數陣列，分別存放學生學號以對應的計概成績。寫一個排序副程式，將兩個陣列傳遞至副程式中，依照計概成績由小到大排序，由主程式印出排序後的結果。
+
+#include <stdio.h>
+#define SIZE 10
+
+void sort(int a[], int sc[]);
+// function main begins program execution
+int main(void)
+{
+    // initialize a
+    int i;
+    int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,79,62,32 };
+
+    puts("Data items in original order");
+    // output original array
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+
+    sort(a, c);
+
+    puts("\nData items in original order");
+
+    // output sorted array
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+
+    puts("");
+}
+void sort(int id[], int sc[])
+{
+    int pass, i, hold ;
+    for (unsigned int pass = 1; pass < SIZE; ++pass) {
+
+        for (i = 0; i < SIZE - pass; ++i) {
+
+            if (sc[i] > sc[i + 1]) {
+                hold = id[i];
+                id[i] = id[i + 1];
+                id[i + 1] = hold;
+
+                hold = sc[i];
+                sc[i] = sc[i + 1];
+                sc[i + 1] = hold;
+            }
+        }
+    }
+}
