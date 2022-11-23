@@ -1,0 +1,45 @@
+#include <stdio.h>
+#define SIZE 10
+//sort(int id[], int sc[]);
+int linearSearch(int id[], int sc[], int stu);
+// function main begins program execution
+
+int main(void)
+{
+	int i, temp;
+	int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+	int score[SIZE] = { 76,85,63,62, 98, 91, 88, 85, 69, 71 };
+
+	puts("Data items in original data");
+
+	// output original array 
+
+	for (i = 0; i < SIZE; ++i) {
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", sc[i]);
+	}
+
+	//sort(a, score);
+
+	printf("\n Please input the ID :");
+	scanf_s("%d", &temp);
+	if (lineSearch(a, sc.temp) < 0)
+	{
+		printf("ID not found!");)
+		return 0;
+	}
+
+	printf("ID=%d and score=%d, temp,c[lineearSearch(a, c, temp)]);
+
+	puts("");
+}
+
+
+int linearSearch(int id[], int sc[], int stu)
+{
+	int i;
+	for (i = 0; i < SIZE; i++)
+		if (id[i] == stu) return i;
+	return -1;
+}
