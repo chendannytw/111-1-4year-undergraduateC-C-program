@@ -16,6 +16,10 @@ int main(void) {
 	//sort(a, score);
 	printf("\nPlease input the ID :");
 	scanf_s("%d", &temp);
+	if (linearSearch(a, score, temp) < 0) {
+		printf("ID not found!");
+		return 0;
+	}
 
 	printf("id=%d and score=%d", temp, score[linearSearch(a, score, temp)]);
 	
