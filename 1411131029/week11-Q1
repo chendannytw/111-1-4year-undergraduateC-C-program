@@ -1,0 +1,38 @@
+#include<stdio.h>
+#define SIZE 10
+void sort(int id[], int sc[]);
+int main(void) {
+	int i;
+	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+	int score[SIZE] = { 76,85,63,62,98,91,88,85,69,71 };
+	puts("Data items in original order");
+	for ( i = 0; i < SIZE; ++i) {
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", score[i]);
+	}
+sort(a, score);
+	puts("\nData items in ascending order");
+	for (i = 0; i < SIZE; ++i) {
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", score[i]);
+	}
+	puts("");
+}
+void sort(int id[], int sc[]) {
+	int pass, i;
+	for (pass=0; pass<SIZE; ++pass) {
+		for (i = 0; i < SIZE - 1; ++i) {
+			if (sc[i] > sc[i + 1]) {
+				int hold = id[i];
+				id[i] = id[i + 1];
+				id[i + 1] = hold;
+
+				hold = sc[i];
+				sc[i] = sc[i + 1];
+				sc[i + 1] = hold;
+			}
+		}
+	}
+}
