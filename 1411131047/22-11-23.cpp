@@ -22,7 +22,8 @@ int main() {
 	int d;
 	scanf_s("%d", &d);
 	d=findAry(d, stuN);
-	printf_s("%d", Sco[d]);
+	if (d < 0) printf_s("not found!");
+	else printf_s("%d", Sco[d]);
 
 }
 
@@ -57,4 +58,5 @@ int findAry(int n,int ar3[]) {
 			return i;
 		}
 	}
+	return -1;
 }
