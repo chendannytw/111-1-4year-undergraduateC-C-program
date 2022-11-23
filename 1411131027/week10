@@ -1,0 +1,115 @@
+#include <stdio.h>
+#define SIZE 10
+
+// function main begins program execution
+void sort(int id[], int sc[]);
+int main(void)
+{
+    // initialize a
+    int id[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int score[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+    int i;
+    puts("Data items in original order");
+    // output original array
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
+    }
+    printf("\n");
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", score[i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+
+
+    puts("\nData items in ascending order");
+    sort(id, score);
+    // output sorted array
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
+    }
+    printf("\n");
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", score[i]);
+    }
+
+    puts("");
+}
+
+void sort(int id[], int sc[]) 
+{
+    int pass, i;
+    for (pass = 1; pass < SIZE; ++pass) 
+    {
+        for (i = 0; i < SIZE - 1; ++i) 
+        {
+            if (sc[i] > sc[i + 1]) 
+            {
+                int hold1 = id[i];
+                id[i] = id[i + 1];
+                id[i + 1] = hold1;
+
+                int hold2 = sc[i];
+                sc[i] = sc[i + 1];
+                sc[i + 1] = hold2;
+            }
+        }
+    }
+
+
+}
+=================================================================================================
+#include <stdio.h>
+#define SIZE 10
+
+// function main begins program execution
+int linearSearch(int id[], int sc[], int stu);
+int main(void)
+{
+    // initialize a
+    int id[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int score[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+    int i, temp;
+    puts("Data items in original order");
+    // output original array
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", score[i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+
+
+    //puts("\nData items in ascending order");
+    printf("\nPlease input the ID:");
+    scanf_s("%d", &temp);
+    if (linearSearch(id, score, temp) < 0)
+    {
+        printf("ID not found!");
+        return 0;
+    }
+    printf("id=%d and score=%d",temp,score[linearSearch(id,score,temp)]);
+    // output sorted array
+    //for (i = 0; i < SIZE; ++i) {
+    //    printf("%4d", id[i]);
+    //}
+    //printf("\n");
+    //for (i = 0; i < SIZE; ++i) {
+    //    printf("%4d", score[i]);
+    //}
+
+    puts("");
+}
+int linearSearch(int id[], int sc[],int stu )
+{
+    int i;
+    for (i = 0; i < SIZE; i++)
+        if (id[i] == stu) return i;
+    
+    return -1;
+}
