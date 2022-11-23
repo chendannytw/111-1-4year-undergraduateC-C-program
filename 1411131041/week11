@@ -1,38 +1,38 @@
 #include <stdio.h>
 #define SIZE 10
-	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 },ID,i,j=0;
-	int c [SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
-	void sort(int a[], int c[],int size);
-	int search(int a[],int);
+int id[SIZE] =    { 2,6,4,8,10,12,89,68,45,37 }, c, i, j = 0;
+int score[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+void sort(int a[SIZE], int b[SIZE]);
+int serch(int a[], int);
 int main(void) {
-	
+
 	puts("Data items in originall order");
 	for (size_t i = 0; i < SIZE; i++)
 	{
 		printf("%4d", id[i]);
 		printf("%4d\n", score[i]);
 	}
-	
-	sort(a,c, SIZE);
+
+	sort(id, score);
 	puts("\nData items in ascending order");
 	for (size_t i = 0; i < SIZE; i++)
 	{
 		printf("%4d", id[i]);
 		printf("%4d\n", score[i]);
-		
+
 	}
-	
-	scanf_s("%d", &ID);
-	j = serch(a,ID);
-	if (j >= 9)printf("student %d not found",ID);
-	else printf("student %d  got %d!", a[j], c[j]);
-	
-	
+
+	scanf_s("%d", &c);
+	j = serch(id, c);
+	if (j >= 9)printf("student %d not found", c);
+	else printf("student %d  got %d!", id[j], score[j]);
+
+
 
 
 
 	puts("");
-	
+
 }
 void sort(int a[], int b[])
 {
@@ -55,10 +55,10 @@ void sort(int a[], int b[])
 }
 
 int serch(int a[], int c) {
-	
-	for ( i = 0; i < SIZE; i++)
+
+	for (i = 0; i < SIZE; i++)
 	{
-		if (c==a[i])
+		if (c == a[i])
 		{
 			return i;
 		}
@@ -66,7 +66,7 @@ int serch(int a[], int c) {
 		{
 			i++;
 		}
-		
+
 	}
 	return i;
 }
