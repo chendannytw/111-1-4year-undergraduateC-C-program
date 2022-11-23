@@ -1,0 +1,53 @@
+#include<stdio.h>
+#define SIZE 10
+
+void sort(int ppl[], int rel[], int size);
+
+int main(void)
+{
+	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+	int c[SIZE] = { 66,67,87,70,73,74,75,98,62,32 };
+
+	puts("Data items in original order");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", c[i]);
+	}
+	puts("");
+
+	sort(a, c, SIZE);
+
+	puts("\nData items in ascending order");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", c[i]);
+	}
+	puts("");
+
+}
+
+void sort(int ppl[], int rel[], int size)
+{
+	int hold;
+	for (unsigned int pass = 1; pass < size; ++pass)
+	{
+		for (int i = 0; i < size - pass; ++i)
+		{
+			if (rel[i] > rel[i + 1])
+			{
+				hold = rel[i];
+				rel[i] = rel[i + 1];
+				rel[i + 1] = hold;
+				hold = ppl[i];
+				ppl[i] = ppl[i + 1];
+				ppl[i + 1] = hold;
+			}
+		}
+	}
+}
