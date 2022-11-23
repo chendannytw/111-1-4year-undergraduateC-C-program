@@ -8,7 +8,8 @@ int main(void)
 {
 
     int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
-    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 }, ID, i, j = 0;
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+    int ID, i, j = 0;
 
     puts("Data items in original order");
 
