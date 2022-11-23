@@ -109,6 +109,7 @@ text3
 #include <stdio.h>
 #define SIZE 10
 void sort (int a[],int c[],int size);
+int search(int a[],int id);
 int main(void){
 	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
 	int c[SIZE] = {66,67,66,70,73,74,75,75,62,32},i,ID,j=0;
@@ -123,16 +124,7 @@ int main(void){
 		printf("%4d",c[i]);	
 	}
 	
-	sort (a,c,SIZE);
-	puts("\nDate items in ascending order");
 	
-	for ( i = 0 ; i<SIZE ;++i){
-		printf("%4d",a[i]);
-	}
-	printf("\n");
-	for ( i = 0 ; i<SIZE ;++i){
-		printf("%4d",c[i]);	
-	}
 	printf("\nInput student ID： ");
 	scanf("%d", &ID);
 	j=search(a,ID);
@@ -142,22 +134,7 @@ int main(void){
 		
 	puts("");
 }
-int i;
-void sort (int a[],int c[],int size){
-	int pass,hold;
-	for ( pass = 1 ; pass<SIZE ;++pass){
-	  for ( i = 0 ; i < SIZE-1 ;++i){
-	  	if (c[i] > c[ i+1 ]){
-	  		hold = c[i];
-	  		c[i] = c[i+1];
-	  		c[i+1]=hold;
-	  		hold = a[i];
-	  		a[i] = a[i+1];
-	  		a[i+1]=hold;
-		  }
-	  }
-	}
-}
+
 
 int search(int a[],int id){
 	int i,j;
@@ -165,7 +142,7 @@ int search(int a[],int id){
 	   if(id==a[i])
 	      return i;
 	   else
-	      i++;
+	      j++;
 	      
     return i;
 }
