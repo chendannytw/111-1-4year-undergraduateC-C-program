@@ -1,1 +1,50 @@
 題目 : (max. 99)建立兩個大小為10的整數陣列，分別存放學生學號以對應的計概成績。寫一個線性搜尋副程式，將兩個陣列以及想要搜尋的學號傳遞至副程式中，傳回學號所對應的計概成績，由主程式印出學號與成績。
+
+
+#include <stdio.h>
+#define SIZE 10
+//sort(int id[],int sc[]);
+int linearSearch(int id[],int sc[],int stu);
+// function main begins program execution
+int main(void) 
+{   int i,temp;
+   // initialize a
+   int a[SIZE] =   {2, 6, 4, 8, 10, 12, 89, 68, 45, 37}; 
+   int score[SIZE]={76,85,63,62,98, 91, 88, 85, 69, 71}; 
+
+   puts("Data items in original data");
+   
+   // output original array
+   for ( i = 0; i < SIZE; ++i) {
+      printf("\n");
+	  printf("%4d", a[i]);
+      printf("%4d", score[i]);
+   } 
+//sort(a,score);
+
+   printf("\nplease input the ID :");
+   scanf("%d", &temp);
+if(linearSearch(a,score,temp)<0)  
+	{printf("ID not found!");
+	return 0;
+	}
+printf("id=%d and score=%d", temp, score[linearSearch(a,score,temp)]);
+/*   // output sorted array
+   for (i = 0; i < SIZE; ++i) {
+      printf("\n");
+	  printf("%4d", a[i]);
+      printf("%4d", score[i]);
+   } 
+*/
+   puts("");
+}
+
+
+
+int linearSearch(int id[],int sc[],int stu)
+{int i;
+	for(i=0;i<SIZE; i++)
+		if(id[i]==stu)	return i;
+	
+	return -1;
+}
