@@ -1,34 +1,53 @@
-#include <stdio.h>
+#include<stdio.h>
 #define SIZE 10
-void sort(int a[], int c[]);
+
+void sort(int ppl[], int rel[], int size);
+
 int main(void)
 {
 	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
-	int c[SIZE] = { 66,67,66,70,73,74,75,75,62,34};
-	sort(a, c);
-	printf(" 學 號");
-	for (int i = 0; i < SIZE; i++) {
+	int c[SIZE] = { 66,67,87,70,73,74,75,98,62,32 };
+
+	puts("原始");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
 		printf("%4d", a[i]);
-	}
-	puts("");
-	printf(" 成 績");
-	for (int i = 0; i < SIZE; i++) {
 		printf("%4d", c[i]);
 	}
-	
+	puts("");
+
+	sort(a, c, SIZE);
+
+	puts("\n排序");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
+		printf("%4d", a[i]);
+		printf("%4d", c[i]);
+	}
+	puts("");
+
 }
-void sort(int a[], int c[]) {
+
+void sort(int ppl[], int rel[], int size)
+{
 	int hold;
-	for (int pass = 1; pass < SIZE; pass++) {
-		for (int i = 0; i < SIZE - pass; i++) {
-			if (c[i] > c[i + 1]) {
-				hold = c[i];
-				c[i] = c[i + 1];
-				c[i + 1] = hold;
-				hold = a[i];
-				a[i] = a[i + 1];
-				a[i + 1] = hold;
+	for (unsigned int pass = 1; pass < size; ++pass)
+	{
+		for (int i = 0; i < size - pass; ++i)
+		{
+			if (rel[i] > rel[i + 1])
+			{
+				hold = rel[i];
+				rel[i] = rel[i + 1];
+				rel[i + 1] = hold;
+				hold = ppl[i];
+				ppl[i] = ppl[i + 1];
+				ppl[i + 1] = hold;
 			}
 		}
 	}
-	}
+}
