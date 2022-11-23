@@ -1,0 +1,75 @@
+#include <stdio.h>
+#define SIZE 10
+
+int search(int a[], int id);
+// function main begins program execution
+int main(void)
+{
+    // initialize a
+    int a[SIZE] = { 2, 6, 4, 8, 10, 12, 89, 68, 45, 37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 }, ID, i;
+
+    puts("Data items in original order");
+    // output original array
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+    printf("\n");
+    printf("Input student ID: ");
+    scanf_s("%d", &ID);
+    search(a, ID);
+    if (search(a ,ID) < 0) {
+        printf("student %d not found!", ID);
+    }
+    else printf("Student %d got %d!", ID,c[search( a,ID)]);
+    puts("");
+}
+int search(int a[], int id)
+{
+    int i;
+    for (i = 0; i < SIZE; i++) {
+        if (a[i] == id)
+            return i;
+    }
+    return -1;
+}
+
+ ---------------------
+ #include <stdio.h>
+#define SIZE 10
+void sort(int a[], int c[]);
+int main(void)
+{
+	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+	int c[SIZE] = { 66,67,66,70,73,74,75,75,62,34 };
+	sort(a, c);
+	printf("學號");
+	for (int i = 0; i < SIZE; i++) {
+		printf("%4d", a[i]);
+	}
+	puts("");
+	printf("分數");
+	for (int i = 0; i < SIZE; i++) {
+		printf("%4d", c[i]);
+	}
+
+}
+void sort(int a[], int c[]) {
+	int hold;
+	for (int pass = 1; pass < SIZE; pass++) {
+		for (int i = 0; i < SIZE - pass; i++) {
+			if (c[i] > c[i + 1]) {
+				hold = c[i];
+				c[i] = c[i + 1];
+				c[i + 1] = hold;
+				hold = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = hold;
+			}
+		}
+	}
+}
