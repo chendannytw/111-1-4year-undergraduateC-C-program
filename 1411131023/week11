@@ -49,3 +49,59 @@ void sort(int a[], int c[], int SIZE) {
 
 題二:
 
+#include <stdio.h>
+#define SIZE10
+void sort(int a[], int c[], int SIZE);
+int main(void)
+{
+    int i;
+    int a[10] = { 12,13,14,15,16,17,19,21,22,23 };
+    int c[10] = { 66,67,66,70,73,74,75,75,62,32 },ID,SIZE,j;
+
+    puts("Data items in original order");
+    for (i = 0; i < 10; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i < 10; ++i) {
+        printf("%4d", c[i]);
+    }
+    sort(a, c, 10);
+    puts("\n Data items in ascending order");
+
+
+    for (i = 0; i < 10; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i < 10; ++i) {
+        printf("%4d", c[i]);
+    }
+    printf("Input student ID:");
+    scanf_s("%d", &ID);
+    for (i = 0; i < SIZE; i++)
+        if (ID == a[i])
+            printf("Student %d got %d", a[i], c[i]);
+        else
+            j++;
+    if (j >= 9)printf("Student %d not found!", ID);
+
+    puts("");
+}
+
+void sort(int a[], int c[], int SIZE) {
+    int hold;
+    for (unsigned int pass = 1; pass < SIZE; ++pass) {
+        for (int i = 0; i < SIZE - pass; ++i) {
+            if (c[i] > c[i + 1]) {
+                hold = c[i];
+                c[i] = c[i + 1];
+                c[i + 1] = hold;
+                hold = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = hold;
+            }
+
+        }
+    }
+}
