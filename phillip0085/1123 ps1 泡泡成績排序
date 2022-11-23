@@ -17,10 +17,9 @@ int main(void) {
 		puts(" ");
 	}
 
-	sort(a, c, SIZE);
-
 	puts("\nDate items in ascending order");
-
+	sort(a, c, SIZE);
+	
 	for (i = 0; i < SIZE; ++i) {
 		printf("%4d", a[i]);
 		printf("%4d", c[i]);
