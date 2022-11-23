@@ -1,0 +1,28 @@
+#include<stdio.h>
+#define SIZE 10
+
+int linearSearch(int id[], int sc[],int  stu);
+int main(void)
+{
+    int i, temp;
+    int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+
+    puts("Data items in original order");
+
+    for ( i = 0; i < SIZE; ++i) {
+        printf("\n");
+        printf("%4d", a[i]);
+        printf("%4d", c[i]);
+    }
+    puts("\nplease iput the id:");
+    scanf_s("%d", &temp);
+    printf("id=%d and score=%d", temp,c[linearSearch (a, c,temp)]);
+    puts("");
+}
+int linearSearch(int id[], int sc[], int  stu) {
+    int i;
+    for (i = 0; i < SIZE; i++)
+        if (id[i] == stu) return i;
+    return -1;
+}
