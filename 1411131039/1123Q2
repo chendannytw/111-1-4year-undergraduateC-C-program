@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define SIZE 10
+void test(int b[], int d[]);
+void s(int b[], int d[],int id);
+int main()
+{
+    int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+    printf("原始順序\n");
+    for (int p = 0; p < SIZE; p++) {
+        printf("%4d　　", a[p]);
+        printf("%4d\n", c[p]);
+    }
+    printf("\n請輸入要查詢成績的座號：");
+    int n;
+    scanf_s("%d", &n);
+    s(a,c,n);
+}
+void s(int b[], int d[],int id) {   
+    int j = 0; 
+    for (int i = 0; i <= SIZE - 1; i++) {
+        if (id == b[i]) {
+            printf("id=%d，score=%d", b[i], d[i]);
+            break;
+        }
+        else {
+            j++;
+        }
+    }
+    if (j >= 9)
+        printf("id %d not found!",id);
+}
