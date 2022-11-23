@@ -7,54 +7,41 @@ void sort(int a[], int c[], int size);
 int main(void)
 {
     int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
-    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 }, ID, i, j = 0;
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
     puts("Data iteam in original order");
-
+    int i;
     for (i = 0; i < SIZE; ++i) {
+        printf("\n");
         printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
     }
+        
+    
 
     sort(a, c, SIZE);
     puts("\nData iteams in ascending order");
 
     for (size_t i = 0; i < SIZE; ++i) {
+        printf("\n");
         printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
     }
-
-    printf("Input student ID:");
-    scanf_s("%d", &ID);
-    for (i = 0; i < SIZE; i++)
-        if (ID == a[i])
-        {
-            printf("Student %d got %d!", a[i], c[i]);
-            break;
-        }
-        else
-            j++;
-    if (j >= 9) printf("student %d not found", ID);
-
+    
+    
     puts("");
 }
-void sort(int a[], int c[], int size)
+void sort(int id[], int sc[], int size)
 {
     int hold;
     for (unsigned int pass = 1; pass < SIZE; ++pass) {
         for (size_t i = 0; i < size - pass; ++i) {
-            if (c[i] > c[i + 1]) {
-                hold = c[i];
-                c[i] = c[i + 1];
-                c[i + 1] = hold;
-                hold = a[i];
-                a[i] = a[i + 1];
-                a[i + 1] = hold;
+            if (sc[i] > sc[i + 1]) {
+                hold = id[i];
+                id[i] = id[i + 1];
+                id[i + 1] = hold;
+                hold = sc[i];
+                sc[i] = sc[i + 1];
+                sc[i + 1] = hold;
             }
         }
     }
