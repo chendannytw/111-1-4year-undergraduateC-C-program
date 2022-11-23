@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #define SIZE 10
-void sort(int a[], int c[], int size);
+void sort(int a[], int c[]);
 int main(void)
 {
     int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
@@ -18,7 +18,7 @@ int main(void)
         
     
 
-    sort(a, c, SIZE);
+    sort(a, c);
     puts("\nData iteams in ascending order");
 
     for (size_t i = 0; i < SIZE; ++i) {
@@ -30,11 +30,11 @@ int main(void)
     
     puts("");
 }
-void sort(int id[], int sc[], int size)
+void sort(int id[], int sc[])
 {
     int hold;
     for (unsigned int pass = 1; pass < SIZE; ++pass) {
-        for (size_t i = 0; i < size - pass; ++i) {
+        for (size_t i = 0; i < SIZE - pass; ++i) {
             if (sc[i] > sc[i + 1]) {
                 hold = id[i];
                 id[i] = id[i + 1];
