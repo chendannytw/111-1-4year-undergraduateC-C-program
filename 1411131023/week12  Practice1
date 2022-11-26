@@ -9,41 +9,41 @@ int main(void)
     int i,key;
     int a[SIZE] = { 12, 13, 14, 15, 16, 17, 19, 21, 22, 23, 24, 26, 27, 28, 29, 31, 32, 33, 36, 37 };
     int c[SIZE] = { 66, 67, 66, 70, 73, 74, 75, 75, 62, 32, 44, 46, 27, 12, 80, 63, 66, 90, 11, 66 };
-    
+
     puts("Data items in original order");
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < SIZE; ++i) {
         printf("%4d", a[i]);
     }
     printf("\n");
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
     }
-    sort(a, c, 10);
+    sort(a, c, SIZE);
     puts("\n Data items in ascending order");
 
 
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < SIZE; ++i) {
         printf("%4d", a[i]);
     }
     printf("\n");
-    for (i = 0; i < 10; ++i) {
+    for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
     }
     puts("");
 
     printf("Input Score:");
     scanf_s("%d", &key);
-    int result = binarySearch(a, key, 0, SIZE-1);
-    if (result==-1)
+    int result = binarySearch(a, key, 0, SIZE - 1);
+    if (result == -1)
     {
         printf("Score not be found");
-     
+
     }
     else {
         printf("id=%d and score=%d", a[result], key);
     }
-    
-    
+
+
 }
 
 void sort(int a[], int c[], int SIZE) {
