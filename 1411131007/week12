@@ -1,0 +1,87 @@
+#include <stdio.h>
+#define SIZE 20
+
+void sort(int a[] , int c[] , int size);
+int binarySearch(int b[], int searchKey, int low, int high);
+int main(void)
+{
+    int a[SIZE] = { 12, 13, 14, 15, 16, 17, 19, 21, 22, 23, 24, 26, 27, 28, 29, 31, 32, 33, 36, 37};
+    int c[SIZE] = { 66, 67, 66, 70, 73, 74, 75, 75, 62, 32, 44, 46, 27, 12, 80, 63, 66, 90, 11, 66};
+    int i, key;
+
+    puts ("Date items in original order");
+    
+	for (i=0; i < SIZE; ++i){
+		printf ("%4d", a[i]);
+	}
+	printf("\n");
+	for (i=0; i < SIZE; ++i){
+		printf ("%4d", c[i]);
+	}
+	
+	sort(a, c, SIZE);
+	
+	puts ("\nDate items in original order");
+	
+	for (i=0; i < SIZE; ++i){
+		printf ("%4d", a[i]);
+	}
+	printf("\n");
+	for (i=0; i < SIZE; ++i){
+		printf ("%4d", c[i]);
+	}
+	
+	puts (" ");
+		
+	printf("\n\n請輸入您要的成績：");
+	scanf("%d", &key);
+	
+	if (binarySearch(c, key, 0, SIZE - 1) == -1)
+	    printf("not found !");
+	printf("成績為 %d 的同學的學號為：%d", key, a[binarySearch(c, key, 0, SIZE - 1)]);
+	
+	
+}
+
+void sort(int a[] , int c[] , int size)
+{
+	for (unsigned int pass=1; pass < SIZE; ++pass){
+        
+		int hold,i;
+		for (i=0; i < size-pass; ++i){
+			
+			if (c[i] > c[i + 1]){
+			hold = c[i];
+			c[i] = c[i + 1];
+			c[i + 1] =hold;
+			
+			hold = a[i];
+			a[i] = a[i + 1];
+			a[i + 1] =hold;
+		  }
+		}
+	}
+}
+
+int binarySearch(int b[], int searchKey, int low, int high)
+{
+	int middle;
+	while (low <= high){
+		middle = (low + high) / 2;
+		
+        if (searchKey == b[middle]){
+        	return middle;
+		}
+		
+		else if (searchKey < b[middle]){
+			high = middle - 1;
+		}
+		
+		else {
+			low = middle + 1;
+		}	
+	}
+	
+	return -1;
+	
+}
