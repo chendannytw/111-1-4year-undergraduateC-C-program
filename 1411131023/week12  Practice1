@@ -3,7 +3,7 @@
 #include <stdio.h>
 #define SIZE 20
 
-void sort(int a[], int c[],const int SIZE);
+void sort(int a[], int c[],size_t size);
 int binarySearch(const int a[], int searchKey, int low, int high);
 
 int main(void)
@@ -49,11 +49,11 @@ int main(void)
 
 }
 
-void sort(int a[], int c[],const int SIZE) {
+void sort(int a[], int c[],size_t size) {
     int hold;
     
-    for (unsigned int pass = 1; pass < SIZE; ++pass) {
-        for (int i = 0; i < SIZE - pass; ++i) {
+    for (unsigned int pass = 1; pass < size; ++pass) {
+        for (int i = 0; i < size - pass; ++i) {
             if (c[i] > c[i + 1]) {
                 hold = c[i];
                 c[i] = c[i + 1];
