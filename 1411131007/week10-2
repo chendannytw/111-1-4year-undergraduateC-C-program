@@ -1,3 +1,5 @@
+//題目2: 修改課本305頁的程式fig06_05.c，將印出問卷結果的程式碼放入一個副程式中，並透過陣列傳遞的方式，將陣列與size傳送到副程式中印出。
+
 #include <stdio.h>
 #define RESPONSES_SIZE 40
 #define FREQUENCY_SIZE 11 
