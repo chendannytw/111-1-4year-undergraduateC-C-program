@@ -1,0 +1,72 @@
+#include <stdio.h>
+#define STUDENTS 3
+#define EXAMS 4
+
+int min(int grades[][EXAMS], int puplis, int tests);
+int max(int grades[][EXAMS], int puplis, int tests);
+double average(int set0fgrades[], int tests);
+void printarray(int grades[][EXAMS], int pupils, int tests);
+
+int main(void)
+{
+	int studentgrades[STUDENTS][EXAMS] =
+	{ {77,68,86,73},
+	 {96,87,89,78},
+	 {70,90,86,81} };
+
+	puts("the array is：");
+	printarray(studentgrades, STUDENTS, EXAMS);
+	printf("\n\nLowest grade：%d\nHighest grade：%d\n",
+		min(studentgrades, STUDENTS, EXAMS),
+		max(studentgrades, STUDENTS, EXAMS));
+	for (int student = 0; student < STUDENTS; student++) {
+		printf("The average for student %u is %.2f\n",
+			student, average(studentgrades[student],EXAMS));
+	}
+
+}
+	int min(int grades[][EXAMS], int pupils, int tests)
+	{
+		int lowgrade=100;
+			for (int i = 0; i < pupils; i++) {
+				for (int j = 0; j < tests; j++) {
+					if (grades[i][j] < lowgrade)
+						lowgrade = grades[i][j];
+				}
+			}
+			return lowgrade;
+	}
+	
+
+
+	int max(int grades[][EXAMS], int puplis, int tests)
+	{
+		int highgrade = 0;
+			for (int i = 0; i <puplis; i++) {
+				for (int j = 0; j < tests; j++) {
+					if (grades[i][j] > highgrade)
+					highgrade = grades[i][j];
+				}
+			}
+			return highgrade;
+	}
+
+
+	double average(int set0fgrades[], int tests)
+	{
+		int total = 0;
+		for (int i = 0; i < tests; ++i) {
+			total += set0fgrades[i];
+		}
+		return(double)total / tests;
+}
+
+	void printarray(int grades[][EXAMS], int pupils, int tests)
+	{
+		for (int i = 0; i < pupils; i++) {
+			printf("\nstudentgrades[%u]", i);
+			for (int j = 0; j < tests; j++) {
+				printf("%-5d", grades[i][j]);
+			}
+		}
+	}
