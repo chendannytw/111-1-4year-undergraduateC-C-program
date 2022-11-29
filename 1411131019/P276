@@ -1,0 +1,67 @@
+#include <stdio.h>
+#define SIZE 15
+int binarysearch(int b[], int searchkey, int low, int high);
+void printhaeder(void);
+void printrow(int b[], int low, int mid, int high);
+int main(void)
+{
+	int a[15] = { 0,2,4,6,8,10,12,14,16,18,20,22,24,26,28 };
+	printf("%s", "Enter a number between 0 and 28：");
+	int key;
+	scanf_s("%d", &key);
+	printhaeder();
+	int resualt = binarysearch(a, key, 0, SIZE - 1);
+
+	if (resualt != -1)
+		printf("\n%d found at index %d\n", key, resualt);
+	else
+		printf("\n%d not found\n", key);
+}
+
+
+
+int binarysearch(int b[], int searchkey, int low, int high)
+{
+	while (low <= high) {
+		int middle = (low + high) / 2;
+		printrow(b, low, middle, high);
+		if (searchkey ==b[middle])
+			return middle;
+		else if (searchkey <b[middle])
+			high = middle - 1;
+		else
+			low = high + 1;
+
+	}
+	return-1;
+}
+
+
+
+void printhaeder(void)
+{
+	puts("\nIndices");
+	printf("------------------------------------------------------------");
+	puts("");
+	for (int i = 0; i < SIZE; ++i) {
+		printf("%5u", i);
+	}
+	puts("");
+	printf("------------------------------------------------------------");
+	puts("");
+}
+
+
+void printrow(int b[], int low, int mid, int high)
+{
+	for (int i = 0; i < SIZE; ++i) {
+		if (i<low || i>high) {
+			printf("%s", "   ");
+		}
+		else if (i == mid)
+			printf("%5d", b[i]);
+		else
+			printf("%5d", b[i]);
+	}
+	puts("");
+}
