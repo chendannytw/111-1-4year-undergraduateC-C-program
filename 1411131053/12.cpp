@@ -273,7 +273,7 @@ int main(void)
         printf("%4d", c[i]);
     }
     puts("");
-    printf("請輸入您要的學號");
+    printf("請輸入您要的成績");
     scanf_s("%d", &key);
     if((result= binarySearch(c, key, 0 , SIZE-1))==-1)
         printf("查無此成績");
