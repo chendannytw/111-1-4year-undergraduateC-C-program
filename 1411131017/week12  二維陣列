@@ -3,10 +3,9 @@
 
 int binarySearch(const int b[], int key, int low, int high);
 void sort(int a[], int sc[]);
-// function main begins program execution
+
 int main(void)
 {
-    // initialize a
     int i;
     int key;
     int result;
@@ -21,10 +20,7 @@ int main(void)
     printf("\n");
     for (i = 0; i < SIZE; ++i) {
         printf("%4d", c[i]);
-    }
-
-    // bubble sort                                         
-    // loop to control number of passes                    
+    }           
 
     sort(a, c);
 
