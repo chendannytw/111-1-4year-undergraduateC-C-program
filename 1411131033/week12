@@ -1,0 +1,74 @@
+#include <stdio.h>
+#define SIZE 20	
+int id[] = {12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37};
+int score[] = {66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66};
+int key;
+int binarysearch(const int b[] , int key , int low , int high);
+void sort(int a[SIZE], int b[SIZE]);
+
+int main ()
+{
+	int i;
+	sort(id, score);
+	puts("  ID  score");
+	for (i = 0; i < SIZE; i++)
+	{
+		printf("%4d", id[i]);
+		printf("%4d\n", score[i]);
+	}
+	printf("Please enter a score:");
+	scanf("%d",&key);
+	int j = binarysearch(score,key,0,SIZE -1);
+	if (j != -1)
+	{
+		printf("\nStudent %d got %d",id[j],score[j]);
+	}
+	else
+	{
+		printf("\nScore %d wasn't found" , key);
+	}
+}
+
+void sort(int a[], int b[])
+{
+	int i;
+	int pass;
+	for ( pass = 1; pass < SIZE; pass++)
+	{
+		for ( i = 0; i < SIZE - 1; i++)
+		{
+			if (score[i] > score[i + 1])
+			{
+				int scorea = score[i];
+				int ida = id[i];
+				id[i] = id[i + 1];
+				id[i + 1] = ida;
+				score[i] = score[i + 1];
+				score[i + 1] = scorea;
+			}
+		}
+	}
+
+}
+
+int binarysearch(const int b[] , int key , int low , int high)
+{
+	int middle;
+	while (low <= high)
+	{
+		middle = (low + high) / 2;
+		if (key == b[middle])
+		{
+			return middle;
+		}
+		else if (key < b[middle])
+		{
+			high = middle -1;		
+		}
+		else 
+		{
+			low = middle + 1 ;
+		}
+	}
+	return -1;
+}
