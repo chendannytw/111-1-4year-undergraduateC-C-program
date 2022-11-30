@@ -88,3 +88,7 @@ int binarysearch(int b[], int key, int low, int high){
 	return -1;
 		
 }
+
+
+未完成(q2)
+ printf("\n全班成績的中位數：%d",s[5]);
