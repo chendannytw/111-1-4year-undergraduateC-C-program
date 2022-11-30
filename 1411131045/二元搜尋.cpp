@@ -3,8 +3,8 @@
 #include <stdio.h>
 #define SIZE 20
 void sub1(int id[], int score[]);
-void search(int id[], int score[]);
-int binarysearch(const int b[], int key, int low, int high);
+//void search(int id[], int score[]);
+int binarysearch(int b[], int key, int lift, int right);
 int main(void)
 {
 	int id[SIZE] = { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 };
@@ -35,12 +35,12 @@ int main(void)
 	}
 	//search(id, score);
 	puts("");
-	printf("please enter the id:");
+	printf("please enter the score:");
 	scanf_s("%d", &key);
-	if ((result = binarysearch(id, key, 0, SIZE - 1)) == -1)
+	if ((result = binarysearch(score, key, 0, SIZE - 1)) == -1)
 		printf("student not found!!");
 	else
-		printf("學號為%d的學生成績為:%d", key, score[result]);
+		printf("成績為%d的學生學號為:%d", key, id[result]);
 }
 void sub1(int id[], int score[])
 {
@@ -75,17 +75,17 @@ void sub1(int id[], int score[])
 	if (j > SIZE-1)
 		printf("Student %d not found!", ID);
 }*/
-int binarysearch(const int b[], int key, int low, int high)
+int binarysearch(int b[], int key, int lift, int right)
 {
-	while (low <= high)
+	while (lift <= right)
 	{
-		int middle = (low + high) / 2;
+		int middle = (lift + right) / 2;
 		if (key == b[middle])
 			return middle;
 		else if (key < b[middle])
-			high = middle - 1;
+			right = middle - 1;
 		else
-			low = middle + 1;
+			lift = middle + 1;
 	}
 	return -1;
 }
