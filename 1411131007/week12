@@ -2,7 +2,7 @@
 #define SIZE 20
 
 void sort(int a[], int c[], int size);
-int binarySearch(const int c[], int searchKey, int low, int high);
+int binarySearch(int c[], int searchKey, int low, int high);
 
 int main(void)
 {
@@ -58,7 +58,7 @@ void sort(int a[], int c[], int size)
     }
 }
 
-int binarySearch(const int c[], int searchKey, int low, int high) 
+int binarySearch(int c[], int searchKey, int low, int high) 
 {
     while (low <= high) {
         int middle = (low + high) / 2;
