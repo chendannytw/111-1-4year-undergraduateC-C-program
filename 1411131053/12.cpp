@@ -318,6 +318,92 @@ size_t binarySearch(const int b[], int searchkey, int low, int high)
     }
     return -1;
 }
+========================================================================
+	#include <stdio.h>
+#define SIZE 20
+size_t binarySearch(const int b[], int searchkey, int low, int high);
+void sort(int a[], int c[], int size);
+int main(void)
+{
+    int key, result;
+    int a[SIZE] = { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 };
+    int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 };
+    puts("Data iteam in original order");
+
+    for (int i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (int i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+
+    sort(a, c, SIZE);
+    puts("\nData iteams in ascending order");
+
+    for (int i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    printf("\n");
+    for (int i = 0; i < SIZE; ++i) {
+        printf("%4d", c[i]);
+    }
+    puts("");
+    printf("請輸入您要的成績");
+    scanf_s("%d", &key);
+    if ((result = binarySearch(c, key, 0, SIZE - 1)) == -1)
+        printf("查無此成績");
+    else
+        printf("成績為%d的同學的學號為: %d", key, a[result]);
+
+    int average, sum = 0;
+    for (int i = 0; i < SIZE; i++) {
+        sum += c[i];
+    }
+    average = sum / SIZE;
+    printf("\naverage = %d",average);
+
+    int middle=(SIZE - 1) / 2;
+    printf("\nmiddle = %d\n",c[middle]);
+}
+void sort(int a[], int c[], int size)
+{
+    int hold;
+    for (unsigned int pass = 1; pass < SIZE; ++pass) {
+        for (size_t i = 0; i < size - pass; ++i) {
+            if (c[i] > c[i + 1]) {
+                hold = c[i];
+                c[i] = c[i + 1];
+                c[i + 1] = hold;
+                hold = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = hold;
+            }
+        }
+    }
+}
+
+
+
+size_t binarySearch(const int b[], int searchkey, int low, int high)
+{
+    while (low <= high) {
+        size_t middle = (low + high) / 2;
+
+        //printRow(b, low, middle, high);
+
+        if (searchkey == b[middle]) {
+            return middle;
+        }
+        else if (searchkey < b[middle]) {
+            high = middle - 1;
+        }
+        else {
+            low = middle + 1;
+        }
+    }
+    return -1;
+}
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
 // 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
 
