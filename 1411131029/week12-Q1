@@ -1,0 +1,83 @@
+#include<stdio.h>
+#define SIZE 10
+void sort(int id[], int sc[]);
+int binarySearsh(int b[], int searchKey, int low, int high);
+//int linearSearch(int id[], int sc[], int stu);
+
+int main(void) {
+	int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 },i,key,temp;
+	int score[SIZE] = { 76,85,63,62,98,91,88,85,69,71 };
+	puts("Data items in original order");
+	for (i = 0; i < SIZE; ++i) {
+		printf("\n%4d", a[i]);
+		printf("%4d", score[i]);
+	}
+	sort(a, score);
+	printf("\nPlease input score :");
+	scanf_s("%d", &key);
+	temp = binarySearsh(score, key, 0, SIZE - 1);
+	if (temp == -1) {
+		printf("\nScore not found!");
+		return 0;
+	}
+
+	printf("the ID %d get score %d", a[temp], score[temp]);
+	puts("\nData items in ascending order");
+
+/*	if (linearSearch(a, score, temp) < 0) {
+		printf("ID not found!");
+		return 0;
+	}
+
+	printf("id=%d and score=%d", temp, score[linearSearch(a, score, temp)]);
+*/
+/*		for (i = 0; i < SIZE; ++i) {
+			printf("\n%4d", a[i]);
+			printf("%4d", score[i]);
+		}
+		
+	puts("");  */
+}
+
+int binarySearsh(int b[], int searchKey, int low, int high) {
+	while (low <= high) {
+		int middle = (low + high) / 2;
+		//printRow(b,low,middle,high);
+		if (searchKey == b[middle]) {
+			return middle;
+		}
+		else if (searchKey < b[middle]) {
+			high = middle - 1;
+		}
+		else {
+			low = middle + 1;
+		}
+	}
+	return -1;
+}
+
+/*int linearSearch(int id[], int sc[], int stu) {
+	int i;
+	for (i = 0; i < SIZE; i++)
+		if (id[i] == stu) return i;
+
+	return -1;
+}*/
+
+void sort(int id[], int sc[]) {
+	int pass, i;
+	for (pass = 0; pass < SIZE; ++pass) {
+		for (i = 0; i < SIZE - 1; ++i) {
+			if (sc[i] > sc[i + 1]) {
+				int hold = id[i];
+				id[i] = id[i + 1];
+				id[i + 1] = hold;
+
+				hold = sc[i];
+				sc[i] = sc[i + 1];
+				sc[i + 1] = hold;
+			}
+		}
+	}
+}
+
