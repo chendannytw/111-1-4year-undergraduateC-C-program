@@ -1,0 +1,91 @@
+用上週問題做搜尋
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+#define SIZE 10
+
+int main(void) {
+	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+	int s[SIZE] = {66,67,66,70,73,74,75,75,62,32};
+	int binarysearch(int b[], int key, int low, int high);
+	
+	puts("Data items in original order");
+	
+	int i,pass,result=0,key;
+	
+	for( i=0; i<SIZE; ++i) {
+		printf("%4d",a[i]);
+		
+	} 
+	 printf("\n");
+	 
+	 for (i = 0; i < SIZE; ++i) {
+        printf("%4d", s[i]);
+    }
+
+	sort(a,s,SIZE);
+	
+	puts("\nData items in ascending order");
+	
+	for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[i]);
+    }
+    
+    puts("");
+    
+	for (i = 0; i < SIZE; ++i) {
+        printf("%4d", s[i]);
+    }
+    puts("");
+    
+    printf("請輸入你要的成績:");
+	scanf("%d",&key);  
+    if((result=binarysearch(s,key,0,SIZE-1)) == -1)
+		printf("\n查無此成績");
+    
+    else printf("成績為%d的同學的學號為: %d", key,a[result]);	
+}
+
+
+
+
+
+sort(int a[], int s[], int size){
+	int pass,i;
+	for(pass=1; pass<SIZE; ++pass){
+		for(i =0; i<SIZE-1; ++i){
+			if(s[i]>s[i+1]){
+				int hold = a[i];
+				a[i] = a[i+1];
+				a[i+1] = hold;
+				hold = s[i];
+				s[i] = s[i+1];
+				s[i+1] = hold;
+			
+			}
+		}
+	}
+}
+
+int binarysearch(int b[], int key, int low, int high){
+	while(low<=high){
+		int middle = (low + high)/2;
+		//printrow(b, low, middle, high);
+		
+		if(key==b[middle]){
+			return middle;
+		
+		}
+		else if(key<b[middle]){
+			high = middle -1;
+			
+		}
+		else{ //key>b[middle]
+			low = middle + 1;
+		}
+	}
+	return -1;
+		
+}
