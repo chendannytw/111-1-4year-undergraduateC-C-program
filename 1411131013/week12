@@ -72,3 +72,10 @@ int binarySearch(const int b[], int key , int low ,int high){
 	}
 	return -1;
 }
+
+for (i = 0; i < SIZE; ++i) {
+		sum = sum + c[i];
+	}
+	av = sum / SIZE;
+	printf("全班分數的平均為：%d", av);
+	printf("\n中位數為%d", c[10]);
