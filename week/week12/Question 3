@@ -1,0 +1,112 @@
+題目3:以下程式碼的功能是搜尋成績並印出學號，但是執行時的到不正確的結果，請加以修正
+
+#include <stdio.h>
+#define SIZE 10
+void sort(int id[],int sc[]);
+int binarySearch(int b[], int searchKey, int low, int high);
+//int linearSearch(int id[],int sc[],int key);
+// function main begins program execution
+int main(void) 
+{   
+   // initialize a
+   int     a[SIZE]={2, 6, 4, 8, 10,12,89,68,45,37},i,key,temp; 
+   int score[SIZE]={68,42,73,94,84,99,81,78,79,91};
+
+   puts("Data items in original order");
+   
+   // output original array
+   for ( i = 0; i < SIZE; ++i) {
+	  printf("\n%4d", a[i]);
+	  printf("%4d", score[i]);
+   } 
+    puts("");
+	sort(a,score);
+	puts("\nData items in ascending order");
+	for ( i = 0; i < SIZE; ++i) {
+	  printf("\n%4d", a[i]);
+	  printf("%4d", score[i]);
+   }
+	printf("\nPlease input score: ");
+	scanf("%d",&key);
+	
+	temp=binarySearch(score,key,0,SIZE-1);
+	if(temp<0) 
+		printf("\nScore %d not found!",key);
+	else
+		printf("the ID %d get score %d",a[temp],score[temp]);
+
+
+   puts("");
+}
+
+
+int binarySearch(int b[], int searchKey, int low, int high)
+{
+   while (low <= high) {
+      int middle = (low + high) / 2; // determine middle element of subarray being searched
+      printRow(b, low, middle, high);// display subarray used in this loop iteration
+      if (searchKey == b[middle]) {// if searchKey matched middle element, return middle   
+         return middle;                                       
+      }                                           
+      else if (searchKey < b[middle]) {// if searchKey is less than middle element, set new high   
+         high = middle - 1; // search low end of array      
+      }                                     
+
+      // if searchKey is greater than middle element, set new low
+      else {                                                     
+         low = middle + 1; // search high end of array        
+      }                                            
+   } // end while
+
+   return -1; // searchKey not found
+} 
+
+
+void sort(int id[],int sc[])
+{int i,pass;
+   // bubble sort                                         
+   // loop to control number of passes                    
+   for ( pass = 1; pass < SIZE; ++pass) {                   
+                                                             
+      // loop to control number of comparisons per pass   
+      for ( i = 0; i < SIZE - 1; ++i) {                     
+                                                             
+         // compare adjacent elements and swap them if first 
+         // element is greater than second element           
+         if (sc[i] < sc[i + 1]) {                        
+            int hold = sc[i];                                   
+            sc[i] = sc[i + 1];                             
+            sc[i + 1] = hold;
+            
+			hold = id[i];                                   
+            id[i] = id[i + 1];                             
+            id[i + 1] = hold;                               
+         }                                       
+      }                                   
+   }                                      
+	
+}
+
+
+
+// Print one row of output showing the current
+// part of the array being processed.
+void printRow(const int b[], size_t low, size_t mid, size_t high)
+{int i;
+   // loop through entire array
+   for ( i = 0; i < SIZE; ++i) {
+
+      // display spaces if outside current subarray range
+      if (i < low || i > high) {
+         printf("%s", "    ");
+      }  
+      else if (i == mid) { // display middle element
+         printf("%3d*", b[i]); // mark middle value
+      } 
+      else { // display other elements in subarray
+         printf("%3d ", b[i]);
+      } 
+   } 
+
+   puts(""); // start new line of output
+} 
