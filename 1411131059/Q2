@@ -1,0 +1,102 @@
+#include<stdio.h>
+#define SIZE 20
+
+void sort(int ppl[], int rel[], int size);
+int binarySearch(int b[], int searchKey, int low, int high);
+double average(int rel[], int student);
+
+int main(void)
+{
+	int id[SIZE] = { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 };
+	int score[SIZE] = { 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 };
+	int	key, result;
+
+	puts("Data items in original order");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
+		printf("%4d", id[i]);
+		printf("%4d", score[i]);
+	}
+	puts("");
+
+	sort(id, score, SIZE);
+
+	puts("\nData items in ascending order");
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		printf("\n");
+		printf("%4d", id[i]);
+		printf("%4d", score[i]);
+	}
+	puts("");
+
+	int mid = (0 + (SIZE - 1)) / 2;
+	printf("\n中位數： %d", score[mid]);
+	printf("\naverage: %.2lf", average(score, SIZE));
+
+	printf("\nInput student result: ");
+	scanf_s("%d", &key);
+	result = binarySearch(score, key, 0, SIZE - 1);
+	if (result < 0)
+	{
+		printf("%d Score not found!", key);
+	}
+	else
+	{
+		printf("Student %d got %d!and the rank is %d", id[result], key, result+1);
+	}
+}
+
+void sort(int ppl[], int rel[], int size)
+{
+	int hold;
+	for (unsigned int pass = 1; pass < size; ++pass)
+	{
+		for (int i = 0; i < size - pass; ++i)
+		{
+			if (rel[i] > rel[i + 1])
+			{
+				hold = rel[i];
+				rel[i] = rel[i + 1];
+				rel[i + 1] = hold;
+				hold = ppl[i];
+				ppl[i] = ppl[i + 1];
+				ppl[i + 1] = hold;
+			}
+		}
+	}
+}
+
+int binarySearch(int b[], int searchKey, int low, int high)
+{
+	while (low <= high)
+	{
+		int middle = (low + high) / 2;
+		if (searchKey == b[middle])
+		{
+			return middle;
+		}
+		else if (searchKey < b[middle])
+		{
+			high = middle - 1;
+		}
+		else
+		{
+			low = middle + 1;
+		}
+	}
+	return -1;
+}
+
+double average(int rel[], int student)
+{
+	int total = 0;
+	for (int i = 0; i < student; ++i)
+	{
+		total += rel[i];
+	}
+	return(double)total / student;
+}
