@@ -31,7 +31,6 @@ int main(void)
 	{
 		printf("%4d", score[i]);
 	}
-	printf("please enter the id:");
 	search(id, score);
 	puts("");
 }
@@ -56,6 +55,7 @@ void sub1(int id[], int score[])
 void search(int id[],int score[])
 {
 	int ID, j = 0;
+	printf("\nenter student id:");
 	scanf_s("%d", &ID);
 	for (int i = 0; i < SIZE; i++)
 		if (ID == id[i])
