@@ -31,6 +31,7 @@ int main(void)
 	{
 		printf("%4d", score[i]);
 	}
+	printf("please enter the id:");
 	search(id, score);
 	puts("");
 }
