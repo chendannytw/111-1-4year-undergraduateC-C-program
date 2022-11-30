@@ -69,7 +69,7 @@ int main(void)
     {
         for (size_t i = 0; i < SIZE; ++i) {
             if (i<low || i>high) {
-                printf("%s","  ");
+                printf("%s","   ");
             }
             else if (i == mid) {
                 printf("%3d*",b[i]);
@@ -277,6 +277,7 @@ int main(void)
     scanf_s("%d", &key);
     if((result= binarySearch(c, key, 0 , SIZE-1))==-1)
         printf("查無此成績");
+    else
     printf("成績為%d的同學的學號為: %d", key , a[result]);
 }
 void sort(int a[], int c[], int size)
