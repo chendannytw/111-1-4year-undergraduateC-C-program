@@ -62,7 +62,7 @@ void search(int id[],int score[])
 			printf("Student %d score is %d!", id[i], score[i]);
 		else
 			j++;
-	if (j > 9)
+	if (j > SIZE-1)
 		printf("Student %d not found!", ID);
 }
 
