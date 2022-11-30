@@ -1,0 +1,120 @@
+#include <stdio.h>
+#define SIZE 20
+
+// function main begins program execution
+
+float avg(int score[]);
+int binarySearch(const int b[], int searchKey, int low, int high);
+void sort(int id[], int sc[]);
+int main(void)
+{
+    // initialize a
+    int id[SIZE] = { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 };
+    int score[SIZE] = { 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 };
+    int i, temp;
+    float n;
+    puts("Data items in original order");
+    // output original array
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", score[i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+
+
+    puts("\nData items in ascending order");
+    sort(id, score);
+    // output sorted array
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", score[i]);
+    }
+
+    puts("");
+    printf("\nplease input the score :");
+    scanf_s("%d", &temp); if (binarySearch(score, temp, 0, 19) < 0)
+    {
+        printf("score not found!");
+        return 0;
+    }
+    printf("座號:%d 成績:%d 名次:%d", id[binarySearch(score, temp, 0, 19)], score[binarySearch(score, temp, 0, 19)], 20-(binarySearch(score, temp, 0, 19)));
+    //printf("id=%d", id[binarySearch(score, temp, 0, 19)]);
+    /*   // output sorted array
+       for (i = 0; i < SIZE; ++i) {
+          printf("\n");
+          printf("%4d", a[i]);
+          printf("%4d", score[i]);
+       }
+    */
+    puts("");
+    printf("平均為：%f",avg(score) );
+    n = float(score[10] + score[11]) / 2;
+    printf("\n中位數為：%f",n );
+
+}
+
+
+int binarySearch(const int b[], int searchKey, int low, int high)
+{
+    while (low <= high)
+    {
+        int middle = (low + high) / 2;
+        if (searchKey == b[middle])
+        {
+            return middle;
+        }
+        else if (searchKey < b[middle])
+        {
+            high = middle - 1;
+        }
+        else
+        {
+            low = middle + 1;
+        }
+    }
+    return -1;
+}
+
+
+void sort(int id[], int sc[])
+{
+    int pass, i;
+    for (pass = 1; pass < SIZE; ++pass)
+    {
+        for (i = 0; i < SIZE - 1; ++i)
+        {
+            if (sc[i] > sc[i + 1])
+            {
+                int hold1 = id[i];
+                id[i] = id[i + 1];
+                id[i + 1] = hold1;
+
+                int hold2 = sc[i];
+                sc[i] = sc[i + 1];
+                sc[i + 1] = hold2;
+            }
+        }
+    }
+}
+
+float avg(int score[]) 
+{
+    int i, x;
+    float y;
+    x = 0;
+    for (i = 0; i < SIZE; i++) 
+    {
+        x += score[i];
+    }
+    y = x / SIZE;
+    return y;
+}
+
