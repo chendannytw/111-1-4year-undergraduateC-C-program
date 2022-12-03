@@ -8,8 +8,8 @@ void printArray() {}
 
 int main()
 {
-	int i,j,total = 0;
-	
+	int i, j, total = 0;
+
 	int studentGrades[STUDENTS][EXAMS] = {
 		{0012,77,68,86,73,0},
 	{0013,96,87,89,78,0},
@@ -17,24 +17,24 @@ int main()
 	};
 
 	puts("The arry is");
-	printArray (studentGrades, STUDENTS, EXAMS);
+	printArray(studentGrades, STUDENTS, EXAMS);
 
 	for (j = 0; j < STUDENTS; ++j) {
 		for (i = 1; i < EXAMS - 1; ++i) {
 			total += studentGrades[j][i];
-	    }
+		}
 		studentGrades[j][i + 1] = total / 4;
-		
+
 	}
 }
-void sort(int grade[][EXAMS],int studentGrades, int pupils, int tests) {
-	int pass,j,i;
+void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests) {
+	int pass, j, i;
 	for (pass = 1; pass < tests; ++pass) {
 
 		for (i = 1; i < tests - 1; ++i) {
 
-			if (grade[j] > grade[j + 1]) {
-				swap(&grade[i][j], &grade[i + 1][j]);
+			if (grade[j][EXAMS-1] > grade[j + 1][EXAMS-1]) {
+				swap(&grade[i][EXAMS - 1], &grade[i + 1][EXAMS - 1]);
 			}
 		}
 	}
