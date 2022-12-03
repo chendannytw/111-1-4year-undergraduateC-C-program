@@ -1,0 +1,46 @@
+將學生的學號與成績利用二維陣列印出，在計算所有學生的總成績，根據總成績排序後，排序成績必須呼叫自已寫的swap()副程式，以傳位址呼叫完成，再將完整的陣列印出
+#include <stdio.h>
+#define STUDENTS 3
+#define EXAMS 6
+void sort(int studentGrades, int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
+void printArray() {}
+
+int main()
+{
+	int i,j,total = 0;
+	
+	int studentGrades[STUDENTS][EXAMS] = {
+		{0012,77,68,86,73,0},
+	{0013,96,87,89,78,0},
+		{0014,70,90,86,81,0}
+	};
+
+	puts("The arry is");
+	printArray (studentGrades, STUDENTS, EXAMS);
+
+	for (j = 0; j < STUDENTS; ++j) {
+		for (i = 1; i < EXAMS - 1; ++i) {
+			total += studentGrades[j][i];
+	    }
+		studentGrades[j][i + 1] = total / 4;
+		
+	}
+}
+void sort(int grade[][EXAMS],int studentGrades, int pupils, int tests) {
+	int pass,j,i;
+	for (pass = 1; pass < tests; ++pass) {
+
+		for (i = 1; i < tests - 1; ++i) {
+
+			if (grade[j] > grade[j + 1]) {
+				swap(&grade[i][j], &grade[i + 1][j]);
+			}
+		}
+	}
+}
+void swap(int* element1Ptr, int* element2Ptr) {
+	int hold = *element1Ptr;
+	*element1Ptr = *element2Ptr;
+	*element2Ptr = hold;
+}
