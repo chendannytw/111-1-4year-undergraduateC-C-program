@@ -73,9 +73,85 @@ int binarySearch(const int b[], int key , int low ,int high){
 	return -1;
 }
 
-for (i = 0; i < SIZE; ++i) {
+test2
+#include <stdio.h>
+#define SIZE 20
+void sort (int a[],int c[],int size);
+int binarySearch(const int b[], int key , int low ,int high);
+int key,result,sum,i,av;
+
+int main(void){
+	int a[SIZE] = {12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37};
+	int c[SIZE] = {66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66};
+	
+	puts("Date items in original order\n");
+	int i;
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",c[i]);	
+	}
+	
+	sort (a,c,SIZE);
+	puts("\nDate items in ascending order");
+	printf("名次   座號   成績\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%3d",i+1);
+		printf("%6d",a[i]);
+		printf("%7d",c[i]);
+		printf("\n");
+	}
+	
+	puts("");
+	
+	for (i = 0; i < SIZE; ++i) {
 		sum = sum + c[i];
 	}
 	av = sum / SIZE;
 	printf("全班分數的平均為：%d", av);
 	printf("\n中位數為%d", c[10]);
+	
+	printf("\n請輸入你要的成績");
+	scanf("%d",&key);
+	if ((result=binarySearch(c,key,0,SIZE-1)) == -1)
+	    printf("查無此成績");
+	else printf("成績為%d的同學的學號為：%d",key,a[result]);
+	binarySearch(c,key,0,SIZE-1);
+	
+}
+int i;
+void sort (int a[],int c[],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (c[i] < c[ i+1 ]){
+	  		hold = c[i];
+	  		c[i] = c[i+1];
+	  		c[i+1]=hold;
+	  		hold = a[i];
+	  		a[i] = a[i+1];
+	  		a[i+1]=hold;
+		  }
+	  }
+	}
+}
+
+
+int binarySearch(const int b[], int key , int low ,int high){
+	while (low <= high){
+		int middle = (low + high) /2;
+		
+		if (key == b[middle]){
+			return middle;
+		}
+		else if (key < b[middle]){
+			high = middle -1;
+		}
+		else {
+			low = middle +1;
+		}
+	}
+	return -1;
+}
