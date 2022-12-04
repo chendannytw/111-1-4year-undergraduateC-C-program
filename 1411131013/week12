@@ -34,7 +34,7 @@ int main(void){
 	scanf("%d",&key);
 	if ((result=binarySearch(c,key,0,SIZE-1)) == -1)
 	    printf("查無此成績");
-	printf("成績為%d的同學的學號為：%d",key,a[result]);
+	else printf("成績為%d的同學的學號為：%d",key,a[result]);
 	binarySearch(c,key,0,SIZE-1);
 	
 }
