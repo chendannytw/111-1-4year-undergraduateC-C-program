@@ -102,7 +102,51 @@ void swap(int* element1Ptr, int* element2Ptr)
     *element2Ptr = hold;
 }
 =================================================================
-  
+ #include <stdio.h>
+#define STUDENTS 3
+#define EXAMS 6
+void sort(int studentGrades, int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
+void printArray() {}
+
+int main()
+{
+	int i, j, total = 0;
+
+	int studentGrades[STUDENTS][EXAMS] = {
+		{0012,77,68,86,73,0},
+	{0013,96,87,89,78,0},
+		{0014,70,90,86,81,0}
+	};
+
+	puts("The arry is");
+	printArray(studentGrades, STUDENTS, EXAMS);
+
+	for (j = 0; j < STUDENTS; ++j) {
+		for (i = 1; i < EXAMS - 1; ++i) {
+			total += studentGrades[j][i];
+		}
+		studentGrades[j][i + 1] = total / 4;
+
+	}
+}
+void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests) {
+	int pass, j, i;
+	for (pass = 1; pass < tests; ++pass) {
+
+		for (i = 1; i < tests - 1; ++i) {
+
+			if (grade[j][EXAMS-1] > grade[j + 1][EXAMS-1]) {
+				swap(&grade[i][EXAMS - 1], &grade[i + 1][EXAMS - 1]);
+			}
+		}
+	}
+}
+void swap(int* element1Ptr, int* element2Ptr) {
+	int hold = *element1Ptr;
+	*element1Ptr = *element2Ptr;
+	*element2Ptr = hold;
+} 
     
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
