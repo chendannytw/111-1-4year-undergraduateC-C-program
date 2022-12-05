@@ -103,50 +103,70 @@ void swap(int* element1Ptr, int* element2Ptr)
 }
 =================================================================
  #include <stdio.h>
-#define STUDENTS 3
+#define STUDENTS 3 
 #define EXAMS 6
-void sort(int studentGrades, int pupils, int tests);
-void swap(int* element1Ptr, int* element2Ptr);
-void printArray() {}
 
-int main()
+void printArray (int grades[][EXAMS], int pupils, int tests);
+void sort (int grades[][EXAMS], int pupils, int tests);
+void swap (int *element1Ptr, int *element2Ptr);
+
+int main(void)
 {
-	int i, j, total = 0;
-
-	int studentGrades[STUDENTS][EXAMS] = {
-		{0012,77,68,86,73,0},
-	{0013,96,87,89,78,0},
-		{0014,70,90,86,81,0}
-	};
-
-	puts("The arry is");
-	printArray(studentGrades, STUDENTS, EXAMS);
-
-	for (j = 0; j < STUDENTS; ++j) {
-		for (i = 1; i < EXAMS - 1; ++i) {
-			total += studentGrades[j][i];
-		}
-		studentGrades[j][i + 1] = total / 4;
-
-	}
+    int studentGrades[STUDENTS][EXAMS] =
+        { {012, 77, 68, 86, 73, 0 },
+	  {006, 96, 87, 89, 78, 0 },
+	  {004, 70, 90, 86, 81, 0 } };
+    int student, i, total = 0, j;     
+		  
+    puts ("The array is:");
+    printArray (studentGrades, STUDENTS, EXAMS);
+	
+    for (j = 0; j < STUDENTS; ++j){
+	for (i = 1; i < EXAMS - 1; ++i) {
+            total += studentGrades[j][i];
+        }
+        studentGrades[j][EXAMS - 1] = total / 4;
+        total = 0;
+    }
+    
+    printf("\n\n");
+    sort (studentGrades, STUDENTS, EXAMS);
+    printArray (studentGrades, STUDENTS, EXAMS);
+	
 }
-void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests) {
-	int pass, j, i;
-	for (pass = 1; pass < tests; ++pass) {
 
-		for (i = 1; i < tests - 1; ++i) {
-
-			if (grade[j][EXAMS-1] > grade[j + 1][EXAMS-1]) {
-				swap(&grade[i][EXAMS - 1], &grade[i + 1][EXAMS - 1]);
-			}
-		}
-	}
+void sort (int grades[][EXAMS], int pupils, int tests)
+{
+    int pass, i, j;
+    for (pass = 1; pass < pupils; ++pass){
+	for (i = 0; i < pupils - 1; ++i){
+            if (grades[i][EXAMS - 1] < grades[i + 1][EXAMS - 1]){
+		for (j = 0; j < EXAMS; j++){
+		swap (&grades[i][j], &grades[i + 1][j]);
+                }
+            }
+    	}	
+    }
 }
-void swap(int* element1Ptr, int* element2Ptr) {
-	int hold = *element1Ptr;
-	*element1Ptr = *element2Ptr;
-	*element2Ptr = hold;
-} 
+
+void swap (int *element1Ptr, int *element2Ptr)
+{
+    int hold = *element1Ptr;
+    *element1Ptr = *element2Ptr;
+    *element2Ptr = hold;
+}
+
+void printArray (int grades[][EXAMS], int pupils, int tests)
+{
+    int i, j;
+    printf ("%s" , "                    [0]  [1]  [2]  [3]");
+    for (i = 0; i < pupils; ++i) {
+	printf ("\nstudentGrades[%u]", i);
+	for (j = 0; j < tests; ++j) {
+            printf ("%-5d", grades[i][j]);
+        }
+    }
+}
     
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
