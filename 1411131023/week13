@@ -2,9 +2,10 @@
 #include <stdio.h>
 #define STUDENTS 3
 #define EXAMS 6
-void sort(int studentGrades, int pupils, int tests);
+void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests);
 void swap(int* element1Ptr, int* element2Ptr);
-void printArray() {}
+
+void printArray(void swap());
 
 int main()
 {
@@ -33,8 +34,8 @@ void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests) {
 
 		for (i = 1; i < tests - 1; ++i) {
 
-			if (grade[j][EXAMS-1] > grade[j + 1][EXAMS-1]) {
-				swap(&grade[i][EXAMS - 1], &grade[i + 1][EXAMS - 1]);
+			if (grade[j] > grade[j + 1]) {
+				swap(&grade[i][j], &grade[i + 1][j]);
 			}
 		}
 	}
