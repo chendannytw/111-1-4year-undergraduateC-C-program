@@ -1,0 +1,61 @@
+#include <stdio.h>
+#define STUDENTS 3
+#define EXAMS 6
+
+
+void printArray(int grades[][EXAMS], int pupils, int tests);
+void sort(int grades[][EXAMS], int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
+int main(void) {
+	int i,j;
+	int total = 0;
+	int studentGrades[STUDENTS][EXAMS] =
+		{ {012,77,68,86,73,0 },
+		  {006,96,87,89,78,0 },
+		  {010,70,90,86,81,0 } };
+	puts("The array is:");
+	
+	for (j = 0; j < STUDENTS; j++) {
+	 for (int i = 1; i < EXAMS-1; ++i)
+	{
+		total += studentGrades[j][i];
+	}
+	 studentGrades[j][EXAMS-1]= total / 4;
+	 total = 0;
+	}
+
+	sort(studentGrades, STUDENTS, EXAMS);
+	printArray(studentGrades, STUDENTS, EXAMS);
+}
+
+void sort(int grades[][EXAMS], int pupils, int tests) {
+	int pass, i,j;
+	for (pass = 1; pass < pupils; ++pass) {
+		for ( i = 0; i < pupils-1; ++i)
+		{
+		if (grades[i][EXAMS-1]>grades[i+1][EXAMS-1]){
+			for (j = 0; j < tests; j++) {
+				swap(&grades[i][j], &grades[i + 1][j]);
+				}
+			}
+		}
+	}
+}
+
+void swap(int* element1Ptr, int* element2Ptr) {
+	int hold = *element1Ptr;
+	*element1Ptr = *element2Ptr;
+	*element2Ptr = hold;
+}
+
+void printArray(int grades[][EXAMS], int pupils, int tests) {
+	printf("%s", "               [0]  [1]  [2]  [3]  [4]  [5]");
+	for (int row = 0; row < pupils; ++row)
+	{
+		printf("\nstudentGrades[%zu]", row);
+		for (int column = 0; column < tests; ++column)
+		{
+			printf("%-5d", grades[row][column]);
+		}
+	}
+}
