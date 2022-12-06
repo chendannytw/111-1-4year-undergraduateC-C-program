@@ -1,0 +1,80 @@
+#include <stdio.h>
+#define SIZE 10
+int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 }, key, i, j = 0;
+int c[SIZE] = { 66,67,66,70,73,74,75,75,62,32 };
+void sort(int a[SIZE], int c[SIZE]);
+int binarySearch(int b[], int searchKey, int low, int high);
+int main(void) {
+
+	puts("Data items in originall order");
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		printf("%4d", a[i]);
+		printf("%4d\n", c[i]);
+	}
+
+	sort(a, c);
+	puts("\nData items in ascending order");
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		printf("%4d", a[i]);
+		printf("%4d\n", c[i]);
+
+	}
+
+	printf("Input student score: ");
+	scanf_s("%d", &key);
+	j = binarySearch(c, key, 0, SIZE - 1);
+	if (j ==-1)
+		printf("查無此成績!!");
+	else printf("成績為%d的同學的學號為: %d", key, a[j]);
+
+
+
+
+
+	puts("");
+
+}
+void sort(int a[], int c[])
+{
+	for (int pass = 1; pass < SIZE; pass++)
+	{
+		for (size_t i = 0; i < SIZE - 1; i++)
+		{
+			if (c[i] > c[i + 1])
+			{
+				int scorea = c[i];
+				int ida = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = ida;
+				c[i] = c[i + 1];
+				c[i + 1] = scorea;
+			}
+		}
+	}
+
+}
+
+
+int binarySearch(int b[], int searchKey, int low, int high)
+{
+	while (low <= high) {
+
+		size_t middle = (low + high) / 2;
+
+		if (searchKey == b[middle]) {
+			return middle;
+		}
+
+		else if (searchKey < b[middle]) {
+			high = middle - 1; 
+		}
+
+		else {
+			low = middle + 1; 
+		}
+	} 
+
+	return -1;
+}
