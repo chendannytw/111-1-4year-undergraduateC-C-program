@@ -45,7 +45,7 @@ int main(void)
 		printf("成績為%d的學生學號為:%d", key, id[result]);
 	printf("\nQ2:\n平均為:%d", average(score));
 	printf("\n中位數為%d", score[midpoint(id)]);
-	printf("學生成績表\nid:%d\n名次:%d\n成績:%d"id[result],result,key);
+	printf("\n學生成績表\nid:%d\n名次:%d\n成績:%d",id[result], SIZE-result, key);
 }
 void sub1(int id[], int score[])
 {
@@ -77,7 +77,7 @@ void search(int id[], int score[])
 		else
 			j++;
 	}
-	if (j > SIZE-1)
+	if (j > SIZE - 1)
 		printf("Student %d not found!", ID);
 }
 int binarysearch(int b[], int key, int lift, int right)
@@ -94,9 +94,9 @@ int binarysearch(int b[], int key, int lift, int right)
 	}
 	return -1;
 }
-int average(int sc[]) 
+int average(int sc[])
 {
-	int result=0;
+	int result = 0;
 	int aver;
 	for (int i = 0; i < SIZE; i++)
 	{
@@ -107,7 +107,7 @@ int average(int sc[])
 }
 int midpoint(int sc[])
 {
-	int mid=0 + SIZE / 2;
+	int mid = 0 + SIZE / 2;
 	return mid;
 }
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
