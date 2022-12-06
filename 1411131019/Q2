@@ -1,0 +1,106 @@
+// ConsoleApplication1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//題目 : 在程式內紀錄20個學生學號、成績，置於兩個陣列內，計算全班平均/中位數，並將學生學號、成績在主程式根據成績高低由小到大印出。
+//※撰寫排序副程式，計算平均ok / 中位數ok / 二元搜尋副程式。再由鍵盤輸入成績，印出該名學生的成績表(包含學號、成績、名次)，報表務求美觀、大方。
+
+#include <stdio.h>
+#define SIZE 20
+void sort(int a[], int c[]);
+int binarysearch(int b[], int searchkey, int low, int high);
+
+//int search(int id[], int sc[], int ID);
+
+int main(void)
+{
+	int i, key,total=0;
+	double average=0;
+	int a[SIZE] = { 2,6,4,8,15,16,17,19,21,23,24,26,27,28,29,31,32,33,36,37 };
+	int c[SIZE] = { 60,67,46,70,73,74,75,75,62,32,44,45,27,12,80,63,68,90,11,66 }, ID;
+
+	printf("Data items in original order\n");
+	printf(" 學 號");
+	for (i = 0; i < SIZE; i++) {
+		printf("%4d", a[i]);
+	}
+	puts("");
+	printf(" 成 績");
+	for (int i = 0; i < SIZE; i++) {
+		printf("%4d", c[i]);
+	}
+	
+	puts("");
+	puts("");
+	sort(a, c);
+
+	printf("Data items in ascending order\n");
+	printf(" 學 號");
+	for (i = 0; i < SIZE; i++) {
+		printf("%4d", a[i]);
+	}
+	puts("");
+	printf(" 成 績");
+	for (i = 0; i < SIZE; i++) {
+		printf("%4d", c[i]);
+	}
+	i = (SIZE-1) / 2;
+	printf("\n\n中位數為：%d", c[i]);
+	for (i = 0; i < SIZE; i++) {
+		total += c[i];
+	}
+	average = total / SIZE;
+	printf("\nAverage is %.2f\n", average);
+	puts("");
+	puts("");
+
+	puts("輸入欲查詢的成績");
+	scanf_s("%d", &key);
+
+	binarysearch(c, key, 0, SIZE - 1);
+	int j = binarysearch(c, key, 0, SIZE - 1);
+	if (j == -1)
+		printf("查無此成績");
+
+	printf("成績為%d的同學的學號為%d", key, a[j]);
+
+	puts("");
+	
+	
+	
+	
+
+
+
+
+}
+
+void sort(int a[], int c[]) {
+	int hold;
+	for (int pass = 1; pass < SIZE; pass++) {
+		for (int i = 0; i < SIZE - pass; i++) {
+			if (c[i] > c[i + 1]) {
+				hold = c[i];
+				c[i] = c[i + 1];
+				c[i + 1] = hold;
+				hold = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = hold;
+			}
+		}
+	}
+}
+
+
+
+
+int binarysearch(int b[], int searchkey, int low, int high)
+{
+	while (low <= high) {
+		int middle = (low + high) / 2;
+		if (searchkey == b[middle])
+			return middle;
+		else if (searchkey < b[middle])
+			high = middle - 1;
+		else
+			low = middle + 1;
+	}
+	return -1;
+}
