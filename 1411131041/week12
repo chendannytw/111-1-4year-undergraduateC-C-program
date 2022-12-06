@@ -183,3 +183,6 @@ int math2( int g[], int mid) {
 
 
 }
+test3
+排列時 if (sc[i] < sc[i + 1])
+無法由小到大排序 改成大於即可
