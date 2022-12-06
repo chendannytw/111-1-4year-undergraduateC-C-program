@@ -5,7 +5,7 @@
 void printArray(int grades[][EXAMS], int pupils, int tests);
 void sort (int grades[][EXAMS], int pupils, int tests );
 void swap (int *element1Ptr, int *element2Ptr);
-int i,j,total,hold,texts;
+int i,j,total,hold;
 
 int main(void)
 {
@@ -52,12 +52,12 @@ void swap (int *element1Ptr, int *element2Ptr)
 	}
 
 void printArray(int grades[][EXAMS], int pupils, int tests){
-	   printf("%s","               [0]  [1]  [2]  [3]");
+	   printf("%s","                [0]  [1]  [2]  [3]");
 	   
 	   for ( i=0 ; i <pupils ; ++i){
 	     printf("\nstudentGrades[%u] ",i);
-	     for ( j=0 ; j <texts ; ++j){
-	       printf("%-5d",grades[i][j]);
+	     for ( j=1 ; j <tests-1 ; ++j){
+	        printf("%-5d",grades[i][j]);
 	     }
 	   }
 	}
