@@ -1,0 +1,91 @@
+#include <stdio.h>
+#define ID 4
+#define SC 20
+
+void swap(int a[][SC], int size);
+void KK(int* el1, int* el2);
+// function main begins program execution
+
+
+int main(void)
+{
+    int i;
+    int SG[ID][SC] =
+    {
+        { 0,1,2,3,4,5,6,7,8,9 },
+        { 66,67,66,70,73,74,75,75,62,32 },
+        { 44,46,27,12,80,63,66,90,11,66 },
+        {0}
+    };
+
+    printf("學號");
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[0][i]);
+    }
+    printf("\n");
+    printf("數學");
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[1][i]);
+    }
+    printf("\n");
+    printf("計概");
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[2][i]);
+    }
+    printf("\n");
+    printf("平均");
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[3][i]);
+    }
+    printf("\n");
+
+    puts("\n新排列");
+    swap(SG, SC);
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[0][i]);
+    }
+    puts("");
+    for (i = 0; i < SC; ++i)
+    {
+        printf("%4d", SG[1][i]);
+    }
+}
+
+
+void swap(int a[][SC], int size)
+{
+    int hold, pass, i;
+    for (i = 0; i < size - pass; ++i)
+    {
+        a[3][i] = (a[1][i] + a[2][i]) / 2;
+    }
+
+
+    for (pass = 1; pass < size; ++pass) {
+
+        for (i = 0; i < size - pass; ++i) {
+
+            if (a[3][i] > a[3][i + 1]) {
+                KK(&a[0][i], &a[1][i + 1]);
+                KK(&a[1][i], &a[0][i + 1]);
+                KK(&a[2][i], &a[0][i + 1]);
+                KK(&a[3][i], &a[0][i + 1]);
+
+            }
+        }
+    }
+
+}
+
+void KK(int* el1, int* el2)
+{
+    int hold = *el1;
+    *el1 = *el2;
+    *el2 = hold;
+
+}
