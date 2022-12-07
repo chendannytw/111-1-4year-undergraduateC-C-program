@@ -167,7 +167,62 @@ void printArray (int grades[][EXAMS], int pupils, int tests)
         }
     }
 }
+========================================================================
+	#include <stdio.h>
+#define SIZE 20
+void printarray(int a[][20]);
+void swap(int* element1Ptr, int* element2Ptr);
+void sort(int a[][SIZE], int size);
+int main(void)
+{
     
+    int a[2][SIZE] = { { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 } 
+                      ,{ 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 } };
+    puts("Data iteam in original order");
+
+    printarray(a);
+    
+
+    sort(a, SIZE);
+    printarray(a);
+    
+
+    
+   
+}
+
+void printarray(int a[][SIZE]) {
+    int i, j;
+    for (i = 0; i <= 1; ++i) {
+        for (j = 0; j <= 9; ++j) {
+            printf("%5d", a[i][j]);
+        }
+        printf("\n");
+    }
+
+
+}
+
+void sort(int a[][SIZE],  int size)
+{
+    int hold;
+    for (unsigned int pass = 1; pass < SIZE; ++pass) {
+        for (size_t i = 0; i < size - pass; ++i) {
+            if (a[1][i] > a[1][i + 1]) {
+                swap(&a[1][i], &a[1][i+1]);
+                swap(&a[0][i], &a[0][i + 1]);
+            }
+        }
+    }
+}
+
+
+void swap(int * element1Ptr, int * element2Ptr)
+{
+    int hold = *element1Ptr;
+    *element1Ptr = *element2Ptr;
+    *element2Ptr = hold;
+}
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
 // 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
