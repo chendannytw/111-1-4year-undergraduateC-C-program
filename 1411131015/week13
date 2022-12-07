@@ -11,12 +11,6 @@ void swap(int *ep1, int *ep2);
 int main(void) {
 	int c[2][SIZE] = {{2, 6, 4, 8, 10, 12, 89, 68, 45, 37} , {66, 67, 65, 70, 73, 74, 75, 76, 62, 32}};
 
-//	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
-//	int s[SIZE] = {66,67,66,70,73,74,75,75,62,32};
-// 計算所有學生的總成績，根據總成績排序
-
-
-	
 	puts("Data items in original order");
 	printarray(c);
 
