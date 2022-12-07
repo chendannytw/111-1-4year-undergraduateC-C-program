@@ -161,18 +161,17 @@ int main(void){
 	printf("名次   座號   數學成績   計概成績   平均\n");
 	for ( i = 0 ; i<SIZE ;++i){
 		printf("%3d",i+1);
-		printf("%8d",a[0][i]);
+		printf("%7d",a[0][i]);
 		printf("%9d",a[1][i]);
 		printf("%10d",a[2][i]);
-		printf("%11d",a[3][i]);
+		printf("%10d",a[3][i]);
 		printf("\n");
 	}
-	
-	
 	puts("");
-	
-
-	
+	//並印出最高平均成績與最低平均成績的同學和分數。需使用排序、報表、中位數、取平均副程式
+	printf("最高平均成績的同學為%d,分數為%d\n",a[0][0],a[3][0]);
+	printf("最低平均成績的同學為%d,分數為%d\n",a[0][9],a[3][9]);
+	printf("中位數為%d",a[3][4]);
 }
 int i;
 void sort (int a[][SIZE],int size){
