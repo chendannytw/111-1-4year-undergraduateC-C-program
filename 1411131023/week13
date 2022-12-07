@@ -1,47 +1,54 @@
 將學生的學號與成績利用二維陣列印出，在計算所有學生的總成績，根據總成績排序後，排序成績必須呼叫自已寫的swap()副程式，以傳位址呼叫完成，再將完整的陣列印出
 #include <stdio.h>
-#define STUDENTS 3
-#define EXAMS 6
-void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests);
-void swap(int* element1Ptr, int* element2Ptr);
-
-void printArray(void swap());
-
-int main()
+#define SIZE 20 
+void sort(int b[2][SIZE]);
+void swap(int* e1ptr, int* e2ptr);
+int main(void)
 {
-	int i, j, total = 0;
+	int a[2][SIZE] = { { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 },
+						{ 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 } };
 
-	int studentGrades[STUDENTS][EXAMS] = {
-		{0012,77,68,86,73,0},
-	{0013,96,87,89,78,0},
-		{0014,70,90,86,81,0}
-	};
-
-	puts("The arry is");
-	printArray(studentGrades, STUDENTS, EXAMS);
-
-	for (j = 0; j < STUDENTS; ++j) {
-		for (i = 1; i < EXAMS - 1; ++i) {
-			total += studentGrades[j][i];
-		}
-		studentGrades[j][i + 1] = total / 4;
-
+	puts("Data items in original order");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
 	}
+	printf("\n");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
+	}
+
+
+	sort(a);
+	puts("\nData items in ascending order");
+
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
+	}
+	printf("\n");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[1][i]);
+	}
+
+	puts("");
 }
-void sort(int grade[][EXAMS], int studentGrades, int pupils, int tests) {
-	int pass, j, i;
-	for (pass = 1; pass < tests; ++pass) {
+void sort(int b[2][SIZE])
+{
+	int i,pass;
+	for (pass = 1; pass < SIZE; ++pass)
+	{
+		for (i = 0; i < SIZE - pass; ++i)
+		{
 
-		for (i = 1; i < tests - 1; ++i) {
-
-			if (grade[j] > grade[j + 1]) {
-				swap(&grade[i][j], &grade[i + 1][j]);
+			if (b[1][i]  > b[1][i + 1])
+			{
+				swap(&b[1][i], &b[1][i + 1]);
+				swap(&b[0][i], &b[0][i + 1]);
 			}
 		}
 	}
 }
-void swap(int* element1Ptr, int* element2Ptr) {
-	int hold = *element1Ptr;
-	*element1Ptr = *element2Ptr;
-	*element2Ptr = hold;
+void swap(int *e1ptr, int *e2ptr) {
+	int hold = *e1ptr;
+	*e1ptr = *e2ptr;
+	*e2ptr = hold;
 }
