@@ -13,27 +13,34 @@ int main(void){
 	
 	puts("Date items in original order");
 	int i;
-	for ( i = 0 ; i<SIZE ;++i){
+	printf("學號  ");
+	for ( i = 0 ; i<SIZE ;++i){	
 		printf("%4d",a[0][i]);
 	}
 	printf("\n");
+	printf("數學  ");
 	for ( i = 0 ; i<SIZE ;++i){
+	
 		printf("%4d",a[1][i]);	
 	}
 	printf("\n");
+	printf("計概  ");
 	for ( i = 0 ; i<SIZE ;++i){
 		printf("%4d",a[2][i]);	
 	}
 	sort (a,SIZE);
 	puts("\nDate items in ascending order");
+	printf("學號  ");
 	for ( i = 0 ; i<SIZE ;++i){
 		printf("%4d",a[0][i]);
 	}
 	printf("\n");
+	printf("數學  ");
 	for ( i = 0 ; i<SIZE ;++i){
 		printf("%4d",a[1][i]);	
 	}
 	printf("\n");
+	printf("計概  ");
 	for ( i = 0 ; i<SIZE ;++i){
 		printf("%4d",a[2][i]);	
 	}
