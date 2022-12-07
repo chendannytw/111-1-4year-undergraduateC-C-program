@@ -8,7 +8,7 @@ void swap(int* element1Ptr, int* element2Ptr);
 int main(void)
 {
 	int total = 0;
-    int i, j ;
+	int i, j;
 	int studentgrades[STUDENTS][EXAMS] =
 	{ {012,77,68,86,73,0},
 	 {006,96,87,89,78,0},
@@ -49,21 +49,23 @@ void sort(int grades[][EXAMS], int pupils, int tests)
 	}
 }
 
-void swap(int* element1Ptr, int* element2Ptr)
+void swap(int* e1Ptr, int* e2Ptr)
 {
-	int hold = *element1Ptr;
-	*element1Ptr = *element2Ptr;
-	*element2Ptr = hold;
+	int hold = *e1Ptr;
+	*e1Ptr = *e2Ptr;
+	*e2Ptr = hold;
 }
 
 
 
 void printarray(int grades[][EXAMS], int pupils, int tests)
 {
-	for (int i = 0; i < pupils; i++) {
+	int i,j ;
+	for ( i = 0; i < pupils; i++) {
 		printf("\nstudentgrades[%u]", i);
-		for (int j = 0; j < tests; ++j) {
+		for ( j = 0; j < tests; ++j) {
 			printf("%-5d", grades[i][j]);
 		}
 	}
 }
+
