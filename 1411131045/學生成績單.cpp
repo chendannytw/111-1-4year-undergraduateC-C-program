@@ -42,10 +42,12 @@ int main(void)
 	if ((result = binarysearch(score, key, 0, SIZE - 1)) == -1)
 		printf("student not found!!");
 	else
+	{
 		printf("成績為%d的學生學號為:%d", key, id[result]);
-	printf("\nQ2:\n平均為:%d", average(score));
-	printf("\n中位數為%d", score[midpoint(id)]);
-	printf("\n\n學生成績表:\nid:%d\n名次:%d\n成績:%d",id[result], SIZE-result, key);
+		printf("\nQ2:\n平均為:%d", average(score));
+		printf("\n中位數為%d", score[midpoint(id)]);
+		printf("\n\n學生成績表:\nid:%d\n名次:%d\n成績:%d", id[result], SIZE - result, key);
+	}
 }
 void sub1(int id[], int score[])
 {
