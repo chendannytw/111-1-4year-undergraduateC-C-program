@@ -1,2 +1,69 @@
 將學生的學號與成績二維陣列印出，再計算所有學生的總成績，根據總成績排序，
 排序程式必須呼叫p.380自己寫的swap( )副程式，以傳位址呼叫完成，再將完整的陣列印出。
+#include <stdio.h>
+#define SIZE 20
+//int binarySearch(int b[], int searchKey, int low, int high);
+void sort(int a[][SIZE], int size);
+void swap(int *e1Ptr, int *e2Ptr);
+// function main begins program execution
+int main(void)
+{
+    int key,result=0,i;
+    // initialize a
+    int a[2][SIZE] ={{ 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 },
+	                 { 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 }};
+    
+    puts("Data items in original order");
+    // output original array
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[0][i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[1][i]);
+    }
+
+    // bubble sort                                         
+    // loop to control number of passes                    
+
+    sort(a, SIZE);
+    puts("\nData items in ascending order");
+
+    // output sorted array
+    for ( i = 0; i < SIZE; ++i) {
+        printf("%4d", a[0][i]);
+    }
+    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[1][i]);
+    }
+
+
+}
+
+
+void sort(int a[][SIZE], int size)
+{
+    int hold,i,pass;
+    for (pass = 1; pass < SIZE; ++pass) {
+
+        // loop to control number of comparisons per pass   
+        for (i = 0; i < size - pass; ++i) {
+
+            // compare adjacent elements and swap them if first 
+            // element is greater than second element           
+            if (a[1][i] > a[1][i + 1]) {
+                swap(&a[1][i],&a[1][i+1]);
+                swap(&a[0][i],&a[0][i+1]);
+            }
+        }
+    }
+
+}
+
+void swap(int *e1Ptr, int *e2Ptr)
+{
+	int hold=*e1Ptr;
+	*e1Ptr=*e2Ptr;
+	*e2Ptr=hold;
+}
