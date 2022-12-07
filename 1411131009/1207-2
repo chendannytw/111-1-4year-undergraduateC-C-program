@@ -1,0 +1,85 @@
+#include <stdio.h>
+#define STUDENTS 10
+#define EXAMS 5
+
+void printarray(int grades[][EXAMS], int pupils, int tests);
+void sort(int grades[][EXAMS], int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
+int main(void)
+{
+
+	int j, i = 1;
+	int studentgrades[STUDENTS][EXAMS] =
+	{{010,77,68,86,0},
+	 {012,96,87,89,0},
+	 {014,70,90,86,0},
+	 {016,66,65,48,0},
+	 {017,85,97,25,0},
+	 {020,65,79,64,0},
+	 {022,54,85,80,0},
+	 {024,84,52,76,0},
+	 {026,54,80,74,0},
+	 {027,73,69,80,0},
+	};
+
+
+	printarray(studentgrades, STUDENTS, EXAMS);
+	puts("");
+	puts("");
+	int total = 0;
+	for (j = 0; j < STUDENTS; j++) {
+		for (int i = 1; i < EXAMS - 1; ++i) {
+			total += studentgrades[j][i];
+		}
+
+		studentgrades[j][EXAMS - 1] = total / 3;
+		printf("學生 %d 的總成績為：%d   ", studentgrades[j][0] + 2, total);
+		printf("平均為：%d\n", studentgrades[j][EXAMS - 1]);
+		print("名次為 :/d\n , ")
+		total = 0;
+	}
+	puts("");
+	sort(studentgrades, STUDENTS, EXAMS);
+	printarray(studentgrades, STUDENTS, EXAMS);
+
+
+
+}
+
+
+void sort(int grades[][EXAMS], int pupils, int tests)
+{
+	int pass, i, hold, j;
+	for (pass = 1; pass < pupils; pass++) {
+		for (i = 0; i < pupils - 1; i++) {
+			if (grades[i][EXAMS - 1] > grades[i + 1][EXAMS - 1]) {
+				for (j = 0; j < tests; j++) {
+					swap(&grades[i][j], &grades[i + 1][j]);
+				}
+			}
+		}
+	}
+}
+
+void swap(int* elPtr, int* e2Ptr)
+{
+	int hold = *elPtr;
+	*elPtr = *e2Ptr;
+	*e2Ptr = hold;
+}
+
+
+
+
+
+
+
+void printarray(int grades[][EXAMS], int pupils, int tests)
+{
+	for (int i = 0; i < pupils; i++) {
+		printf("\nstudentgrades[%u]", i);
+		for (int j = 0; j < tests; j++) {
+			printf("%-5d", grades[i][j]);
+		}
+	}
+}
