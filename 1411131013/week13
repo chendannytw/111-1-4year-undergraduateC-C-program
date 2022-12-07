@@ -61,3 +61,65 @@ void printArray(int grades[][EXAMS], int pupils, int tests){
 	     }
 	   }
 	}
+	
+test1
+
+#include <stdio.h>
+#define SIZE 20
+#define STUDENTS 20
+#define EXAMS 2
+void sort ( int a[][SIZE],int size);
+int binarySearch(const int b[], int key , int low ,int high);
+int key,result;
+void swap (int *element1Ptr, int *element2Ptr);
+
+int main(void){
+	
+	
+	int a[2][SIZE] = {{12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37},{66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66}};
+	
+	puts("Date items in original order\n");
+	int i;
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[0][i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[1][i]);	
+	}
+	
+	sort (a,SIZE);
+	puts("\nDate items in ascending order");
+	
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[0][i]);
+	}
+	printf("\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[1][i]);	
+	}
+	puts("");
+	
+	
+}
+int i;
+void sort (int a[][SIZE],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (a[1][i] > a[1][ i+1 ]){
+	  		swap(&a[1][i],&a[1][ i+1 ]);
+	  		swap(&a[0][i],&a[0][ i+1 ]);
+		  }
+	  }
+	}
+}
+
+void swap (int *element1Ptr, int *element2Ptr)
+	{
+		int hold = *element1Ptr;
+		*element1Ptr = *element2Ptr;
+		*element2Ptr = hold;
+	}
+	
+test2
