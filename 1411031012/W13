@@ -48,83 +48,67 @@ void cubeByReference( int *nPtr )
 // Fig. 6.22: fig06_22.c
 //翻轉題目
 #include <stdio.h>
-#define STUDENTS 3
+#define STUDENTS 3 
 #define EXAMS 6
 
+void printArray(int grades[][EXAMS], int pupils, int tests);
+void sort(int grades[][EXAMS], int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
 
-void swap( int *element1Ptr, int *element2Ptr );
-void printArray( int grades[][ EXAMS ], int pupils, int tests );
-double average(  int setOfGrades[], size_t tests );
-void sort(int grades[][EXAMS],size_t pupils,size_t tests);
-
-int main( void )
+int main(void)
 {
-   size_t student; 
-	int i,j,total;
-   
-   int studentGrades[ STUDENTS ][ EXAMS ] =  
-      { { 012,77, 68, 86, 73,0 },
-        { 006,96, 87, 89, 78,0 },
-        { 010,70, 90, 86, 81,0 } };
+    int studentGrades[STUDENTS][EXAMS] =
+    { {012, 77, 68, 86, 73, 0 },
+  {006, 96, 87, 89, 78, 0 },
+  {004, 70, 90, 86, 81, 0 } };
+    int student, i, total = 0, j;
 
-  
-   puts( "The array is:" );
-   printArray( studentGrades, STUDENTS, EXAMS );
-   for(j=0;j<STUDENTS;j++){
-   		for ( i = 1; i <EXAMS-1 ; ++i ) {                        
-     		total += studentGrades[ j ][ i ];                          
-		}
-   studentGrades[j][i+1]=total/4;
-   total=0;
-   }
-	sort(studentGrades,STUDENTS,EXAMS);
-   printf( "\n\nLowest grade: %d\nHighest grade: %d\n",
-      minimum( studentGrades, STUDENTS, EXAMS ),
-      maximum( studentGrades, STUDENTS, EXAMS ) );
+    puts("學生成績:");
+    printArray(studentGrades, STUDENTS, EXAMS);
 
-  
-   for ( student = 0; student < STUDENTS; ++student ) {
-      printf( "The average grade for student %u is %.2f\n", 
-         student, average( studentGrades[ student ], EXAMS ) );
-   } 
-} 
+    for (j = 0; j < STUDENTS; ++j) {
+        for (i = 1; i < EXAMS - 1; ++i) {
+            total += studentGrades[j][i];
+        }
+        studentGrades[j][EXAMS - 1] = total ;
+        total = 0;
+    }
 
-void sort(int grades[][EXAMS],size_t pupils,size_t tests){
-	int pass, i, hold,j;
-	for (pass = 1; pass < pupils; ++pass){
-		for  (i= 0;i < pupils - 1; ++i){
-			if (grades[i][EXAMS-1] > grades[i + 1][EXAMS-1]) {
-				for (j = 0;j < tests;j++)
-					swap(&grades[i][j],&grades[i+1][j]);
-					
-			} 
-		}
-	}
+    printf("\n\n");
+    sort(studentGrades, STUDENTS, EXAMS);
+    printArray(studentGrades, STUDENTS, EXAMS);
+
 }
 
-void swap( int *element1Ptr, int *element2Ptr )            
-{                                                          
-   int hold = *element1Ptr;                                
-   *element1Ptr = *element2Ptr;                            
-   *element2Ptr = hold;                                    
-}       
-
-void printArray( int grades[][ EXAMS ], int pupils, int tests )
+void sort(int grades[][EXAMS], int pupils, int tests)
 {
-   int i,j; 
+    int pass, i, j;
+    for (pass = 1; pass < pupils; ++pass) {
+        for (i = 0; i < pupils - 1; ++i) {
+            if (grades[i][EXAMS - 1] < grades[i + 1][EXAMS - 1]) {
+                for (j = 0; j < EXAMS; j++) {
+                    swap(&grades[i][j], &grades[i + 1][j]);
+                }
+            }
+        }
+    }
+}
 
-   
-   printf( "%s", "                 [0]  [1]  [2]  [3]" );
+void swap(int* element1Ptr, int* element2Ptr)
+{
+    int hold = *element1Ptr;
+    *element1Ptr = *element2Ptr;
+    *element2Ptr = hold;
+}
 
-   
-   for ( i = 0; i < pupils; ++i ) {
-
-      
-      printf( "\nstudentGrades[%d] ", i );
-
-      
-      for ( j = 0; j < tests; ++j ) {
-         printf( "%-5d", grades[ i ][ j ] );
-      } 
-   } 
-} 
+void printArray(int grades[][EXAMS], int pupils, int tests)
+{
+    int i, j;
+    printf("%s", "                    [國] [英] [數] [自]");
+    for (i = 0; i < pupils; ++i) {
+        printf("\nstudentGrades[%u]", i);
+        for (j = 0; j < tests; ++j) {
+            printf("%-5d", grades[i][j]);
+        }
+    }
+}
