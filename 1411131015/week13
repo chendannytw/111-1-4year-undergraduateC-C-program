@@ -1,1 +1,64 @@
+q1
+#include <stdio.h>
+#include <stdlib.h>
 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+#define SIZE 10
+void printarray(int c[][10]);
+void sort(int c[][SIZE], int size);
+void swap(int *ep1, int *ep2);
+int main(void) {
+	int c[2][SIZE] = {{2, 6, 4, 8, 10, 12, 89, 68, 45, 37} , {66, 67, 65, 70, 73, 74, 75, 76, 62, 32}};
+
+//	int a[SIZE] = {2,6,4,8,10,12,89,68,45,37};
+//	int s[SIZE] = {66,67,66,70,73,74,75,75,62,32};
+// 計算所有學生的總成績，根據總成績排序
+
+
+	
+	puts("Data items in original order");
+	printarray(c);
+
+	puts("");
+
+    puts("\nData items in ascending order");
+    sort(c, SIZE);
+	printarray(c);
+}
+
+void printarray(int c[][SIZE]){
+	int i,j;
+	for(i = 0; i <= 1; ++i){
+		for(j = 0; j <= 9; ++j){
+			printf("%5d",c[i][j]);
+		}
+		printf("\n");
+	}
+	
+
+}
+
+sort(int c[][SIZE], int size){
+	int pass,i;
+	for(pass=1; pass<SIZE; ++pass){
+		for(i =0; i<SIZE-1; ++i){
+			if(c[1][i]>c[1][i+1]){
+			swap(&c[1][i],&c[1][i+1]);
+			swap(&c[0][i],&c[0][i+1]);
+			
+			
+			}
+		}
+	}
+}
+
+void swap(int *ep1, int *ep2){
+	int hold = *ep1;
+	*ep1 = *ep2;
+	*ep2 = hold;
+	
+}
+
+
+q2
