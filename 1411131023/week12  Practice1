@@ -1,83 +1,55 @@
 題目:建立兩個大小為20的整數陣列，分別存放學生學號以對應的計概成績。寫一個排序副程式，將兩個陣列傳遞至副程式中，依照計概成績由小到大排序，由主程式印出排序後的結果，輸入學生計概成績，
 用二元陣列搜尋找出該生的學號並印出他的學號與成績，若找不到則印出"找不到!"
 #include <stdio.h>
-#define SIZE 20
-
-void sort(int a[], int c[], size_t size);
-int binarySearch(const int a[], int searchKey, int low, int high);
-
+#define SIZE 20 
+void sort(int b[2][SIZE]);
+void swap(int* e1ptr, int* e2ptr);
 int main(void)
 {
+	int a[2][SIZE] = { { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 },
+						{ 66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66 } };
 
-    int i, key;
-    int a[SIZE] = { 12, 13, 14, 15, 16, 17, 19, 21, 22, 23, 24, 26, 27, 28, 29, 31, 32, 33, 36, 37 };
-    int c[SIZE] = { 66, 67, 66, 70, 73, 74, 75, 75, 62, 32, 44, 46, 27, 12, 80, 63, 66, 90, 11, 66 };
-
-    puts("Data items in original order");
-    for (i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
-    }
-    sort(a, c, SIZE);
-    puts("\n Data items in ascending order");
+	puts("Data items in original order");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
+	}
+	printf("\n");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
+	}
 
 
-    for (i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
-    }
-    puts("");
+	sort(a);
+	puts("\nData items in ascending order");
 
-    printf("Input Score:");
-    scanf_s("%d", &key);
-    int result = binarySearch(c, key, 0, SIZE - 1);
-    if (result == -1)
-    {
-        printf("Score not be found");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[0][i]);
+	}
+	printf("\n");
+	for (size_t i = 0; i < SIZE; ++i) {
+		printf("%4d", a[1][i]);
+	}
 
-    }
-    else {
-        printf("id=%d and score=%d", a[result], key);
-    }
-
-
+	puts("");
 }
+void sort(int b[2][SIZE])
+{
+	int i,pass;
+	for (pass = 1; pass < SIZE; ++pass)
+	{
+		for (i = 0; i < SIZE - pass; ++i)
+		{
 
-void sort(int a[], int c[], size_t size) {
-    int hold;
-
-    for (unsigned int pass = 1; pass < size; ++pass) {
-        for (int i = 0; i < size - pass; ++i) {
-            if (c[i] > c[i + 1]) {
-                hold = c[i];
-                c[i] = c[i + 1];
-                c[i + 1] = hold;
-                hold = a[i];
-                a[i] = a[i + 1];
-                a[i + 1] = hold;
-            }
-
-        }
-    }
+			if (b[1][i]  > b[1][i + 1])
+			{
+				swap(&b[1][i], &b[1][i + 1]);
+				swap(&b[0][i], &b[0][i + 1]);
+			}
+		}
+	}
 }
-int binarySearch(const int c[], int searchKey, int low, int high) {
-    while (low <= high) {
-        int middle = (low + high) / 2;
-        if (searchKey == c[middle]) {
-            return middle;
-        }
-        else if (searchKey < c[middle]) {
-            high = middle - 1;
-        }
-        else {
-            low = middle + 1;
-        }
-    }
-    return -1;
+void swap(int *e1ptr, int *e2ptr) {
+	int hold = *e1ptr;
+	*e1ptr = *e2ptr;
+	*e2ptr = hold;
 }
