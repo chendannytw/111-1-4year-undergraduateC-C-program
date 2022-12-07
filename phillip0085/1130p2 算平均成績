@@ -13,21 +13,22 @@ int main()
 	double avg;
 	int stu[SIZE] = { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37 }, Sco[SIZE] = { 66,67,63,70,73,74,78,75,62,32,44,46,27,12,80,64,61,90,11,60 };
 	sortAry(stu, Sco);
-
+	
+	//印出成績
 	printf("All student ID: \n");
 	printAry(stu);
 	printf("All score: \n");
 	printAry(Sco);
 
-
+	//印出平均
 	avg = total(Sco) / SIZE;
 	printf("Avg:%.2lf  ", avg);
 
-
+	//印出中位數
 	mid = SIZE / 2;
 	printf("mid:%d\n", Sco[mid]);
 
-
+	//搜尋學生
 	printf("Score: ");
 	scanf_s("%d", &data);
 	idx = search1(Sco, data);
