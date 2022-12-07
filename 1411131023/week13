@@ -31,23 +31,23 @@ int main(void)
 
 	puts("");
 }
-void sort(int b[2][SIZE])
+void sort(int a[2][SIZE])
 {
-	int i,pass;
+	int i, pass;
 	for (pass = 1; pass < SIZE; ++pass)
 	{
 		for (i = 0; i < SIZE - pass; ++i)
 		{
 
-			if (b[1][i]  > b[1][i + 1])
+			if (a[1][i] > a[1][i + 1])
 			{
-				swap(&b[1][i], &b[1][i + 1]);
-				swap(&b[0][i], &b[0][i + 1]);
+				swap(&a[1][i], &a[1][i + 1]);
+				swap(&a[0][i], &a[0][i + 1]);
 			}
 		}
 	}
 }
-void swap(int *e1ptr, int *e2ptr) {
+void swap(int* e1ptr, int* e2ptr) {
 	int hold = *e1ptr;
 	*e1ptr = *e2ptr;
 	*e2ptr = hold;
