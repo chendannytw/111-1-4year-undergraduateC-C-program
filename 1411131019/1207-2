@@ -1,0 +1,100 @@
+#include <stdio.h>
+#define STUDENTS 10
+#define EXAMS 5
+void sort(int grades[][EXAMS], int pupils, int tests);
+int binarysearch(int b[], int searchkey, int low, int high);
+void printarray(int grades[][EXAMS], int pupils, int tests);
+void swap(int* element1Ptr, int* element2Ptr);
+
+//int search(int id[], int sc[], int ID);
+
+int main(void)
+{
+	int i, key;
+	int studentgrades[STUDENTS][EXAMS] =
+	{{11,77,68,0,0},
+	 {12,57,78,0,0},
+	 {13,75,66,0,0},
+	 {14,97,80,0,0},
+	 {15,68,55,0,0},
+	 {16,75,86,0,0},
+	 {17,64,86,0,0},
+	 {18,75,84,0,0},
+	 {19,80,92,0,0},
+	 {20,50,68,0,0},
+	};
+
+	printarray(studentgrades, STUDENTS, EXAMS);
+	puts("");
+	puts("");
+
+	
+	sort(studentgrades, STUDENTS, EXAMS);
+
+	puts("");
+	puts("");
+	
+	
+	int total = 0, j;
+	for (j = 0; j < STUDENTS; j++) {
+		for (int i = 1; i < EXAMS - 1; ++i) {
+			total += studentgrades[j][i];
+		}
+
+		studentgrades[j][EXAMS - 2] = total / 2;
+		printf("學生 %d 的總成績為：%d   ", studentgrades[j][0], total);
+		printf("平均為：%d\n", studentgrades[j][EXAMS - 2]);
+		total = 0;
+	}
+
+
+
+
+	printarray(studentgrades, STUDENTS, EXAMS);
+}
+
+void sort(int grades[][EXAMS], int pupils, int tests)
+{
+	int pass, i, j;
+	for (pass = 0; pass < pupils; pass++) {
+		for (i = 0; i < pupils - 1; i++) {
+			if (grades[i][EXAMS - 2] > grades[i + 1][EXAMS - 2]) {
+				for (j = 0; j < tests; j++) {
+					swap(&grades[i][j], &grades[i + 1][j]);
+				}
+			}
+		}
+	}
+}
+
+void swap(int* element1Ptr, int* element2Ptr)
+{
+	int hold = *element1Ptr;
+	*element1Ptr = *element2Ptr;
+	*element2Ptr = hold;
+}
+
+void printarray(int grades[][EXAMS], int pupils, int tests)
+{
+	for (int i = 0; i < pupils; i++) {
+		printf("\nstudentgrades[%u]", i);
+		for (int j = 0; j < tests; j++) {
+			printf("%-5d", grades[i][j]);
+		}
+	}
+}
+
+
+int binarysearch(int b[], int searchkey, int low, int high)
+{
+	while (low <= high) {
+		int middle = (low + high) / 2;
+		if (searchkey == b[middle])
+			return middle;
+		else if (searchkey < b[middle])
+			high = middle - 1;
+		else
+			low = middle + 1;
+	}
+	return -1;
+}
