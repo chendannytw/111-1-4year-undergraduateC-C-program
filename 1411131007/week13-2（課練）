@@ -1,0 +1,114 @@
+//題目 : 建立一個10*4陣列，將全班10人的學號，數學成績，計概成績放入陣列中(直接置於程式內)。
+//根據每個學生的平均成績，由大到小排序，印出美觀、大方的全班成績表(包含學號、成績、平均、名次)，並印出最高平均成績與最低平均成績的同學和分數。
+//需使用排序、報表、中位數、取平均副程式，
+//資料交換需使用副程式p.322的swap( )副程式完成。
+#include <stdio.h>
+#define STUDENTS 10 
+#define EXAMS 4 
+
+void printArray (int grades[][EXAMS], int pupils, int tests);
+void sort (int grades[][EXAMS], int pupils, int tests);
+void swap (int *element1Ptr, int *element2Ptr);
+void average(int grades[][EXAMS], int pupils, int tests);
+int minmum(int grades[][EXAMS], int pupils, int tests);
+int maxmum(int grades[][EXAMS], int pupils, int tests);
+
+int main(void)
+{
+    int studentGrades[STUDENTS][EXAMS] =
+        { {1, 77, 68, 0, },
+	      {2, 96, 87, 0, },
+	      {3, 70, 90, 0, },
+		    {4, 36, 78, 0, },
+		    {5, 54, 88, 0, },
+		    {6, 84, 90, 0, },
+		    {7, 66, 79, 0, },
+		    {8, 32, 51, 0, },
+		    {9, 98, 70, 0, },
+		    {11, 73, 55, 0, }};
+    int student, i, j;     
+		  
+    printArray (studentGrades, STUDENTS, EXAMS);
+    average(studentGrades, STUDENTS, EXAMS);
+    printf("\n\n");
+    sort (studentGrades, STUDENTS, EXAMS);
+    printArray (studentGrades, STUDENTS, EXAMS);
+    printf("\n\n最低平均分:%d\n最高平均分:%d\n" , minmum(studentGrades, STUDENTS, EXAMS) , maxmum(studentGrades, STUDENTS, EXAMS));
+}
+
+void sort (int grades[][EXAMS], int pupils, int tests)
+{
+    int pass, i, j;
+    for (pass = 1; pass < pupils; ++pass){
+	      for (i = 0; i < pupils - 1; ++i){
+            if (grades[i][EXAMS - 1] < grades[i + 1][EXAMS - 1]){
+		        for (j = 0; j < EXAMS; j++){
+		            swap (&grades[i][j], &grades[i + 1][j]);
+                }
+            }
+        }	
+    }
+}
+
+void swap (int *element1Ptr, int *element2Ptr)
+{
+    int hold = *element1Ptr;
+    *element1Ptr = *element2Ptr;
+    *element2Ptr = hold;
+}
+
+void printArray (int grades[][EXAMS], int pupils, int tests)
+{
+    int i, j;
+    printf ("%s" , "                 座號  計概  數學  平均");
+    for (i = 0; i < pupils; ++i) {
+        printf ("\nstudentGrades[%u]   ", i);
+	      for (j = 0; j < tests; ++j) {
+            printf ("%-6d", grades[i][j]);
+        }
+    }
+}
+
+void average (int grades[][EXAMS], int pupils, int tests)
+{
+	int i, total = 0, j;
+	for (i = 0; i < pupils; i++) {
+      for (j = 1; j < EXAMS - 1; j++) {
+			total += grades[i][j];
+      }
+      grades[i][EXAMS - 1] = total / 2;
+      total = 0; 
+      }
+}
+
+int maxmum(int grades[][EXAMS], int pupils, int tests)
+{
+    int highgrade = 0;
+    int highst = 0;
+    for (int i = 0; i < pupils; i++) {
+        for (int j = 0; j < tests; ++j) {
+            if (grades[i][EXAMS - 1] > highgrade) {
+                highgrade = grades[i][EXAMS - 1];
+                highst = grades[i][0];
+            }
+        }
+    }
+    printf("\n\n最高分學生座號:%d", highst);
+    return highgrade;
+}
+
+int minmum(int grades[][EXAMS], int pupils, int tests)
+{
+    int lowgrade = 100;
+    int lowst = 0;
+    for (int i = 0; i < pupils; i++) {
+        for (int j = 0; j < tests; ++j) {
+            if (grades[i][EXAMS - 1] < lowgrade) {
+                lowgrade = grades[i][EXAMS - 1];
+                lowst = grades[i][0];
+            }
+        }
+    }
+    printf("\n最低分學生座號:%d", lowst);
+    return lowgrade;
+}
