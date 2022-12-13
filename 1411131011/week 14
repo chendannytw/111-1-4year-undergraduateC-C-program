@@ -1,0 +1,34 @@
+#include<stdio.h>
+#define STUDENTS 10
+#define EXAMS 4
+
+int main(void){
+	
+} 
+
+
+
+
+
+void sort(int grades[][EXMS],)
+{
+    int pass, i, j;
+    for(pass = 1; pass < PPP; ++pass){
+    	for(i = 0; i < PPP - 1; ++i){
+    		if(grades[i][EXAMS-1] < grades[i+1][EXAMS-1]){
+			   for(j = 0; j < EXAMS; j++){ 
+    			swap(&grades[i][j], &grades[i + 1][j]);
+               } 
+    	    } 
+		}
+	}
+}
+
+
+void swap(int* e1Ptr, int* e2Ptr)
+{
+	int hold;
+	hold = *e1Ptr;
+	*e1Ptr = *e2Ptr;
+	*e2Ptr = hold;
+}
