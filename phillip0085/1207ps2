@@ -52,7 +52,7 @@ int main(void) {
 
 
     float mid;
-    mid = ((studenGrades[0][3] + studenGrades[9][3]) / 2);
+    mid = ((studenGrades[0][3] + studenGrades[STUDENTS-1][3]) / 2);
     printf("中位數%.2f分\n", mid);
 
 }
