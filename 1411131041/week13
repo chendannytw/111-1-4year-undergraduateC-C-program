@@ -128,16 +128,16 @@ void swap(int* element1Ptr, int* element2Ptr) {
 #include <stdio.h>
 #define STUDENTS 10
 #define SIZE 4
-void sort(int grades[][SIZE], int size,int b);
+void sort(int grades[][SIZE], int size, int b);
 void printArray(int grades[][SIZE], int pupils, int tests);
 void swap(int* element1Ptr, int* element2Ptr);
 // function main begins program execution
 int main(void)
 {
-    int total=0,j = 0,l;
+    int total = 0, j = 0, l;
     // initialize a
 
-    int a[10][SIZE] = {  {1,66,88,0} ,
+    int a[10][SIZE] = { {1,66,88,0} ,
                          {2,77,99,0} ,
                          {3,68,45,0} ,
                          {4,12,32,0} ,
@@ -161,12 +161,12 @@ int main(void)
     // bubble sort                                         
     // loop to control number of passes                    
 
-    sort(a, 10,SIZE);
+    sort(a, 10, SIZE);
     printArray(a, STUDENTS, SIZE);
     // output sorted array
     printf("\n最大平均=%d", a[0][3]);
     printf("\n最小平均=%d", a[9][3]);
-   
+    printf("\n平均中位數=%d", a[4][3]);
 
 
 
