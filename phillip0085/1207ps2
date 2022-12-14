@@ -18,25 +18,24 @@ int maxmum(int grades[][EXAMS], int pupils, int tests);
 
 int main(void) {
 
-    int studenGrades[STUDENTS][EXAMS] = 
-{ {01,90,85,0},
-{02,66,73,0},
-{03,65,45,0},
-{04,76,87,0},
-{05,98,53,0},
-{06,88,78,0},
-{07,65,58,0},
-{08,39,83,0},
-{09,76,79,0},
-{10,56,89,0} };
+    int studenGrades[STUDENTS][EXAMS] =
+    { {11,90,85,0},
+    {12,66,73,0},
+    {13,65,45,0},
+    {14,76,87,0},
+    {15,98,53,0},
+    {16,88,78,0},
+    {17,65,58,0},
+    {18,39,83,0},
+    {19,76,79,0},
+    {20,56,89,0} };
 
-    printArray(studenGrades, STUDENTS, EXAMS);
+    
     average(studenGrades, STUDENTS, EXAMS);
-    puts("\n\n");
     sort(studenGrades, STUDENTS, EXAMS);
+    printf("平均由高至低排列:\n");
     printArray(studenGrades, STUDENTS, EXAMS);
-    printf("\n\n最低平均成績:%d,學號:%d\n最高平均成績:%d,學號:%d\n", minmum(studenGrades, STUDENTS, EXAMS), 
-        studenGrades[9][0],maxmum(studenGrades, STUDENTS, EXAMS),studenGrades[0][0]);
+    printf("\n\n\n最低平均成績:%d,學號:%d\n最高平均成績:%d,學號:%d\n", minmum(studenGrades, STUDENTS, EXAMS), studenGrades[9][0], maxmum(studenGrades, STUDENTS, EXAMS), studenGrades[0][0]);
 
 }
 
@@ -47,8 +46,8 @@ void sort(int grades[][EXAMS], int pupils, int tests)
     int  pass, i, j;
     for (pass = 1; pass < pupils; ++pass) {
 
-        for (i = 0; i < pupils - 1; ++i){
-            if (grades[i][EXAMS-1] < grades[i+1][EXAMS-1]){
+        for (i = 0; i < pupils - 1; ++i) {
+            if (grades[i][EXAMS - 1] < grades[i + 1][EXAMS - 1]) {
                 for (j = 0; j < EXAMS; j++) {
                     swap(&grades[i][j], &grades[i + 1][j]);
                 }
@@ -57,6 +56,8 @@ void sort(int grades[][EXAMS], int pupils, int tests)
     }
 
 }
+
+
 void swap(int* e1Ptr, int* e2Ptr)
 {
     int hold;
@@ -65,11 +66,12 @@ void swap(int* e1Ptr, int* e2Ptr)
     *e2Ptr = hold;
 }
 
+
 void printArray(int grades[][EXAMS], int pupils, int tests) {
-    printf("%s", "                     [學號]      [數學成績]   [計概成績]     [平均]");
+    printf("%s", "                      [學號]     [數學成績]  [計概成績]   [平均]");
     int row, column;
     for (row = 0; row < pupils; ++row) {
-        printf("\nstudentGrades[%u]    ", row);
+        printf("\nstudentGrades ", row);
 
         for (column = 0; column < tests; ++column) {
             printf("%12d", grades[row][column]);
@@ -77,10 +79,11 @@ void printArray(int grades[][EXAMS], int pupils, int tests) {
     }
 }
 
+
 void average(int grades[][EXAMS], int pupils, int tests) {
-    int total = 0,j,i;
+    int total = 0, j, i;
     for (i = 0; i < pupils; ++i) {
-        for (j = 1; j < EXAMS-1; ++j) {
+        for (j = 1; j < EXAMS - 1; ++j) {
             total += grades[i][j];
         }
         grades[i][EXAMS - 1] = total / 2;
@@ -88,13 +91,16 @@ void average(int grades[][EXAMS], int pupils, int tests) {
     }
 }
 
+
+
+
 int minmum(int grades[][EXAMS], int pupils, int tests) {
-    int lowGrade = 100, i, column,student;
+    int lowGrade = 100, i, column, student;
 
     for (i = 0; i < pupils; ++i) {
         for (column = 0; column < tests; ++column) {
-            if (grades[i][EXAMS-1] < lowGrade) {
-                lowGrade = grades[i][EXAMS-1];
+            if (grades[i][EXAMS - 1] < lowGrade) {
+                lowGrade = grades[i][EXAMS - 1];
                 student = grades[0][EXAMS - 1];
             }
         }
@@ -102,16 +108,18 @@ int minmum(int grades[][EXAMS], int pupils, int tests) {
     return lowGrade;
 }
 
+
 int maxmum(int grades[][EXAMS], int pupils, int tests) {
     int highGrade = 0, row, column, student;
 
     for (row = 0; row < pupils; ++row) {
         for (column = 0; column < tests; ++column) {
-            if (grades[row][EXAMS-1] > highGrade) {
-                highGrade = grades[row][EXAMS-1];
+            if (grades[row][EXAMS - 1] > highGrade) {
+                highGrade = grades[row][EXAMS - 1];
                 student = grades[0][EXAMS - 1];
             }
         }
     }
     return highGrade;
 }
+
