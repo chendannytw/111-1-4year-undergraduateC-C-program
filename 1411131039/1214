@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include<string.h>
+#define SIZE 10
+#define R 3
+void swap(int* e1Ptr, int* e2Ptr);
+void sort(int c[SIZE][R]);
+int main()
+{
+
+  
+    int a[SIZE][R] = { {1,28,56},
+                      {2,60,98},
+                      {3,70,84},
+                      {4,85,59},
+                      {5,54,61},
+                      {6,89,75},
+                      {7,91,55},
+                      {8,68,64},
+                      {9,52,31},
+                      {10,71,80}};
+    printf("未排序成績：\n");
+    printf("學號　數學　計概　\n");
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < R; j++) {
+            printf("%4d　", a[i][j]);
+        }
+        printf("\n");
+    }
+    sort(a);
+    printf("\n排序後成績：\n");
+    printf("學號　數學　計概　總分\n");
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < R; j++) {
+            printf("%4d　", a[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+
+void sort(int c[SIZE][R]) {
+    for (int pass = 1; pass < SIZE; pass++) {
+        for (int i = 0; i < SIZE - pass; i++) {
+            if (c[i][1]+c[i][2] < c[i + 1][1]+c[i + 1][2]) {
+                swap(&c[i][0], &c[i + 1][0]);
+                swap(&c[i][1], &c[i + 1][1]);
+                swap(&c[i][2], &c[i + 1][2]);
+            }
+        }
+    }
+}
+void swap(int* e1Ptr, int* e2Ptr) {
+    int hold = *e1Ptr;
+    *e1Ptr = *e2Ptr;
+    *e2Ptr = hold;
+}
