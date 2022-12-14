@@ -1,0 +1,102 @@
+#include <stdio.h>
+#define SIZE 10
+int key,result;
+void sum (int a[][SIZE],int size);
+void sort (int a_1[][SIZE],int size_1);
+void swap (int *element1Ptr, int *element2Ptr);
+int s;
+int main(void){
+	
+	
+	int a[4][SIZE] = {{12,13,14,15,16,17,19,21,22,23},{66,67,66,70,70,74,75,75,62,32},{50,55,60,67,73,73,74,70,68,72},{}};
+	
+	sum(a,SIZE);
+	
+	puts("原始成績：\n");
+	int i;
+	printf("學號  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%4d",a[0][i]);
+	}
+	printf("\n");
+	printf("數學  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[1][i]);	
+	}
+	printf("\n");
+	printf("計概  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[2][i]);	
+	}
+	printf("\n");
+	printf("總分  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%4d",a[3][i]);
+	}
+	printf("\n");
+	
+	sort(a,SIZE);
+	
+	puts("\n排序過後的資料：\n");
+	printf("學號  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[0][i]);
+	}
+	printf("\n");
+	printf("數學  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[1][i]);	
+	}
+	printf("\n");
+	printf("計概  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4d",a[2][i]);	
+	}
+	printf("\n");
+	printf("總分  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%4d",a[3][i]);
+	}
+	puts("\n\n");
+
+	printf("眾數%d分\n",a[3][SIZE/2]);
+	printf("\n最高分的為%d號,總分為%d分\n",a[0][0],a[3][0]);
+	printf("\n最低分的為%d號,總分為%d分",a[0][9],a[3][9]) ;
+	printf("\n輸入想查詢的學號:") ;
+	scanf("%d,&s");
+	
+
+
+}
+
+int i;
+
+void sum (int a[][SIZE],int size)
+{
+	for (i = 0 ; i < SIZE ; i++)
+	{
+		a[3][i]=(a[1][i]+a[2][i]);
+	}
+}
+
+void sort (int a_1[][SIZE],int size){
+	int pass,hold;
+	for ( pass = 1 ; pass < SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE ;++i){
+	  	if (a_1[3][i] < a_1[3][i+1])
+		  {
+	  		swap(&a_1[0][i],&a_1[0][i+1]);
+	  		swap(&a_1[1][i],&a_1[1][i+1]);
+	  		swap(&a_1[2][i],&a_1[2][i+1]);
+	  		swap(&a_1[3][i],&a_1[3][i+1]);
+		  }
+	   }
+	}
+}
+
+void swap (int *element1Ptr, int *element2Ptr)
+	{
+		int hold = *element1Ptr;
+		*element1Ptr = *element2Ptr;
+		*element2Ptr = hold;
+	}
