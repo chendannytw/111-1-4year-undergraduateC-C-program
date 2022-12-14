@@ -30,14 +30,14 @@ int main(void)
     	for (i = 1; i < SIZE - 1; ++i) {
         	a[j][3] += a[j][i];
     	}
-	}
+　　}
     
     for( j = 0; j < 10; j++) {
     	for (i = 0; i < SIZE; ++i) {
         	printf("%4d", a[j][i]);
     	}
     	printf("\n");
-	}                
+　　}                
 
     sort(a, stu);
     puts("\nData items in ascending order");
@@ -47,7 +47,7 @@ int main(void)
         	printf("%4d", a[j][i]);
     	}
     	printf("\n");	
-　　}
+　　　}
 　　　printf("\n中位數：%d", (a[5][3] + a[4][3]) / 2);
 }
 
