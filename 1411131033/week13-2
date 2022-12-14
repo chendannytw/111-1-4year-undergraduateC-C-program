@@ -1,14 +1,10 @@
 #include <stdio.h>
 #define SIZE 10
 #define STUDENTS 10
-
 int key,result;
 void average (int a[][SIZE],int size);
 void sort (int a_1[][SIZE],int size_1);
 void swap (int *element1Ptr, int *element2Ptr);
-
-
-
 int main(void){
 	
 	
@@ -60,15 +56,15 @@ int main(void){
 	for ( i = 0 ; i<SIZE ;++i){	
 		printf("%4d",a[3][i]);
 	}
+	puts("");
 	puts("\n");
-	
-	printf("最高分的為%d號,平均為%d分\n",a[0][0],a[3][0]);
+
+	printf("最高分的為%d,平均為%d\n分",a[0][0],a[3][0]);
 	printf("\n最低分的為%d號,平均為%d分",a[0][9],a[3][9]) ;
-	
-	
+
+
 }
 int i;
-
 void average (int a[][SIZE],int size)
 {
 	for (i = 0 ; i < SIZE ; i++)
@@ -76,8 +72,6 @@ void average (int a[][SIZE],int size)
 		a[3][i]=(a[1][i]+a[2][i])/2;
 	}
 }
-
-
 void sort (int a_1[][SIZE],int size){
 	int pass,hold;
 	for ( pass = 1 ; pass < SIZE ;++pass){
@@ -91,11 +85,9 @@ void sort (int a_1[][SIZE],int size){
 	   }
 	}
 }
-
 void swap (int *element1Ptr, int *element2Ptr)
 	{
 		int hold = *element1Ptr;
 		*element1Ptr = *element2Ptr;
 		*element2Ptr = hold;
 	}
-	
