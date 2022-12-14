@@ -47,10 +47,15 @@ int main(void) {
     sort(studenGrades, STUDENTS, EXAMS);
     printf("平均由高至低排列:\n");
     printArray(studenGrades, STUDENTS, EXAMS);
+
     printf("\n\n\n最低平均成績:%d,學號:%d\n最高平均成績:%d,學號:%d\n", minmum(studenGrades, STUDENTS, EXAMS), studenGrades[9][0], maxmum(studenGrades, STUDENTS, EXAMS), studenGrades[0][0]);
 
-}
 
+    float mid;
+    mid = ((studenGrades[0][3] + studenGrades[9][3]) / 2);
+    printf("中位數%.2f分\n", mid);
+
+}
 
 
 void sort(int grades[][EXAMS], int pupils, int tests)
@@ -70,6 +75,7 @@ void sort(int grades[][EXAMS], int pupils, int tests)
 }
 
 
+
 void swap(int* e1Ptr, int* e2Ptr)
 {
     int hold;
@@ -79,11 +85,12 @@ void swap(int* e1Ptr, int* e2Ptr)
 }
 
 
+
 void printArray(int grades[][EXAMS], int pupils, int tests) {
     printf("%s", "            [名次]        [學號]     [數學成績]  [計概成績]   [平均]");
     int row, column;
     for (row = 0; row < pupils; ++row) {
-        printf("\nstudentGrades[%u] ", row);
+        printf("\nstudentGrades[%u] ", row+1);
 
         for (column = 0; column < tests; ++column) {
             printf("%12d", grades[row][column]);
@@ -102,7 +109,6 @@ void average(int grades[][EXAMS], int pupils, int tests) {
         total = 0;
     }
 }
-
 
 
 
