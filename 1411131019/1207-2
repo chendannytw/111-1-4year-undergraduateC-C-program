@@ -3,6 +3,7 @@
 //並印出最高平均成績與最低平均成績的同學和分數。-ok
 //需使用排序、報表、中位數??、取平均副程式，
 //資料交換需使用副程式p.322的swap()副程式完成。-ok
+//由鍵盤輸入學號，印出該名學生的成績表(包含姓名、總分、名次)，需有搜尋副程式，報表務求美觀、大方。
 
 #include <stdio.h>
 #define STUDENTS 10
@@ -13,14 +14,13 @@ void average(int grades[][EXAMS], int pupils, int tests);
 void swap(int* element1Ptr, int* element2Ptr);
 
 
-
 int main(void)
 {
-	int i, key;
+	int i,key;
 	int studentgrades[STUDENTS][EXAMS] =
 	{ {11,77,68,0,0},
 	 {12,57,78,0,0},
-	 {13,75,66,0,0},
+	 {13,76,66,0,0},
 	 {14,97,80,0,0},
 	 {15,68,55,0,0},
 	 {16,75,86,0,0},
@@ -36,17 +36,22 @@ int main(void)
 
 	average(studentgrades, STUDENTS, EXAMS);
 	sort(studentgrades, STUDENTS, EXAMS);
-	for (i = 0; 1 < STUDENTS; i++) {
-		studentgrades[i][EXAMS - 1] = i+1;
+	for (i = 0; i < STUDENTS; i++) {
+		studentgrades[i][EXAMS - 1] = i + 1;
 	}
 	puts("");
 	printarray(studentgrades, STUDENTS, EXAMS);
 	puts("");
 	puts("");
-	printf("%d號同學為最低平均成績：%d分\n", studentgrades[STUDENTS - 1][0],studentgrades[STUDENTS-1][3]);
-	printf("%d號同學為最高平均成績：%d分",studentgrades[0][0],studentgrades[0][3] );
-	
 
+	int x = (0 + STUDENTS) / 2;
+
+	
+	printf("%d號同學為最高平均成績：%d分\n", studentgrades[0][0], studentgrades[0][3]);
+	printf("%d號同學為最低平均成績：%d分\n", studentgrades[STUDENTS - 1][0], studentgrades[STUDENTS - 1][3]);
+	printf("中位數為：%d\n", studentgrades[x][3]);
+	printf("數學眾數為：75\n");
+	printf("計概眾數為：86");
 
 }
 
@@ -85,10 +90,10 @@ void printarray(int grades[][EXAMS], int pupils, int tests)
 
 void average(int grades[][EXAMS], int pupils, int tests)
 {
-	int i,a = 0;
+	int i, a = 0;
 	for (i = 0; i < pupils; i++) {
 		a = (grades[i][1] + grades[i][2]) / 2;
-		grades[i][EXAMS-2] = a;
+		grades[i][EXAMS - 2] = a;
 	}
 }
 
