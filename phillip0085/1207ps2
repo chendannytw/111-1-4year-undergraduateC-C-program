@@ -29,8 +29,20 @@ int main(void) {
     {18,39,83,0},
     {19,76,79,0},
     {20,56,89,0} };
-
     
+    int i,j;
+
+    printf("原始成績:\n");
+    printf("%s", "    [學號][數學成績][計概成績]\n");
+    for (j = 0; j < 10; j++)
+    {
+        for (i = 0; i < EXAMS-1; ++i) {
+            printf("%8d", studenGrades[j][i]);
+        }
+        printf("\n");
+    }
+    
+    puts("\n\n");
     average(studenGrades, STUDENTS, EXAMS);
     sort(studenGrades, STUDENTS, EXAMS);
     printf("平均由高至低排列:\n");
@@ -68,16 +80,16 @@ void swap(int* e1Ptr, int* e2Ptr)
 
 
 void printArray(int grades[][EXAMS], int pupils, int tests) {
-    printf("%s", "                      [學號]     [數學成績]  [計概成績]   [平均]");
+    printf("%s", "            [名次]        [學號]     [數學成績]  [計概成績]   [平均]");
     int row, column;
     for (row = 0; row < pupils; ++row) {
-        printf("\nstudentGrades ", row);
+        printf("\nstudentGrades[%u] ", row);
 
         for (column = 0; column < tests; ++column) {
             printf("%12d", grades[row][column]);
         }
     }
-}
+} 
 
 
 void average(int grades[][EXAMS], int pupils, int tests) {
@@ -122,4 +134,3 @@ int maxmum(int grades[][EXAMS], int pupils, int tests) {
     }
     return highGrade;
 }
-
