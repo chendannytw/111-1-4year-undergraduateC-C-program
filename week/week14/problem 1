@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #define SIZE 4
+#define stu 10
 //int binarySearch(int b[], int searchKey, int low, int high);
 void sort(int a[][SIZE], int size);
 // function main begins program execution
@@ -47,7 +48,7 @@ int main(void)
     // bubble sort                                         
     // loop to control number of passes                    
 
-    sort(a, SIZE);
+    sort(a, stu);
     puts("\nData items in ascending order");
 
     for(j=0;j<10;j++)
@@ -63,7 +64,7 @@ int main(void)
 void sort(int a[][SIZE], int size)
 {
     int hold,pass,i;
-    for (pass = 1; pass < SIZE; ++pass) {
+    for (pass = 1; pass < size; ++pass) {
 
         // loop to control number of comparisons per pass   
         for (i = 0; i < size - pass; ++i) {
