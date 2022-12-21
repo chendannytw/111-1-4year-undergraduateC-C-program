@@ -4,6 +4,10 @@
 //int binarySearch(int b[], int searchKey, int low, int high);
 void sort(const char** name, int a[][SIZE], int size);
 void swap(int* e1Ptr, int* e2Ptr);
+int minimum(const int grades[][SIZE], size_t pupils, size_t tests);
+int maximum(const int grades[][SIZE], size_t pupils, size_t tests);
+double average(const int setOfGrades[], size_t tests);
+void printArray(const int grades[][SIZE], size_t pupils, size_t tests);
 // function main begins program execution
 int main(void)
 {
@@ -31,6 +35,9 @@ const char *name[stu] =
         "啾鞋魔啾",
         "陳孜昊",
         "謝任杰"};
+
+
+
     puts("Data items in original order");
     // output original array
     for (j = 0; j < stu; j++)
@@ -94,6 +101,14 @@ void sort(const char **name, int a[][SIZE], int size)
         }
     }
 
+    printf("\n\nLowest grade: %d\nHighest grade:%d\n",
+        minimum(a, stu, SIZE),
+        maximum(a, stu, SIZE));
+
+    for (size_t student = 0; student < stu; ++student) {
+        printf("The average grade for student %u is %.2f\n",
+            student, average(a[student], SIZE));
+    }
 }
 
 void swap(int* e1Ptr, int* e2Ptr)
@@ -103,13 +118,42 @@ void swap(int* e1Ptr, int* e2Ptr)
     *e1Ptr = *e2Ptr;
     *e2Ptr = hold;
 }
-// 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
-// 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
+int minimum(const int grades[][SIZE], size_t pupils, size_t tests)
+{
+    int lowGrade = 100;
 
-// 開始使用的提示: 
-//   1. 使用 [方案總管] 視窗，新增/管理檔案
-//   2. 使用 [Team Explorer] 視窗，連線到原始檔控制
-//   3. 使用 [輸出] 視窗，參閱組建輸出與其他訊息
-//   4. 使用 [錯誤清單] 視窗，檢視錯誤
-//   5. 前往 [專案] > [新增項目]，建立新的程式碼檔案，或是前往 [專案] > [新增現有項目]，將現有程式碼檔案新增至專案
-//   6. 之後要再次開啟此專案時，請前往 [檔案] > [開啟] > [專案]，然後選取 .sln 檔案
+    for (size_t i = 0; i < pupils; ++i) {
+
+        for (size_t j = 0; j < tests; ++j) {
+
+            if (grades[i][j] < lowGrade) {
+                lowGrade = grades[i][j];
+            }
+        }
+    }
+    return lowGrade;
+}
+int maximum(const int grades[][SIZE], size_t pupils, size_t tests)
+{
+    int highGrade = 0;
+
+    for (size_t i = 0; i < pupils; ++i) {
+
+        for (size_t j = 0; j < tests; ++j) {
+
+            if (grades[i][j] > highGrade) {
+                highGrade = grades[i][j];
+            }
+        }
+    }
+    return highGrade;
+}
+double average(const int setOfGrades[], size_t tests)
+{
+    int total = 0;
+
+    for (size_t i = 0; i < tests; ++i) {
+        total += setOfGrades[i];
+    }
+    return (double)total / tests;
+}
