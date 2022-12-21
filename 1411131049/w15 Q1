@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 10
+#define R 4
+void aver(int b[SIZE][R]);
+void swap(int* e1Ptr, int* e2Ptr);
+void sort(int c[SIZE][R], char** n[SIZE]);
+int main(void)
+{
+    int i, j;
+    int a[SIZE][R] = {
+    {1,28,56,0},
+    {2,60,98,0},
+    {3,70,84,0},
+    {4,85,59,0},
+    {5,54,61,0},
+    {6,89,75,0},
+    {7,91,55,0},
+    {8,68,64,0},
+    {9,52,31,0},
+    {10,71,80,0} };
+     char*  name[SIZE] = {
+    "owen ",
+    "ken  ",
+    "ava  ",
+    "ada  ",
+    "clara",
+    "brook",
+    "cara ",
+    "debby",
+    "donna",
+    "elsa ",
+    };
+    aver(a);
+    printf("未排序成績：\n");
+    printf("姓　名　學號　數學　 計概　　平均\n");
+    for (i = 0; i < SIZE; i++) {
+       printf("%s", name[i]);
+        for (j = 0; j < R; j++) {
+            printf("%5d　", a[i][j]);
+        }
+        printf("\n");
+    }
+    
+    sort(a, name);
+    printf("\n排序後成績：\n");
+    printf("姓　名　學號　數學　 計概　　平均　名次\n");
+    for (i = 0; i < SIZE; i++) {
+        printf("%s", name[i]);
+        for (j = 0; j < R; j++) {
+            printf("%5d　", a[i][j]);
+        }
+        printf("%4d\n", i + 1);
+    }
+    printf("\n最高平均成績\n姓名：%s\n學號：%d\n數學：%d\n計概：%d\n平均：%d\n", name[0],a[0][0], a[0][1], a[0][2], a[0][3]);
+    printf("\n最低平均成績\n姓名：%s\n學號：%d\n數學：%d\n計概：%d\n平均：%d\n", name[9],a[9][0], a[9][1], a[9][2], a[9][3]);
+    printf("\n平均中位數：%d", a[(0 + 9) / 2][3]);
+}
+
+
+void aver(int b[SIZE][R]) {
+    int i;
+    for (i = 0; i < SIZE; i++) {
+        b[i][3] = (b[i][1] + b[i][2]) / 2;
+    }
+}
+void sort(int c[SIZE][R], char** n[SIZE]) {
+    char *ptr;
+	int pass, i;
+    for (pass = 1; pass < SIZE; pass++) {
+        for (i = 0; i < SIZE - pass; i++) {
+            if (c[i][3] < c[i + 1][3]) {
+            	ptr=n[i];
+            	n[i]=n[i+1];
+            	n[i+1]=ptr;
+                swap(&c[i][3], &c[i + 1][3]);
+                swap(&c[i][0], &c[i + 1][0]);
+                swap(&c[i][1], &c[i + 1][1]);
+                swap(&c[i][2], &c[i + 1][2]);
+                
+            }
+        }
+    }
+}
+void swap(int* e1Ptr, int* e2Ptr) {
+    int hold = *e1Ptr;
+    *e1Ptr = *e2Ptr;
+    *e2Ptr = hold;
+}
