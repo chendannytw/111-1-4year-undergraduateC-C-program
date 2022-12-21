@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #define SIZE 4
 #define stu 10
@@ -41,7 +42,7 @@ int main(void)
 
     for (j = 0; j < stu; j++)
     {
-        printf("%s", name[j]);
+        printf("%10s", name[j]);
         for (i = 0; i < SIZE; ++i) {
             printf("%4d", a[j][i]);
         }
@@ -61,7 +62,7 @@ int main(void)
 
     for (j = 0; j < 10; j++)
     {
-        printf("%s", name[j]);
+        printf("%10s", name[j]);
 
         for (i = 0; i < SIZE; ++i) {
             printf("%4d", a[j][i]);
