@@ -1,0 +1,118 @@
+#include <stdio.h>
+#define SIZE 10
+int key,result;
+void average (int a[][SIZE],int size);
+void sort (const char **name,int a_1[][SIZE],int size);
+void swap (int *element1Ptr, int *element2Ptr);
+int main(void){
+	
+	
+	int a[4][SIZE] = {{12,13,14,15,16,17,19,21,22,23},{66,67,66,70,73,74,75,75,62,32},{50,55,60,67,71,78,74,70,68,72},{}};
+	const char *name[SIZE] = {"David",
+							"Kevin",
+							"Danny",
+							"Ken",
+							"Jenny",
+							"Hank",
+							"Diana",
+							"Shin",
+							"Wang",
+							"Tan"};
+
+	average(a,SIZE);
+	int i;
+	
+	puts("原始成績：\n");
+	printf("姓名  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8s",name[i]);
+	}
+	printf("\n學號  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8d",a[0][i]);
+	}
+	printf("\n");
+	printf("數學  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%8d",a[1][i]);	
+	}
+	printf("\n");
+	printf("計概  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%8d",a[2][i]);	
+	}
+	printf("\n");
+	printf("平均  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8d",a[3][i]);
+	}
+	printf("\n");
+	
+	sort(name,a,SIZE);
+	
+	puts("\n排序過後的資料：\n");
+	printf("姓名  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8s",name[i]);
+	}
+	printf("\n學號  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8d",a[0][i]);
+	}
+	printf("\n");
+	printf("數學  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%8d",a[1][i]);	
+	}
+	printf("\n");
+	printf("計概  ");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%8d",a[2][i]);	
+	}
+	printf("\n");
+	printf("平均  ");
+	for ( i = 0 ; i<SIZE ;++i){	
+		printf("%8d",a[3][i]);
+	}
+	printf("\n");
+	puts("\n\n");
+
+	printf("中位數%d分\n",a[3][5]);
+	printf("最高分的為%d號,平均為%d分\n",a[0][0],a[3][0]);
+	printf("\n最低分的為%d號,平均為%d分",a[0][9],a[3][9]) ;
+}
+
+int i;
+
+void average (int a[][SIZE],int size)
+{
+	for (i = 0 ; i < SIZE ; i++)
+	{
+		a[3][i]=(a[1][i]+a[2][i])/2;
+	}
+}
+
+void sort (const char **name,int a_1[][SIZE],int size){
+	const char *ptr;
+	int pass,hold;
+	for ( pass = 1 ; pass < SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE ;++i){
+	  	if (a_1[3][i] < a_1[3][i+1])
+		  	{ptr = name[i];
+		  	name[i] = name[i+1];
+		  	name[i+1] = ptr;
+	  		swap(&a_1[0][i],&a_1[0][i+1]);
+	  		swap(&a_1[1][i],&a_1[1][i+1]);
+	  		swap(&a_1[2][i],&a_1[2][i+1]);
+	  		swap(&a_1[3][i],&a_1[3][i+1]);
+		  	}
+	   }
+	}
+}
+
+void swap (int *element1Ptr, int *element2Ptr)
+	{
+		int hold = *element1Ptr;
+		*element1Ptr = *element2Ptr;
+		*element2Ptr = hold;
+	}
