@@ -1,3 +1,4 @@
+problem1
 #include <stdio.h>
 #define SIZE 4
 #define stu 10
@@ -112,4 +113,99 @@ void swap(int *e1Ptr,int*e2Ptr)
 hold=*e1Ptr;
 *e1Ptr=*e2Ptr;
 *e2Ptr=hold;
+}
+
+
+problem2(未完成)
+#include <stdio.h>
+#define SIZE 10
+
+// prototypes
+void bubble(int work[], size_t size, int (*compare)(int a, int b));
+void ascending(int a, int b);
+void descending(int a, int b);
+
+void(*f[2])(int, int) = {ascending,descending};
+//int ascending(int a, int b);
+//int descending(int a, int b);
+int counter,count;
+unsigned int pass;
+
+int main(void)
+{
+   // initialize unordered array a
+   int a[SIZE] = {2, 6, 4, 8, 10, 12, 89, 68, 45, 37};
+
+   printf("%s", "Enter 1 to sort in ascending order,\n" 
+          "Enter 2 to sort in descending order: ");
+   int order; // 1 for ascending order or 2 for descending order
+   scanf("%d", &order);
+
+   puts("\nData items in original order");
+   
+   // output original array
+   for (counter = 0; counter < SIZE; ++counter) {
+      printf("%5d", a[counter]);
+   } 
+
+   // sort array in ascending order; pass function ascending as an
+   // argument to specify ascending sorting order
+   if (order == 1) {
+      bubble(a, SIZE, (*f[0]));
+      puts("\nData items in ascending order");
+   }  
+   else { // pass function descending
+      bubble(a, SIZE, (*f[1]));
+      puts("\nData items in descending order");
+   }
+
+   // output sorted array
+   for (counter = 0; counter < SIZE; ++counter) {
+      printf("%5d", a[counter]);   
+   } 
+
+   puts("\n");
+} 
+
+// multipurpose bubble sort; parameter compare is a pointer to
+// the comparison function that determines sorting order
+void bubble(int work[], size_t size, int (*compare)(int a, int b))
+{
+   void swap(int *element1Ptr, int *element2ptr); // prototype
+
+   // loop to control passes
+   for (pass = 1; pass < size; ++pass) {
+
+      // loop to control number of comparisons per pass
+      for (count = 0; count < size - 1; ++count) {
+
+         // if adjacent elements are out of order, swap them
+         if ((*compare)(work[count], work[count + 1])) {
+            swap(&work[count], &work[count + 1]);
+         } 
+      } 
+   } 
+}
+
+// swap values at memory locations to which element1Ptr and 
+// element2Ptr point
+void swap(int *element1Ptr, int *element2Ptr)
+{
+   int hold = *element1Ptr;
+   *element1Ptr = *element2Ptr;
+   *element2Ptr = hold;
+}
+
+// determine whether elements are out of order for an ascending
+// order sort                                               
+void ascending(int a, int b)                         
+{                                                              
+   return b < a; // should swap if b is less than a         
+}
+
+// determine whether elements are out of order for a descending
+// order sort                                               
+void descending(int a, int b)                                
+{                                                              
+   return b > a; // should swap if b is greater than a      
 }
