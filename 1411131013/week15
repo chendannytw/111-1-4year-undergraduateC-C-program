@@ -1,0 +1,79 @@
+//建立一個10*3整數陣列以及一個指標陣列name，將全班10人的學號，數學成績，計概成績放入整數陣列中(可直接置於程式內)，
+//將全班10人的姓名放入指標陣列中。根據每個學生的總分，由大到小排序，印出美觀的全班成績表，並印出各科眾數。需使用副程式，字串交換副程式需使用p.333的拷貝副程式完成。
+#include <stdio.h>
+#define SIZE 10
+void sort (char **name,int a[][SIZE],int size);
+int binarySearch(const int b[], int key , int low ,int high);
+int key,result,av,l;
+void swap (int *element1Ptr, int *element2Ptr);
+
+int main(void){
+	
+	
+	int a[4][SIZE] = {{12,13,14,15,16,17,19,21,22,23}
+	                 ,{66,67,66,70,73,74,75,75,62,32}
+					 ,{44,46,27,12,80,63,66,90,11,66}};
+					 
+	const char *name[SIZE] = {"小一","小二","小三","小四","小五","小六","小七","小八","小九","小十"};
+	
+	puts("Date items in original order\n");
+	int i;
+	printf("姓名   座號   數學成績   計概成績 \n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%4s",name[i]);
+		printf("%6d",a[0][i]);
+		printf("%9d",a[1][i]);
+		printf("%10d",a[2][i]);
+		printf("\n");
+	}
+	
+	
+	for ( i = 0 ; i<SIZE ;++i){
+	  av=(a[1][i]+a[2][i])/2;
+	  a[3][i]=av;
+	  }
+	
+	sort (name,a,SIZE);
+	puts("\nDate items in ascending order");
+	printf("名次   姓名   座號   數學成績   計概成績   平均\n");
+	for ( i = 0 ; i<SIZE ;++i){
+		printf("%3d",i+1);
+		printf("%8s",name[i]);
+		printf("%7d",a[0][i]);
+		printf("%9d",a[1][i]);
+		printf("%10d",a[2][i]);
+		printf("%10d",a[3][i]);
+		printf("\n");
+	}
+	puts("");
+	//並印出最高平均成績與最低平均成績的同學和分數。需使用排序、報表、中位數、取平均、副程式
+	printf("最高平均成績的同學%s為%d號,分數為%d\n",name[0],a[0][0],a[3][0]);
+	printf("最低平均成績的同學%s為%d號,分數為%d\n",name[9],a[0][9],a[3][9]);
+	l=(SIZE-1)/2;
+	printf("中位數的成績的同學%s為%d號,分數為%d",name[l],a[0][l],a[3][l]);
+}
+int i;
+void sort (char **name,int a[][SIZE],int size){
+	char *ptr;
+	int pass,hold;
+	for ( pass = 1 ; pass<SIZE ;++pass){
+	  for ( i = 0 ; i < SIZE-1 ;++i){
+	  	if (a[3][i] < a[3][ i+1 ]){
+	  		ptr = name[i];
+			name[i] =name[i+1];
+			name[i+1] =ptr;
+	  		swap(&a[3][i],&a[3][ i+1 ]);
+	  		swap(&a[2][i],&a[2][ i+1 ]);
+	  		swap(&a[1][i],&a[1][ i+1 ]);
+	  		swap(&a[0][i],&a[0][ i+1 ]);
+		  }
+	  }
+	}
+}
+
+void swap (int *element1Ptr, int *element2Ptr)
+	{
+		int hold = *element1Ptr;
+		*element1Ptr = *element2Ptr;
+		*element2Ptr = hold;
+	}
