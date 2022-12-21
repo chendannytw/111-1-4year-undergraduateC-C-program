@@ -272,6 +272,279 @@ void sort3(int a[][SIZE], int n)
     }
 }
 
+----------------------------
+#include <stdio.h>
+#define SIZE 3
+#define size 10
+void sort(int a[][SIZE],  char* name[11], int n);
+void swap(int* e1Ptr, int* e2Ptr);
+void swap1(char* nptr1, char* nptr2);
+void mode(int a[][SIZE]);
+void sort1(int a[][SIZE], int n);
+void sort2(int q[], int n);
+void sort3(int a[][SIZE], int n);
+int a[10][SIZE] = { {2,98,72},
+                        {3,76,32},
+                        {6,98,67},
+                        {7,89,32},
+                        {8,98,55},
+                        {9,89,32},
+                        {10,98,65},
+                        {11,99,32},
+                        {12,98,71},
+                        {13,76,91}, };
+int q[101] = { 0 };
+char* name[11] = { (char*)"a",(char*)"b",(char*)"c",(char*)"d",(char*)"e",(char*)"f",(char*)"g",(char*)"h",(char*)"l",(char*)"j" };
+int main(void)
+{
+    int key, result = 0, i = 0, j = 0;
+
+
+    puts("Data items in original order");
+
+
+    for (j = 0; j < 10; j++)
+    {
+        printf("%s", name[j]);
+        for (i = 0; i < SIZE; ++i) {
+            printf("%4d", a[j][i]);
+
+        }
+        printf("\n");
+
+    }
+
+
+
+    sort(a, name, size);
+    puts("\nData items in ascending order");
+
+    for (j = 0; j < 10; j++)
+    {
+        printf("%s",name[j]);
+        for (i = 0; i < SIZE; ++i) {
+            printf("%4d", a[j][i]);
+        }
+        printf("\n");
+    }
+    printf("最高平均是%d號%d分\n", a[0][0], (a[0][1] + a[0][2]) / 2);
+    printf("最低平均是%d號%d分\n", a[9][0], (a[9][1] + a[9][2]) / 2);
+    printf("平均中位數是%d號%d分\n", a[4][0], (a[4][1] + a[4][2]) / 2);
+    mode(a);
+}
+
+
+void sort(int a[][SIZE], char* name[11], int n)
+{
+    int hold, pass, i;
+    for (pass = 1; pass < n; ++pass) {
+
+
+        for (i = 0; i < n - pass; ++i) {
+
+
+            if (a[i][1] + a[i][2] < a[i + 1][1] + a[i + 1][2]) {
+                swap(&a[i][0], &a[i + 1][0]);
+                swap(&a[i][1], &a[i + 1][1]);
+                swap(&a[i][2], &a[i + 1][2]);
+                swap1((char*)&name[i], (char*)&name[i + 1]);
+            }
+        }
+    }
+
+}
+
+void swap(int* e1Ptr, int* e2Ptr)
+{
+    int hold;
+    hold = *e1Ptr;
+    *e1Ptr = *e2Ptr;
+    *e2Ptr = hold;
+}
+void swap1(char* nptr1, char* nptr2)
+{
+    char hold;
+    hold = *nptr1;
+    *nptr1 = *nptr2;
+    *nptr2 = hold;
+}
+
+void mode(int a[][SIZE])
+{
+
+    int n = 0, c = 0, max = 0, maxnum = 0;
+    sort1(a, size);
+
+    n = a[0][1];
+    c = 0, max = 0, maxnum = 0;
+
+    for (int i = 0; i < 101; i++)
+    {
+        q[i] = 0;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (n == a[i][1])
+        {
+            c++;
+
+        }
+        else
+        {
+
+            n = a[i][1];
+
+            if (c >= max)
+            {
+
+                max = c;
+
+                maxnum = a[i - 1][1];
+
+
+
+            }
+
+            c = 1;
+        }
+        q[n] = c;
+    }
+    if (c >= max)
+    {
+
+        max = c;
+
+        maxnum = a[9][1];
+
+
+
+    }
+    sort2(q, 101);
+
+    if (q[0] == q[1])
+    {
+        printf("此數列沒有眾數");
+    }
+    else
+    {
+        printf("數學成績%d為眾數出現%d次\n", maxnum, max);
+    }
+
+
+    sort3(a, size);
+
+    n = a[0][2];
+    c = 0, max = 0, maxnum = 0;
+
+    for (int i = 0; i < 101; i++)
+    {
+        q[i] = 0;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (n == a[i][2])
+        {
+            c++;
+
+        }
+        else
+        {
+
+            n = a[i][2];
+
+            if (c >= max)
+            {
+
+                max = c;
+
+                maxnum = a[i - 1][2];
+
+
+
+            }
+
+            c = 1;
+        }
+        q[n] = c;
+    }
+    if (c >= max)
+    {
+
+        max = c;
+
+        maxnum = a[9][2];
+
+
+
+    }
+    sort2(q, 101);
+
+    if (q[0] == q[1])
+    {
+        printf("此數列沒有眾數");
+    }
+    else
+    {
+        printf("計概成績%d為眾數出現%d次\n", maxnum, max);
+    }
+}
+
+
+
+void sort1(int a[][SIZE], int n)
+{
+
+    int hold, pass, i;
+    for (pass = 1; pass < n; ++pass) {
+
+
+        for (i = 0; i < n - pass; ++i) {
+
+
+            if (a[i][1] < a[i + 1][1]) {
+                swap(&a[i][1], &a[i + 1][1]);
+
+            }
+        }
+    }
+}
+
+void sort2(int q[101], int n)
+{
+
+    int hold, pass, i;
+    for (pass = 1; pass < n; ++pass) {
+
+
+        for (i = 0; i < n - pass; ++i) {
+
+
+            if (q[i] < q[i + 1]) {
+                swap(&q[i], &q[i + 1]);
+
+            }
+        }
+    }
+}
+void sort3(int a[][SIZE], int n)
+{
+
+    int hold, pass, i;
+    for (pass = 1; pass < n; ++pass) {
+
+
+        for (i = 0; i < n - pass; ++i) {
+
+
+            if (a[i][2] < a[i + 1][2]) {
+                swap(&a[i][2], &a[i + 1][2]);
+
+            }
+        }
+    }
+}
 
 
 
