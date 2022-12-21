@@ -4,7 +4,7 @@
 #define R 4
 void aver(int b[SIZE][R]);
 void swap(int* e1Ptr, int* e2Ptr);
-void sort(int c[SIZE][R], char** n[SIZE]);
+void sort(int c[SIZE][R], char** n);
 int main(void)
 {
     int i, j;
@@ -64,7 +64,7 @@ void aver(int b[SIZE][R]) {
         b[i][3] = (b[i][1] + b[i][2]) / 2;
     }
 }
-void sort(int c[SIZE][R], char** n[SIZE]) {
+void sort(int c[SIZE][R], char** n) {
     char *ptr;
 	int pass, i;
     for (pass = 1; pass < SIZE; pass++) {
