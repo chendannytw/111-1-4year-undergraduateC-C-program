@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char s1[] = "abcDEF3";
+    char s2[] = "abcDEF3";
+
+    int i = 0, cnta = 0, cntA = 0, cnt1 = 0;
+
+    while (s2[i] != '\0') {
+        if (islower(s2[i])) {
+            cnta += 1;
+            s1[i] = toupper(s2[i]);
+        }
+
+        if (isupper(s2[i])) {
+            cntA += 1;
+            s1[i] = tolower(s2[i]);
+        }
+
+        if (isdigit(s2[i])) {
+            cnt1 += 1;
+            s1[i] = s2[i];
+        }
+        i++;
+    }
+    printf("小寫字母: %d 個\n大寫字母:%d 個\n數字: %d 個\n", cnta, cntA, cnt1);
+    printf("The oringinal string is：%s\n大小寫互換 : %s", s2, s1);
+}
