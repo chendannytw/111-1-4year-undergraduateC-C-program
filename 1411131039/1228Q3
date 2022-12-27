@@ -1,0 +1,22 @@
+//將字串多個浮點數取出並印出 
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+int main() {
+	char *s1="ab3.14159cdefaba2.295bcde5.46fgh";
+	char *nptr="";
+	printf("原始字串：%s\n",s1);
+	int i=0;
+	while(i<strlen(s1)){
+		if(isdigit(s1[i])){
+			double d=strtod(s1+i,&nptr);
+			printf("%f\n",d);
+			s1=nptr;
+			i=0;
+			continue;
+		}
+		i++;
+	}
+	printf("已找出全部浮點數。");
+}
