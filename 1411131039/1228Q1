@@ -1,0 +1,25 @@
+\\計算字串英文大小寫、數字的數量，並將英文大小寫轉換相反
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+int main() {
+	char s1[]="aBc4DE6fz";
+	char s2[]="aBc4DE6fz";
+	int i=0,cnta=0,cntA=0,cnt1=0;
+	printf("原始字串：%s\n",s1);
+	while(s1[i]!='\0'){
+		if(islower(s1[i])){
+			cnta++;
+			s2[i]=toupper(s1[i]);
+		}	
+		if(isupper(s1[i])){
+			cntA++;
+			s2[i]=tolower(s1[i]);
+		}
+		if(isdigit(s1[i]))
+			cnt1++;
+		i++;
+	}
+	printf("轉換後字串：%s\n",s2);
+	printf("大寫：%d　小寫：%d　數字：%d",cntA,cnta,cnt1);
+}
