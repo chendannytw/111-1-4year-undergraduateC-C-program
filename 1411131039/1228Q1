@@ -1,4 +1,4 @@
-\\計算字串英文大小寫、數字的數量，並將英文大小寫轉換相反
+//計算字串英文大小寫、數字的數量，並將英文大小寫轉換相反
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
