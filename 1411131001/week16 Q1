@@ -1,0 +1,33 @@
+#include<stdio.h>
+#inciude<ctype.h>
+
+int main(void){
+
+char s1[]="Hd4hTrh2b5";
+char s2[]="Hd4hTrh2b5";
+
+int i=0;
+
+int cnta = 0;
+int cntA=0;
+int cnt1=0;
+while(s2[i]!='\0'){
+     if(islower(s2[i])){
+        
+         cnta +=1;
+         s1[i]=toupper(s2[i]);
+}
+
+      if(isupper(s2[i])){
+        canA +=1;
+        s1[i] = tolower(s2[i]);}
+
+if(isdigit(s2[i])){
+        can1 +=1;
+        s1[i] = s2[i];}
+i++;
+}
+printf("小寫共%d個\n大寫共%d個\n數字共%d個\n",cnta,cntA,cnt1);
+printf("原本字串:%s互換大小寫=%s",s2,s1);
+system("PAUSE");
+}
