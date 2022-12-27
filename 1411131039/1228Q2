@@ -1,0 +1,17 @@
+//兩字串在s1找出s2字串的出現次數並印出 
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+int main() {
+	char s1[17]="abcdefababcdefgh";
+	char s2[17]="def";
+	int cnt=0;
+	printf("原始字串：%s\n",s1);
+	printf("找尋字串：%s\n",s2);
+	int i;
+	for(i=0;i<16;i++){
+		if(strncmp(s2,s1+i,3)==0)
+			cnt++;		
+	}
+	printf("出現次數為：%d",cnt);
+}
