@@ -1,0 +1,27 @@
+// ConsoleApplication3.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//寫一個程式，能將字串中一個或多個浮點數取出，並分別印出
+//使用strtod、strncat
+//s1=abc2.34ababc3.8gh4.4xyz
+
+#include <stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int main()
+{    
+	int i = 0;
+	char string[24] = "123abc456def";
+	char* stringptr;
+	//double number = strtod(string, &stringptr);
+	double number = 0;
+	for (i = 1; i < 24; i++) {
+		if (isdigit(string[i] != 0))
+			double number = strtod(string, &stringptr);
+	}
+	
+	
+
+	printf("number is %.2f\n", number);
+	printf("text is %s", stringptr);
+
+}
