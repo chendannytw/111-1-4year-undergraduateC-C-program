@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include<ctype.h>
+
+
+int main()
+{
+    char s1[] = "ABCdefgh12345";
+    char s2[] = "ABCdefgh12345";
+    int i = 0;
+    int a = 0;
+    int A = 0;
+    int number = 0;
+
+    while (s2[i] != '\0') {
+
+        if (islower(s2[i])) {
+            a += 1;
+            s1[i] = toupper(s2[i]);
+        }
+
+        if (isupper(s2[i])) {
+            A+=1;
+            s1[i] = tolower(s2[i]);
+        }
+
+        if (isdigit(s2[i])) {
+            number += 1;
+        }
+        i++;
+    }
+   
+    printf("%d個小寫\n", a);
+    printf("%d個大寫\n", A);
+    printf("%d個數字\n", number);
+    printf("%s\n", s1);
+}
