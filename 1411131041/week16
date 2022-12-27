@@ -1,1 +1,38 @@
+1.
+#include <stdio.h>
+#include <string.h>
+#include<ctype.h>
+int main()
+{
+	 char a[] = "abcDEF6";
+	 char b[] = "abcDEF6";
+	int i = 0, up=0 , low=0, num=0;
+	while (a[i] !='\0')
+	{
+		if ('0'<=a[i] && a[i]<='9')
+		{
+			num ++;
+			b[i] = a[i];
+		}
+		else if ('a' <= a[i] && a[i] <= 'z') {
+			low ++;
+			b[i] = toupper(a[i]);
+		}
+		else if ('A' <= a[i] && a[i] <= 'Z')
+		{
+			up ++;
+			b[i] = tolower(a[i]);
+		}
+		i++;
+
+	}
+		printf("數字有%d個\n", num);
+		printf("英文小寫有%d個\n", low);
+		printf("英文大寫有%d個\n", up);
+		printf("原始字串%s\n", a);
+		printf("轉換後字串=%s\n", b);
+
+
+}
+-----------------------------------
 
