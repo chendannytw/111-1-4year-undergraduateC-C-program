@@ -1,0 +1,8 @@
+題目1(90分max) :建立一個函數指標陣列，包含三個指標，分別指向以下三個函數:
+int upper(char *str)   e.g. str=“abcDEFG” 傳回4
+int lower(char *str)						傳回3
+int num(char *str)							傳回0
+她們分別傳回str的大寫字母、小寫字母、數字字元的數量，呼叫函數時需透過指標(陣列)。
+Hint: 先將p344的程式輸入後再修改
+
+
