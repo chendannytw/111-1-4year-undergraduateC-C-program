@@ -1,3 +1,9 @@
+題目二
+給定兩個字串s1與s2，找出s2在s1出現的次數並印出。(請使用strncmp、strstr函數)
+範例: 
+s1 = “abcdefababcdefgh”
+s2 = “def”
+
 #include <stdio.h>
 #include <string.h>
 
