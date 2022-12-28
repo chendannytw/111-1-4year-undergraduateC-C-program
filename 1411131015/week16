@@ -79,3 +79,55 @@ printf("\n");
 
 }
 
+
+未完成
+#include <stdio.h>
+#include <stdlib.h>
+
+void upper(char *str);
+void lower(char *str);
+void num(char *str);
+int i=0;
+
+char *str[]="abcDEFG";
+
+int main(void)
+{
+	void (*f[3])(int) = {upper, lower, num};
+	while(s2[i]!='\0'){
+	if(islower(s2[i])){
+		ca +=1;
+		s1[i] = toupper(s2[i]);
+	}
+	
+	if(isupper(s2[i])){
+		cA = cA+1;
+		s1[i] = tolower(s2[i]);
+	}
+	
+		if(isdigit(s2[i])){
+		c1 +=1;
+		s1[i] = s2[i];
+	}
+	
+	i++;
+}
+
+   puts("\n");
+} 
+
+void upper(char *str)
+{
+   printf("You entered %d so function1 was called\n\n", a);
+}
+
+void lower(char *str)
+{
+   printf("You entered %d so function2 was called\n\n", b);
+}
+
+void num(char *str)
+{
+   printf("You entered %d so function3 was called\n\n", c);  
+}
+
