@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+	char s1[] = "DkR5tf7Iu";
+	char s2[] = "DkR5tf7Iu";
+
+	int i = 0;
+	
+	int a = 0;
+	int A = 0;
+	int e = 0;
+
+    while (s2[i] != '\0') {
+        if (islower(s2[i])) {
+
+            a += 1;
+            s1[i] = toupper(s2[i]);
+        }
+
+        if (isupper(s2[i])) {
+            A += 1;
+            s1[i] = tolower(s2[i]);
+        }
+
+        if (isdigit(s2[i])) {
+            e += 1;
+            s1[i] = s2[i];
+        }
+        i++;
+    }
+    printf("小寫數量共%d個\n大寫數量共%d個\n數字數量共%d個\n", a, A, e);
+    puts("");
+    printf("原本的字串:%s\n大小寫互換後的字串=%s", s2, s1);
+    puts("");
+
+}
