@@ -1,1 +1,29 @@
 修改課本305頁的程式fig06_05.c，將印出問卷結果的程式碼放入一個副程式中，並透過陣列傳遞的方式，將陣列與size傳送到副程式中印出。
+#include <stdio.h>
+#define responses_size 40
+#define frequency_size 11
+
+void respon(int freq[], int resp[]);
+
+int main(void)
+{
+    int frequency[frequency_size] = {0}, rating;
+    int responses[responses_size] = { 1, 2, 6, 4, 8, 5, 9, 7, 8, 10,
+        1, 6, 3, 8, 6, 10, 3, 8, 2, 7, 6, 5, 7, 6, 8, 6, 7, 5, 6, 6,
+        5, 6, 7, 5, 6, 4, 8, 6, 8, 10 };
+    
+    respon(frequency, responses);
+    printf("%s%17s\n", "Rating", "Frequency");
+   
+    for ( rating = 1; rating < frequency_size; ++rating) {
+        printf("%6d%17d\n", rating, frequency[rating]);
+    }
+}
+
+void respon(int freq[], int resp[])
+{
+    int answer;
+    for (answer = 0; answer < responses_size ; ++answer) {
+        ++freq[resp[answer]];
+    }
+}
