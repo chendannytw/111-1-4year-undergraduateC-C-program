@@ -60,3 +60,27 @@ int main(void) {
 
 text3
 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(void) {
+	
+	char s1[] = "ABcd13.58EfABC5.6148deF";
+	char *s1ptr = &s1[0];
+	
+	int i ;
+	
+	while (*s1ptr != 0){
+	 	if(!isdigit(*s1ptr))
+	 	  s1ptr ++;
+	 	else {
+	 		double d = strtod(s1ptr,&s1ptr);
+	 		printf("%.2lf\n",d);
+		 }
+	}
+	
+	system("PAUSE");
+	return 0;
+}
+
