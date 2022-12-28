@@ -1,44 +1,61 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-const char *str = "abcDEFG" 
-int upper(char *str);
-int lower(char *str);
-int num(char *str);
-
+int upper(char str[]);
+int lower(char str[]);
+int num(char str[]);
+char str[] = "abcDEFG";
+int (*f[3])(char*) = { upper, lower, num };
+int i;
 int main(void)
 {
-   // initialize array of 3 pointers to functions that each take an
-   // int argument and return void                              
-   int (*s[3])(char) = {upper, lower, num};    
-   printf("%s", "Enter a number between 0 and 2, 3 to end: ");
-   int choice; // variable to hold user's choice
-   scanf("%u", &choice);
+	printf("原始字串:%s\n", str);
+	printf("英文小寫個數:%d\n", (*f[0])(str));
+	printf("英文大寫個數:%d\n", (*f[1])(str));
+	printf("數字個數:%d\n", (*f[2])(str));
 
-   // process user's choice
-   while (choice >= 0 & choice < 3) {
-
-      // invoke function at location choice in array f and pass
-      // choice as an argument                              
-      (*s[choice])(choice);                                
-
-      printf("%s", "Enter a number between 0 and 2, 3 to end: ");
-      scanf("%u", &choice);
-   } 
-
-   puts("Program execution completed.");
-} 
-
-int upper(char *str)
-{
-   printf("You entered %d so upper was called\n\n", str);
 }
 
-int lower(char *str)
+int upper(char str[])
 {
-   printf("You entered %d so lower was called\n\n", str);
+	int a = 0;
+	for (i = 0; i < 8; i++)
+	{
+		if (islower(str[i])!= 0)
+		{
+			a++;
+		}
+	}
+	return a;
 }
 
-int num(char *str)
+int lower(char str[])
 {
-   printf("You entered %d so num was called\n\n", str);  
+	int b = 0;
+	for (i = 0; i < 8; i++)
+	{
+		if (isupper(str[i]) != 0)
+		{
+			
+			b++;
+		}
+	}
+	return b;
+
+}
+
+int num(char str[])
+{
+	int c = 0;
+	for (i = 0; i < 8; i++)
+	{
+		if (isdigit(str[i]) != 0)
+		{
+			
+			c++;
+		}
+	}
+	return c;
+
+}
