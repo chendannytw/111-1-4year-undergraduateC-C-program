@@ -79,8 +79,24 @@ printf("\n");
 
 }
 
+題目三(未完成)
+寫一個程式，能將字串中一個或多個浮點數取出，並且分別印出。Hint: strtod()、strncat()
+範例: 
+s1 = “abc2.34ababc3.8gh4.4xyz”
 
-未完成
+印出2.34
+		3.8
+		4.4
+
+
+(未完成)
+題目1(90分max) :建立一個函數指標陣列，包含三個指標，分別指向以下三個函數:
+int upper(char *str)   e.g. str=“abcDEFG” 傳回4
+int lower(char *str)						傳回3
+int num(char *str)							傳回0
+她們分別傳回str的大寫字母、小寫字母、數字字元的數量，呼叫函數時需透過指標(陣列)。
+Hint: 先將新版p.401-402的程式輸入後再修改
+p.401-402的程式如下:
 #include <stdio.h>
 #include <stdlib.h>
 
