@@ -84,3 +84,64 @@ int main()
 	 }
 	 
 }
+-----------------------------------------
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+int upper(char str[]);
+int lower(char str[]);
+int num(char str[]);
+char str[] = "abcDEFG";
+int (*f[3])(char*) = { upper, lower, num };
+int main(void)
+{
+	printf("原始字串:%s\n", str);
+	printf("英文小寫個數:%d\n", (*f[0])(str));
+	printf("英文大寫個數:%d\n", (*f[1])(str));
+	printf("數字個數:%d\n", (*f[2])(str));
+
+}
+
+int upper(char str[])
+{
+	int a = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		if (islower(str[i])!=0)
+		{
+			a++;
+		}
+	}
+	return a;
+}
+
+int lower(char str[])
+{
+	int b = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		if (isupper(str[i]) != 0)
+		{
+			
+			b++;
+		}
+	}
+	return b;
+
+}
+
+int num(char str[])
+{
+	int c = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		if (isdigit(str[i]) != 0)
+		{
+			
+			c++;
+		}
+	}
+	return c;
+
+}
