@@ -1,0 +1,25 @@
+//給定一個字串，先計算且印出字串中的大、小寫與數字的數量，之後將字串中的大、小寫互換之後，再將互換後的字串印出。
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main(){
+	char a1[] = "asdf456GHk";
+	int i = 0,cnta = 0,cntA = 0,cnt1 = 0;
+	printf("before:%s\n",a1);
+	while(a1[i]!='\0'){
+		if(islower(a1[i])){
+			cnta++;
+			a1[i]=toupper(a1[i]);
+		}
+		else if(isupper(a1[i])){
+			cntA++;
+			a1[i]=tolower(a1[i]);
+		}
+		if(isdigit(a1[i]))
+				cnt1++;
+		i++;	
+	}
+	printf("after:%s\n",a1);
+	printf("upper:%d  lower:%d  number:%d",cnta,cntA,cnt1);
+}
