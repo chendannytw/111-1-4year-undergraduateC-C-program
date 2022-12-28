@@ -56,7 +56,7 @@ s2 = “def”
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
 int main(void){
 
 int i=0;
@@ -64,9 +64,9 @@ int same=0;
 
 char s1[17]= "abcdefababcdefgh";
 char s2[4]= "def";
-printf("%s",s1);
+printf("s1 = %s",s1);
 printf("\n");
-printf("%s",s2);
+printf("s2 = %s\n",s2);
 printf("\n");
 
 for(i=0;i<16;i++){
@@ -74,7 +74,8 @@ for(i=0;i<16;i++){
 		same += 1;
 
 }
-printf("%s在%s出現的次數：%d次",s2,s1,same);
+printf("s2 在 s1 出現的次數：%d次",same);
 printf("\n");
 
 }
+
