@@ -1,0 +1,50 @@
+題目一
+給定一個字串，先計算且印出字串中的大、小寫與數字的數量，之後將字串中的大、小寫互換之後，再將互換後的字串印出。
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+
+int i=0;
+int ca=0;//小寫 
+int cA=0;//大寫
+int c1=0;//數字 
+
+char s1[]= "Hd4hTrh2b5";
+char s2[]= "Hd4hTrh2b5";
+printf("%s",s2);
+printf("\n");
+
+while(s2[i]!='\0'){
+	if(islower(s2[i])){
+		ca +=1;
+		s1[i] = toupper(s2[i]);
+	}
+	
+	if(isupper(s2[i])){
+		cA = cA+1;
+		s1[i] = tolower(s2[i]);
+	}
+	
+		if(isdigit(s2[i])){
+		c1 +=1;
+		s1[i] = s2[i];
+	}
+	
+	i++;
+}
+printf("小寫有 %d 個\n",ca);
+
+printf("大寫有 %d 個\n",cA);
+
+printf("數字有 %d 個\n",c1);
+
+
+
+printf("%s",s1);
+printf("\n");
+
+
+}
+
+
