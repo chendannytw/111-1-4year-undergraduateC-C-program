@@ -1,0 +1,65 @@
+#include <iostream>
+
+void function1(int a);
+void function2(int b);
+void function3(int c);
+char str[] = "abcDEFG";
+
+int main(void)
+{
+    
+    void (*f[3])(int) = { function1, function2, function3 };
+
+    printf("%s", "Enter a number between 0 and 2, 3 to end: ");
+    size_t choice; // variable to hold user's choice
+    scanf_s("%u", &choice);
+
+    // process user's choice
+    while (choice >= 0 && choice < 3) {
+
+        // invoke function at location choice in array f and pass
+        // choice as an argument                              
+        (*f[choice])(choice);
+
+        printf("%s", "Enter a number between 0 and 2, 3 to end: ");
+        scanf_s("%u", &choice);
+    }
+
+    puts("Program execution completed.");
+}
+
+void function1(int a)
+{
+    int A = 0;
+    int i;
+    printf("You entered %d so function1 was called\n", a);
+    //int upper(char* str);
+    for (i = 0; i < strlen(str); i++)
+    {
+        if (isupper(str[i]) != 0)
+        {
+            A += 1;
+        }
+            
+    }
+    
+    printf("大寫字母數量=%4p\n\n",&A);
+    printf(A);
+}
+
+void function2(int b)
+{
+    int B = 0;
+    printf("You entered %d so function2 was called\n", b);
+
+    printf("小寫字母數量=%4d\n\n", &B);
+    int lower(char* str);
+}
+
+void function3(int c)
+{
+    int C = 0;
+    printf("You entered %d so function3 was called\n", c);
+    printf("數字數量=%4d\n\n", &C);
+    int num(char* str);
+}
