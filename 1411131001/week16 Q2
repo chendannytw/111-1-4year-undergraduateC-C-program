@@ -1,17 +1,23 @@
+/*題目二
+給定兩個字串s1與s2，找出s2在s1出現的次數並印出。(請使用strncmp、strstr函數)
+範例:
+s1 = “abcdefababcdefgh”
+s2 = “def”*/
+
+
 #include<stdio.h>
 #include<string.h>
 
-int main(void){
+int main(void) {
 
-int cnt =0;
-char s1[13]="ABcdEfABCdeF"
-CHAR S2[13]="AB";
-for(int i=0;i<12;i++){
-   if(strncmp(s2,s1+1,2)==0)
-      cnt +=1;
-}
-printf("%s在%s出現的次數:%d個"s2,s1,cnt);
-system("pause");
-  return 0;
-}
+    int cnt = 0;
+    char s1[13] = "ABcdEfABCdeF";
+        char s2[13] = "AB";
+    for (int i = 0; i < 12; i++) {
+        if (strncmp(s2, s1 + i, 2) == 0)
+            cnt += 1;
+    }
+    printf("%s在%s出現的次數:%d個",s2, s1, cnt);
+
+    return 0;
 }
