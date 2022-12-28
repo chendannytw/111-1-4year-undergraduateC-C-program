@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+	
+
+	char s1[] = "Hdd4h Trh2b5";
+	char s2[] = "Hdd4h Trh2b5";
+	int i = 0;
+	int cnta = 0;
+	int cntA = 0;
+	int cnt1 = 0;
+    int retum = 0;
+
+	while(s2[i]!='\0') {
+		if(islower(s2[i])) {
+			cnta += 1;
+			s1[i] = toupper(s2[i]);
+		}
+
+		if(isupper(s2[i])) {
+			cntA += 1;
+			s1[i] = tolower(s2[i]);
+		}
+
+		if (isdigit(s2[i])) {
+			cnt1 += 1;
+			s1[i] = s2[i];
+		}
+		
+
+			i++;
+}
+		printf("%d個小寫\n", cnta);
+		printf("%d個大寫\n", cntA);
+		printf("%d個數\n",cnt1);
+		printf("%s\n", s1);
+}
