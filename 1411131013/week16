@@ -84,3 +84,54 @@ int main(void) {
 	return 0;
 }
 
+text1
+
+int num(char *str)							傳回0
+她們分別傳回str的大寫字母、小寫字母、數字字元的數量，呼叫函數時需透過指標(陣列)。
+Hint: 先將新版p.401-402的程式輸入後再修改
+p.401-402的程式如下:*/
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+void function1(int);
+void function2(int);
+void function3(int);
+
+int main(void)
+{                          
+   void (*f[3])(int) = {function1, function2, function3};    
+
+   int i;
+   const char choice[11] = "abcDEFG123"; // variable to hold user's choice
+   printf("%s\n", choice);
+   // process user's choice
+   while (choice[i] != '\0' ) {
+        if (islower(choice[i]))
+	 		(f[1]) += 1;
+	 	if (isupper(choice[i])) 
+		    (f[2]) += 1;
+		if(isdigit(choice[i]))
+		    (f[3]) += 1;
+	i++;
+	 	
+   } 
+   
+} 
+
+void function1(int a)
+{
+   printf("choice的大寫字母有%d個\n", a);
+}
+
+void function2(int b)
+{
+   printf("\nchoice的小寫字母有%d個\n", b);
+}
+
+void function3(int c)
+{
+   printf("\nchoice的數字字母有%d個\n", c);  
+}
+
+
