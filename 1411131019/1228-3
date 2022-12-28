@@ -7,22 +7,19 @@
 #include<stdlib.h>
 #include<ctype.h>
 
+
 int main()
-{    
-	int i = 0;
-	char string[24] = "12.3abc45.6def";
-	char* stringptr;
-	double number = strtod(string,&stringptr);
+{
+    char s1[] = "abc2.34ababc3.8gh4.4xyz";          //建立一個字串名為s1
+    char* s1ptr = &s1[0];                           //建立一個指標s1ptr指向字串s1的開頭位置
 
-
-	for (i = 0; i < 24; i++) {
-		if (isdigit(string[i])) {
-			number = strtod(string, &stringptr);
-		}
-			
-	}
-	
-	printf("the number is %.2f\n", number);
-	printf("the text is %s", stringptr);
-
+    while (*s1ptr != '\0') {                        //當指標s1ptr尚未只到結束符號前執行以下程式
+        if (!isdigit(*s1ptr) ){                     //如果s1指向的內容不是數字-------！isdigit：不是數字
+            s1ptr++;                                //將1ptr指向的位置往後一個
+        }
+        else {                                      //如果s1指向的內容是數字
+            double d = strtod(s1ptr, &s1ptr);       //將字串s1轉換為double
+            printf("%.2f\n", d);
+        }
+    }
 }
