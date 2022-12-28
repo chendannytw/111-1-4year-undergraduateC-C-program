@@ -1,0 +1,27 @@
+題目三
+寫一個程式，能將字串中一個或多個浮點數取出，並且分別印出。Hint: strtod()、strncat()
+範例: 
+s1 = “abc2.34ababc3.8gh4.4xyz”
+印出
+2.34、3.8、4.4\
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int main (void){
+	int cnt = 0, i;
+	
+	char s1[] = "abc2.34ababc3.8gh4.4xyz";
+	char* s1Ptr = &s1[0];
+	
+	while (*s1Ptr != '\0'){
+		if (!isdigit (*s1Ptr) ) {
+			s1Ptr++;
+		}
+		else {
+			double d = strtod (s1Ptr , &s1Ptr);
+			printf ("%.2f\n" , d);
+		}
+	}
+}
