@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+const char *str = "abcDEFG" 
+int upper(char *str);
+int lower(char *str);
+int num(char *str);
+
+int main(void)
+{
+   // initialize array of 3 pointers to functions that each take an
+   // int argument and return void                              
+   int (*s[3])(char) = {upper, lower, num};    
+   printf("%s", "Enter a number between 0 and 2, 3 to end: ");
+   int choice; // variable to hold user's choice
+   scanf("%u", &choice);
+
+   // process user's choice
+   while (choice >= 0 & choice < 3) {
+
+      // invoke function at location choice in array f and pass
+      // choice as an argument                              
+      (*s[choice])(choice);                                
+
+      printf("%s", "Enter a number between 0 and 2, 3 to end: ");
+      scanf("%u", &choice);
+   } 
+
+   puts("Program execution completed.");
+} 
+
+int upper(char *str)
+{
+   printf("You entered %d so upper was called\n\n", str);
+}
+
+int lower(char *str)
+{
+   printf("You entered %d so lower was called\n\n", str);
+}
+
+int num(char *str)
+{
+   printf("You entered %d so num was called\n\n", str);  
