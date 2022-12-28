@@ -1,0 +1,40 @@
+// ConsoleApplication1.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//計算字串中大、小寫、數字數量，再將大小寫互換後印出。
+
+#include <stdio.h>
+#include<ctype.h>
+
+
+int main()
+{
+    char s1[] = "ABCdefgh12345";
+    char s2[] = "ABCdefgh12345";
+    int i = 0;
+    int a = 0;
+    int A = 0;
+    int number = 0;
+
+    while (s2[i] != '\0') {
+
+        if (islower(s2[i])) {
+            a += 1;
+            s1[i] = toupper(s2[i]);
+        }
+
+        if (isupper(s2[i])) {
+            A+=1;
+            s1[i] = tolower(s2[i]);
+        }
+
+        if (isdigit(s2[i])) {
+            number += 1;
+        }
+        i++;
+    }
+   
+    printf("%d個小寫\n", a);
+    printf("%d個大寫\n", A);
+    printf("%d個數字\n", number);
+    printf("%s\n", s1);
+}
+Footer
