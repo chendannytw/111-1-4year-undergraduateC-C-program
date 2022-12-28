@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<ctype.h>
+
+
+
+
+int main(void) {
+
+    int (*func[2])(int) = { toupper, tolower};
+
+    char s1[] = "Hd4hTrh2b5";
+    char s2[] = "Hd4hTrh2b5";
+
+    int i = 0;
+
+    int cnta = 0;
+    int cntA = 0;
+    int cnt1 = 0;
+
+    while (s2[i] != '\0') {
+        if (islower(s2[i])) {
+
+            cnta += 1;
+            s1[i] = func[0](s2[i]);
+        }
+
+        if (isupper(s2[i])) {
+            cntA += 1;
+            s1[i] = func[1](s2[i]);
+        }
+
+        if (isdigit(s2[i])) {
+            cnt1 += 1;
+        }
+        i++;
+    }
+    printf("小寫共%d個\n大寫共%d個\n數字共%d個\n", cnta, cntA, cnt1);
+    puts(" ");
+    printf("原本字串:%s\n大小寫互換=%s", s2, s1);
+    puts(" ");
+
+}
