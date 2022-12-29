@@ -1,51 +1,49 @@
 題一:
+題目:
 #include <stdio.h>
-#define SIZE10
-void sort(int a[], int c[], int SIZE);
+#define SIZE 10
+void swap(int* eptr1, int* eptr2);
+void bubbleSort(int* const id, int* const sc, const int size);
 int main(void)
 {
-    int i;
-    int a[10] = { 12,13,14,15,16,17,19,21,22,23 };
-    int c[10] = { 66,67,66,70,73,74,75,75,62,32 };
+	int i;
+	int id[SIZE] = {10,11,12,13,14,15,16,17,18,19};
+	int sc[SIZE] = {70,60,50,65,88,93,62,71,82,98};
 
-    puts("Data items in original order");
-    for (i = 0; i < 10; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < 10; ++i) {
-        printf("%4d", c[i]);
-    }
-    sort(a, c, 10);
-    puts("\n Data items in ascending order");
+	puts("\nThe oringinal answer:\n");
 
+	for (i = 0; i < SIZE; i++) {
+		printf("\n%4d", id[i]);
+		printf("%4d", sc[i]);
+	}
+	bubbleSort(id,sc,SIZE);
+	puts("\nThe new answer is:");
+	for (i = 0; i < SIZE; i++) {
+		printf("\n%4d", id[i]);
+		printf("%4d", sc[i]);
+	}
 
-    for (i = 0; i < 10; ++i) {
-        printf("%4d", a[i]);
-    }
-    printf("\n");
-    for (i = 0; i < 10; ++i) {
-        printf("%4d", c[i]);
-    }
-    puts("");
+}
+void bubbleSort(int * const id,int * const sc, const int size) {
+	void swap(int* eptr1, int* eptr2);
+	for (unsigned int pass = 0; pass < size - 1; ++pass) {
+		for (int j = 0; j < size - 1; j++) {
+			if (sc[j] > sc[j + 1]) {
+				swap(&sc[j], &sc[j + 1]);
+				swap(&id[j], &id[j + 1]);
+			}
+		}
+	}
 }
 
-void sort(int a[], int c[], int SIZE) {
-    int hold;
-    for (unsigned int pass = 1; pass < SIZE; ++pass) {
-        for (int i = 0; i < SIZE - pass; ++i) {
-            if (c[i] > c[i + 1]) {
-                hold = c[i];
-                c[i] = c[i + 1];
-                c[i + 1] = hold;
-                hold = a[i];
-                a[i] = a[i + 1];
-                a[i + 1] = hold;
-            }
 
-        }
-    }
+void swap(int* eptr1, int* eptr2) {
+	int hold;
+	hold = *eptr1;
+	*eptr1 = *eptr2;
+	*eptr2 = hold;
 }
+
 
 題二:
 
