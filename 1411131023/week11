@@ -46,7 +46,7 @@ void swap(int* eptr1, int* eptr2) {
 
 
 題二:
-題目:
+題目:建立兩個大小為10的整數陣列，分別存放學生學號以對應的計概成績。寫一個線性搜尋副程式，將兩個陣列以及想要搜尋的學號傳遞至副程式中，傳回學號所對應的計概成績，由主程式印出學號與成績。
 #include <stdio.h>
 #define SIZE 10
 void swap(int* eptr1, int* eptr2);
