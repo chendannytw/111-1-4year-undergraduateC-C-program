@@ -46,38 +46,67 @@ void swap(int* eptr1, int* eptr2) {
 
 
 題二:
-
-#include<stdio.h>
+題目:
+#include <stdio.h>
 #define SIZE 10
-
-int linearSearch(int id[], int sc[],int  stu);
+void swap(int* eptr1, int* eptr2);
+void bubbleSort(int* const id, int* const sc, const int size);
+int linearSearch(const int id[], int key, int size);
 int main(void)
 {
-    int i, temp;
-    int a[SIZE] = { 2,6,4,8,10,12,89,68,45,37 };
-    int c[SIZE] = { 66,67,66,70,73,74,75,78,62,32 };
+	int i,key;
+	int id[SIZE] = { 10,11,12,13,14,15,16,17,18,19 };
+	int sc[SIZE] = { 70,60,50,65,88,93,62,71,82,98 };
 
-    puts("Data items in original order");
+	puts("\nThe oringinal answer:\n");
 
-    for ( i = 0; i < SIZE; ++i) {
-        printf("\n");
-        printf("%4d", a[i]);
-        printf("%4d", c[i]);
-    }
-    puts("\nplease iput the id:");
-    scanf_s("%d", &temp);
-    if (linearSearch(a, c, temp) < 0)
-    {
-        printf("id no found");
-        return 0;
-    }
-    printf("id=%d and score=%d", temp,c[linearSearch (a, c,temp)]);
+	for (i = 0; i < SIZE; i++) {
+		printf("\n%4d", id[i]);
+		printf("%4d", sc[i]);
+	}
+	bubbleSort(id, sc, SIZE);
+	puts("\nThe new answer is:");
+	for (i = 0; i < SIZE; i++) {
+		printf("\n%4d", id[i]);
+		printf("%4d", sc[i]);
+	}
+	printf("Enter ID:");
+	scanf_s("%d", &key);
+	int index = linearSearch(id, key, SIZE);
 
-    puts("");
+		if (index != -1) {
+			printf("ID=%d and Score=%d\n", id[index], sc[index]);
+		}
+		else {
+			puts("Value not be found");
+		}
+	
 }
-int linearSearch(int id[], int sc[], int  stu) {
-    int i;
-    for (i = 0; i < SIZE; i++)
-        if (id[i] == stu) return i;
-    return -1;
+void bubbleSort(int* const id, int* const sc, const int size) {
+	void swap(int* eptr1, int* eptr2);
+	for (unsigned int pass = 0; pass < size - 1; ++pass) {
+		for (int j = 0; j < size - 1; j++) {
+			if (sc[j] > sc[j + 1]) {
+				swap(&sc[j], &sc[j + 1]);
+				swap(&id[j], &id[j + 1]);
+			}
+		}
+	}
+}
+
+
+void swap(int* eptr1, int* eptr2) {
+	int hold;
+	hold = *eptr1;
+	*eptr1 = *eptr2;
+	*eptr2 = hold;
+}
+int linearSearch(const int id[], int key, int size) {
+	
+	for (int n = 0; n < size; n++) {
+		if (id[n] == key) {
+			return n;
+		}
+	}
+	return-1;
 }
