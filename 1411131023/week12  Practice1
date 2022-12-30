@@ -1,81 +1,76 @@
 題目:建立兩個大小為20的整數陣列，分別存放學生學號以對應的計概成績。寫一個排序副程式，將兩個陣列傳遞至副程式中，依照計概成績由小到大排序，由主程式印出排序後的結果，輸入學生計概成績，
 用二元陣列搜尋找出該生的學號並印出他的學號與成績，若找不到則印出"找不到!"
 #include <stdio.h>
-#define SIZE 20 
-void sort(int a[], int c[], int size);
-int search(int b[],int key,int low,int high);
+#define SIZE 20
+void bubbleSort(int* const id, int* const sc, int size);
+void swap(int* ePtr1, int* ePtr2);
+int binarySearch(const int b[], int searchkey, int low, int hight);
 int main(void)
 {
-    int a[SIZE] = {12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37};
-    int c[SIZE] = {66,67,66,70,73,74,75,75,62,32,44,46,27,12,80,63,66,90,11,66};
-    int key,result;
-
-    puts("Data items in original order");
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
+    int i,key;
+    int id[SIZE] = { 12, 13, 14, 15, 16, 17, 19, 21, 22, 23, 24, 26, 27, 28, 29, 31, 32, 33, 36, 37 };
+    int sc[SIZE] = { 58, 82, 66, 70, 73, 74, 75, 79, 62, 32, 44, 46, 27, 12, 80, 63, 67, 90, 11, 98 };
+    puts("The oringinal array is:");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
     }
     printf("\n");
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", sc[i]);
     }
-                    
-    
-    sort(a, c, SIZE);
-    puts("\nData items in ascending order");
-
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", a[i]);
+    bubbleSort(id, sc, SIZE);
+    puts("\nThe new array is:");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", id[i]);
     }
     printf("\n");
-    for (size_t i = 0; i < SIZE; ++i) {
-        printf("%4d", c[i]);
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", sc[i]);
     }
 
-    puts("");
-    printf("%s","\nenter a score:");
-	scanf("%d",&key);
-    result = search(c,key,0,SIZE - 1);
-    if (result < 0)
+    printf("\nEnter Score:");
+    scanf_s("%d",&key);
+    int result = binarySearch(sc, key, 0,SIZE - 1);
+    if (result != -1) {
+        printf("ID=%d and Score=%d", id[result],key);
+    }
+    else
     {
-    	printf("%d score not found",key);
-	}
-	else
-	{
-		printf("Student %d got %d score",a[result],key);
-	}
+        printf("Not be found");
+    }
 }
-void sort(int a[], int c[], int size)
-{
-	int hold;
-	for (unsigned int pass = 1; pass < size; ++pass)
-	{
-		for (int i = 0; i < size - pass; ++i)
-		{
-		
-			if (c[i] > c[i + 1])
-			{
-				hold = c[i];
-				c[i] = c[i +1];
-				c[i+1] = hold;
-				hold = a[i];
-				a[i] = a[i +1];
-				a[i+1] = hold;
-			}
-		}
-	}	
+void bubbleSort(int* const id, int* const sc, int size) {
+    void swap(int* ePtr1, int* ePtr2);
+    for (unsigned int pass = 0; pass < size - 1; ++pass) {
+        for (int j = 0; j < size - 1; ++j) {
+            if (sc[j] > sc[j + 1]) {
+                swap(&sc[j], &sc[j + 1]);
+                swap(&id[j], &id[j + 1]);
+            }
+        }
+    }
 }
-int search(int b[],int key,int low,int high){
-	while(low <= high){
-		int middle = (low+high)/2;
-		if(key == b[middle]){
-			return middle;
-		}
-		else if (key < b[middle]){
-			high = middle-1;
-		}
-		else {
-			low = middle + 1;
-		}
-	}
-	return -1;
+void swap(int* ePtr1, int* ePtr2) {
+    int hold;
+    hold = *ePtr1;
+    *ePtr1 = *ePtr2;
+    *ePtr2 = hold;
 }
+int binarySearch(const int b[], int searchkey, int low, int hight) {
+    while (low <= hight) {
+        int middle = (low + hight) / 2;
+
+        if (searchkey == b[middle]) {
+            return middle;
+        }
+        else if (searchkey < b[middle]) {
+            hight = middle - 1;
+        }
+        else
+        {
+            low = middle + 1;
+        }
+    }
+    return -1;
+}
+
