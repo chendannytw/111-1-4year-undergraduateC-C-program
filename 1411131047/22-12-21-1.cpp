@@ -3,7 +3,6 @@
 #define SIZEID 10
 
 void swap(int* e1Ptr, int* e2Ptr);
-void swapID(const char* e3Ptr, const char* e4Ptr);
 void sort(int a[][SIZE],const char** stdna);
 void printAry(int ar[]);
 double total(int TAry[][SIZE]);
