@@ -3,7 +3,8 @@
 #define stu 10
 void sort(const char** name, int a[][SIZE], int size);
 void swap(int* e1Ptr, int* e2Ptr);
-
+void min(int grades[][SIZE], int pupils, int tests);
+void max(int grades[][SIZE], int pupils, int tests);
 int main(void)
 {
     int key = 0, result = 0, i, j;
@@ -20,20 +21,20 @@ int main(void)
                         {13,76,91,0} };
 
     const char* name[stu] =
-    { "How哥",
+    {  "How哥",
+       "啾啾鞋",
        "阿明",
        "小美",
-       "藍亦明",
-       "啾啾鞋",
+       "阿強",
        "魔鞋啾啾",
        "啾啾鞋魔",
        "啾鞋魔啾",
-       "陳孜昊",
-       "謝任杰" };
+       "謝任傑",
+       "陳孜昊" };
 
 
 
-    puts("Data items in original order");
+    puts("姓名：  座號 數學 計概 成績");
     
     for (j = 0; j < stu; j++)
     {
@@ -59,7 +60,7 @@ int main(void)
                     
 
     sort(name, a, stu);
-    puts("\nData items in ascending order");
+    puts("\n\n姓名：  座號 數學 計概 成績");
 
     for (j = 0; j < stu; j++)
     {
@@ -69,6 +70,11 @@ int main(void)
         }
         printf("\n");
     }
+    
+    min(a, stu, SIZE);
+    printf("last student name is:%s", &*name[9]);
+    max(a, stu, SIZE);
+    printf("frist student name is:%s", &*name[0]);
 
 }
 
@@ -102,4 +108,40 @@ void swap(int* e1Ptr, int* e2Ptr)
     hold = *e1Ptr;
     *e1Ptr = *e2Ptr;
     *e2Ptr = hold;
+}
+void min(int grades[][SIZE], int pupils, int tests)
+{
+    int lowgrade = 100;
+    int lowst = 0;
+    for (int i = 0; i < pupils; i++)
+    {
+        for (int j = 0; j < tests; ++j)
+        {
+            if (grades[i][SIZE - 1] < lowgrade)
+            {
+                lowgrade = grades[i][SIZE - 1];
+                lowst = grades[i][0];
+            }
+        }
+    }
+    printf("\n\nlow st id is:%d", lowst);
+    printf("\nLowest grade:%d\n", lowgrade);
+}
+void max(int grades[][SIZE], int pupils, int tests)
+{
+    int highgrade = 0;
+    int highst = 0;
+    for (int i = 0; i < pupils; i++)
+    {
+        for (int j = 0; j < tests; ++j)
+        {
+            if (grades[i][SIZE - 1] > highgrade)
+            {
+                highgrade = grades[i][SIZE - 1];
+                highst = grades[i][0];
+            }
+        }
+    }
+    printf("\n\nhigh st id is:%d", highst);
+    printf("\nHighest grade:%d\n", highgrade);
 }
