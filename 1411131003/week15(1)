@@ -8,7 +8,7 @@ void swap(int* e1Ptr, int* e2Ptr);
 // function main begins program execution
 int main(void)
 {
-    int key, result = 0, i, j;
+    int i, j;
     // initialize a
     int a[10][SIZE] = { {2,98,72,0},
                         {3,76,32,0},
