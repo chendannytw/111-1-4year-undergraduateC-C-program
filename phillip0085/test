@@ -112,7 +112,7 @@ void swap(int* e1Ptr, int* e2Ptr)
 
 
 void printArray(const char** name, int grades[][EXAMS], int pupils, int tests) {
-    printf("%s", "         [名次]    [姓名]      [學號]  [數學成績] [計概成績] [平均]");
+    printf("%s", "         [名次]     [姓名]      [學號]  [數學成績] [計概成績] [平均]");
     int row, column;
     for (row = 0; row < pupils; ++row) {
         printf("\nstudentGrades[%u] ", row + 1);
@@ -168,6 +168,5 @@ int maxmum(int grades[][EXAMS], int pupils, int tests) {
     }
     return highGrade;
 }
-
 
 
