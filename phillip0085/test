@@ -73,7 +73,7 @@ int main(void) {
 
     float mid;
     mid = ((studenGrades[0][3] + studenGrades[STUDENTS - 1][3]) / 2);
-    printf("中位數%.2f分\n", mid);
+    printf("平均的中位數:%.2f分\n", mid);
 
 }
 
@@ -130,10 +130,10 @@ void printArray(const char** name, int grades[][EXAMS], int pupils, int tests) {
 void average(int grades[][EXAMS], int pupils, int tests) {
     int total = 0, j, i;
     for (i = 0; i < pupils; ++i) {
-        for (j = 1; j < EXAMS - 1; ++j) {
+        for (j = 1; j < 3; ++j) {
             total += grades[i][j];
         }
-        grades[i][EXAMS - 1] = total / 2;
+        grades[i][3] = total / 2;
         total = 0;
     }
 }
