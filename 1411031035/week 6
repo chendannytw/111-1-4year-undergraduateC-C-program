@@ -1,0 +1,30 @@
+// Fig. 5.13: fig05_13.c
+// Randomizing die-rolling program.
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+int main(void)
+{
+    unsigned int i;
+    unsigned int n; // number used to seed the random number generator
+    unsigned int temp,m;
+   
+    printf("%s", "Enter seed: ");
+    scanf_s("%d", &n); // note %u for unsigned int
+
+    srand(n); // n the random number generator
+
+    // loop 10 times
+    for (i = 1; i <= pow(10,n); ++i) {
+
+        // pick a random number from 1 to 6 and output it
+        temp =pow(10, n);
+        m = rand() % temp;
+        printf("%10.*lf",n ,double(m)/ pow(10, n));
+
+        // if counter is divisible by 5, begin a new line of output
+        if (i % 5 == 0) {
+            puts("");
+        }
+    }
+}
