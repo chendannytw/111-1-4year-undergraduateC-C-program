@@ -1,0 +1,36 @@
+// Fig. 6.8: fig06_08.c
+// Displaying a histogram.
+#include <stdio.h>
+#define SIZE 5
+void modifyarray(int x[],int size);
+
+// function main begins program execution
+int main(void)
+{
+    // use initializer list to initialize array n
+    int n[SIZE] = { 19, 3, 15, 7, 11 }, i, j;
+
+    printf("%s%13s%17s\n", "Element", "Value", "Histogram");
+    
+    // for each element of array n, output a bar of the histogram
+   
+   for (i = 0; i < SIZE; ++i) {
+        printf("%7u%13d        ", i, n[i]);
+
+        modifyarray(n, n[i]);
+
+        puts(""); // end a histogram bar with a newline
+    }
+    
+}
+void modifyarray(int x[], int size)
+{
+    int j,i;
+        for (j = 1; j <= size; ++j)
+        { // print one bar
+            printf("%c", '*');
+        }
+
+        // end a histogram bar with a newline
+    
+}
