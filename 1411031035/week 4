@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>  
+
+int main(void) {
+
+    double principal = 0;
+    double rate = 0;
+    int year = 0;
+    int x = 0;
+    printf("輸入第一年本金:");
+    scanf_s("%lf", &principal);
+    printf("輸入利率:");
+    scanf_s("%lf", &rate);
+    printf("定存年限:");
+    scanf_s("%d", &x);
+
+
+    for (unsigned int year = 1; year <= x; ++year) {
+       
+        double amount = principal * pow(1.0 + rate, year);
+
+        printf("本利和=%4u%21.2f\n", year, amount);
+        if (year > x-1) {
+            break;
+        }
+    }
+}
