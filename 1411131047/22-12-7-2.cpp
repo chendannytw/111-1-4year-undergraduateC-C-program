@@ -1,64 +1,81 @@
-#include<stdio.h>
-#define SIZE 20
-#define SIZE1 4
+#include <stdio.h>
+#include <stdlib.h>
 
-void printAry(int ar[]);
-void sortAry(int ar1[],int ar2[]);
-double total(int TAry[SIZE]);
-void SWAP(int* Ptr1, int* Ptr2);
+#define SIZE 4
+#define STU 13
 
-int main() {
-	int mid,toa;
+struct student {
+	char name[10];
+	unsigned int stu_id;
+	int math;
+	int computer;
 	double avg;
-	int stuN[SIZE1][SIZE] = { { 12,13,14,15,16,17,19,21,22,23,24,26,27,28,29,31,32,33,36,37},{ 66,67,63,70,73,74,78,75,62,32,44,46,27,12,80,64,61,90,11,60 },{74,78,75,62,32,44,46,27,12,80,64,61,90,11,60,66,67,63,70,73},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
-	printf_s("RANK:\n 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20\n");
-	for (int i = 0; i < SIZE; i++) stuN[3][i] = stuN[1][i] + stuN[2][i];
-	sortAry(stuN[0],stuN[3]);
-	printf("All student ID: \n");
-	printAry(stuN[0]);
-	printf_s("All student Total Score: \n");
-	printAry(stuN[3]);
-	printf_s("All Class Score: \n");
-	toa = total(stuN[3]);
-	printf_s("%d\n", toa);
-	printf_s("Max:NO.%d %d  Min:NO.%d %d \n", stuN[0][0], stuN[3][0], stuN[0][SIZE-1], stuN[3][SIZE - 1]);
-	mid = SIZE / 2;
-	avg = total(stuN[3]) / SIZE;
-	printf("Avg:%.2lf  ", avg);
-	printf("mid:%d\n", stuN[3][mid]);
+};
+typedef struct student  STUDENT;
 
+
+void sortAry(STUDENT ar1[]);
+void SWAP(STUDENT* Ptr1, STUDENT* Ptr2);
+
+int main(void)
+{
+	int j, mid;
+
+
+	STUDENT stu_class[STU] = { {"Alice",2,98,72,0},
+						{"Danny",3,76,32,0},
+						{"Tom",6,98,67,0},
+						{"Nina",7,89,32,0},
+						{"May",8,98,55,0},
+						{"Tim",9,89,32,0},
+						{"Sindy",10,98,65,0},
+						{"Bob",11,99,32,0},
+						{"Steven",12,98,71,0},
+						{"Ellen",13,76,91,0},
+						{"Nicole",18,93,49,0},
+						{"Tan",19,67,82,0},
+						{"Jenny",20,66,98,0} };
+
+
+	puts("Student   ID Math Comp AVG");
+
+	for (j = 0; j < STU; j++) stu_class[j].avg = (stu_class[j].math + stu_class[j].computer) / 2.0;
+	sortAry(stu_class);
+
+
+	for (j = 0; j < STU; j++)
+	{
+		printf_s("%-8s", stu_class[j].name);
+		printf_s(" %3d", stu_class[j].stu_id);
+		printf_s(" %4d", stu_class[j].math);
+		printf_s(" %4d", stu_class[j].computer);
+		printf_s(" %.2f", stu_class[j].avg);
+		printf_s("\n");
+	}
+	mid = STU / 2;
+	printf_s("\n%s\n%-8s", "MID =", stu_class[mid].name);
+	printf_s(" %3d", stu_class[mid].stu_id);
+	printf_s(" %4d", stu_class[mid].math);
+	printf_s(" %4d", stu_class[mid].computer);
+	printf_s(" %.2f", stu_class[mid].avg);
+	printf_s("\n");
 }
 
-void printAry(int ar[]){
-	int i;
-	for (i = 0; i < SIZE; i++) printf("%2d ", ar[i]);
-	puts("");
-}
 
-void sortAry(int ar1[], int ar2[]) {
-	int i, j, temp;
-	for (i = 0; i < SIZE; i++) {
-		for (j = 0; j < SIZE - i; j++) {
-			if (ar2[j] < ar2[j +1]) {
-				SWAP(&ar2[j], &ar2[j + 1]);
-				SWAP(&ar1[j], &ar1[j + 1]);
+void sortAry(STUDENT ar1[]) {
+	int i, j;
+	for (i = 0; i < STU; i++) {
+		for (j = 0; j < STU - i; j++) {
+			if (ar1[j].avg < ar1[j + 1].avg) {
+				SWAP(&ar1[j], &ar1[j+1]);
 			}
 		}
 	}
 }
 
-double total(int TAry[SIZE]) {
-	int i, tal = 0;
-	for (i = 0; i < SIZE; i++) tal += TAry[i];
-	return tal;
-}
-
-void SWAP(int* cPtr, int* cPtr1) {
-	int temp;
+void SWAP(STUDENT* cPtr, STUDENT* cPtr1) {
+	STUDENT temp;
 	temp = *cPtr;
 	*cPtr = *cPtr1;
 	*cPtr1 = temp;
 }
-
-
-
